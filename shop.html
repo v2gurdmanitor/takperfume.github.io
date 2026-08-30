@@ -1,54 +1,35 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>محصولات | تک پرفیوم</title>
-<meta name="description" content="فروشگاه تک پرفیوم | دنیای عطر و ادکلن">
+<title>محصولات مردانه | تک پرفیوم</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
 :root{
     --bg:#08040f;
-    --bg2:#0d0717;
+    --card:#110a1c;
     --purple:#8b5cf6;
     --purple2:#a78bfa;
-    --purple3:#6d28d9;
     --text:#fff;
-    --muted:#aaa2b5;
-    --border:rgba(167,139,250,.15);
-    --card:rgba(255,255,255,.035);
+    --muted:#a9a0b3;
+    --border:rgba(167,139,250,.16);
 }
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
-    font-family:"Vazirmatn",sans-serif;
-    color:var(--text);
+    font-family:Vazirmatn,sans-serif;
     background:
-        radial-gradient(
-            circle at 80% 0%,
-            rgba(109,40,217,.18),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 10% 50%,
-            rgba(139,92,246,.07),
-            transparent 30%
-        ),
-        var(--bg);
+        radial-gradient(circle at 80% 0%,rgba(124,58,237,.18),transparent 35%),
+        #08040f;
+    color:var(--text);
     min-height:100vh;
 }
 
@@ -57,21 +38,16 @@ body{
 header{
     position:sticky;
     top:0;
-    z-index:1000;
-
+    z-index:100;
     padding:16px 5%;
-
-    background:rgba(8,4,15,.75);
+    background:rgba(8,4,15,.8);
     backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
     border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .nav{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -79,10 +55,9 @@ header{
 }
 
 .logo{
+    color:white;
     text-decoration:none;
-    color:#fff;
-
-    font-size:20px;
+    font-size:21px;
     font-weight:800;
     letter-spacing:2px;
 }
@@ -95,61 +70,35 @@ header{
     color:var(--muted);
     text-decoration:none;
     font-size:13px;
-    transition:.3s;
 }
 
-.back:hover{
-    color:#fff;
-}
-
-.cart-btn{
+.cart{
+    background:rgba(139,92,246,.12);
+    color:white;
     border:1px solid var(--border);
-    background:rgba(139,92,246,.08);
-
-    color:#fff;
-
-    padding:10px 16px;
-
+    padding:10px 15px;
     border-radius:12px;
-
     font-family:inherit;
-
-    cursor:pointer;
-
-    transition:.3s;
 }
-
-.cart-btn:hover{
-    background:rgba(139,92,246,.2);
-    transform:translateY(-2px);
-}
-
 
 /* HERO */
 
 .hero{
-    max-width:1250px;
-    margin:auto;
-
     text-align:center;
-
-    padding:90px 5% 45px;
+    max-width:800px;
+    margin:auto;
+    padding:75px 20px 45px;
 }
 
 .hero small{
     color:var(--purple2);
-
+    letter-spacing:4px;
     font-size:11px;
-
-    letter-spacing:3px;
 }
 
 .hero h1{
-    margin:15px 0;
-
-    font-size:clamp(40px,7vw,68px);
-
-    font-weight:800;
+    font-size:clamp(38px,7vw,64px);
+    margin:14px 0;
 }
 
 .hero h1 span{
@@ -157,392 +106,245 @@ header{
 }
 
 .hero p{
-    max-width:650px;
-
-    margin:auto;
-
     color:var(--muted);
-
-    font-size:14px;
-
+    font-size:13px;
     line-height:2;
 }
-
 
 /* CONTROLS */
 
 .controls{
-    max-width:1250px;
-
-    margin:25px auto 45px;
-
-    padding:0 5%;
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
+    max-width:1200px;
+    margin:0 auto 40px;
+    padding:0 20px;
 }
 
 .search{
-    flex:1;
-    min-width:260px;
+    margin-bottom:12px;
 }
 
 .search input{
     width:100%;
-
-    padding:15px 18px;
-
-    border-radius:14px;
-
+    background:rgba(255,255,255,.035);
     border:1px solid var(--border);
-
+    border-radius:14px;
+    padding:15px 18px;
+    color:white;
     outline:none;
-
-    background:var(--card);
-
-    color:#fff;
-
     font-family:inherit;
-
-    transition:.3s;
-}
-
-.search input::placeholder{
-    color:#77717e;
 }
 
 .search input:focus{
-    border-color:rgba(167,139,250,.5);
-
-    box-shadow:
-        0 0 0 4px rgba(139,92,246,.08);
+    border-color:var(--purple);
 }
 
 .filters{
     display:flex;
-
     gap:8px;
-
-    flex-wrap:wrap;
 }
 
 .filter{
+    flex:1;
+    padding:11px;
+    border-radius:11px;
     border:1px solid var(--border);
-
-    background:var(--card);
-
+    background:rgba(255,255,255,.035);
     color:var(--muted);
-
-    padding:12px 18px;
-
-    border-radius:12px;
-
     font-family:inherit;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
-.filter:hover,
-.filter.active{
-    color:#fff;
-
+.filter.active,
+.filter:hover{
     background:rgba(139,92,246,.18);
-
+    color:white;
     border-color:rgba(167,139,250,.4);
 }
-
 
 /* PRODUCTS */
 
 .products{
-    max-width:1250px;
-
+    max-width:1200px;
     margin:auto;
-
-    padding:0 5% 100px;
-
+    padding:0 20px 100px;
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:18px;
 }
 
 .product{
-    position:relative;
-
-    overflow:hidden;
-
-    padding:20px;
-
-    border-radius:22px;
-
-    border:1px solid var(--border);
-
     background:
         linear-gradient(
             145deg,
             rgba(139,92,246,.08),
-            rgba(255,255,255,.02)
+            rgba(255,255,255,.025)
         );
-
-    transition:
-        transform .45s cubic-bezier(.16,1,.3,1),
-        border-color .3s,
-        background .3s;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:18px;
+    overflow:hidden;
+    transition:.45s;
+    animation:show .7s both;
 }
 
 .product:hover{
     transform:translateY(-7px);
-
-    border-color:rgba(167,139,250,.38);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(139,92,246,.14),
-            rgba(255,255,255,.025)
-        );
+    border-color:rgba(167,139,250,.4);
 }
-
 
 /* IMAGE */
 
 .product-image{
     width:100%;
-
-    height:260px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
+    height:270px;
+    border-radius:17px;
     overflow:hidden;
-
-    margin-bottom:22px;
-
-    border-radius:18px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(139,92,246,.08),
-            transparent 65%
-        );
-
-    border:1px solid rgba(255,255,255,.04);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f4f4f4;
+    margin-bottom:20px;
 }
 
 .product-image img{
     width:100%;
     height:100%;
-
     object-fit:contain;
-
-    padding:15px;
-
-    transition:
-        transform .6s cubic-bezier(.16,1,.3,1);
+    padding:10px;
+    transition:.5s;
 }
 
 .product:hover .product-image img{
-    transform:scale(1.07);
+    transform:scale(1.06);
 }
 
-
-/* PRODUCT INFO */
+/* INFO */
 
 .product-top{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    gap:10px;
-
-    margin-bottom:10px;
+    margin-bottom:9px;
 }
 
 .brand{
     color:var(--purple2);
-
     font-size:11px;
-
     font-weight:600;
 }
 
 .status{
+    color:#77717e;
     font-size:9px;
-
-    color:#aaa2b5;
-
     padding:5px 9px;
-
-    border-radius:20px;
-
     border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
 }
 
 .product h2{
-    font-size:20px;
-
-    margin-bottom:7px;
+    font-size:19px;
+    margin-bottom:5px;
 }
 
 .volume{
     color:#77717e;
-
-    font-size:11px;
-
-    margin-bottom:16px;
+    font-size:10px;
+    margin-bottom:14px;
 }
 
 .description{
     color:var(--muted);
-
-    font-size:12px;
-
+    font-size:11px;
     line-height:2;
-
-    min-height:72px;
-
-    margin-bottom:18px;
+    min-height:65px;
+    margin-bottom:15px;
 }
 
 .specs{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:6px;
-
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .spec{
-    color:#c5bdcc;
-
-    background:rgba(255,255,255,.04);
-
-    padding:6px 9px;
-
-    border-radius:8px;
-
     font-size:9px;
+    color:#c7bfce;
+    background:rgba(255,255,255,.04);
+    padding:6px 9px;
+    border-radius:8px;
 }
 
 .bottom{
-    padding-top:16px;
-
     border-top:1px solid rgba(255,255,255,.06);
-
+    padding-top:15px;
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
-    gap:10px;
 }
 
 .price{
-    font-size:15px;
-
+    font-size:14px;
     font-weight:700;
 }
 
 .unavailable{
     color:#77717e;
-
-    font-size:10px;
-
+    font-size:9px;
     margin-top:3px;
 }
 
 .buy{
     border:0;
-
-    background:rgba(255,255,255,.05);
-
     color:#77717e;
-
-    padding:10px 13px;
-
+    background:rgba(255,255,255,.05);
+    padding:10px 14px;
     border-radius:10px;
-
     font-family:inherit;
-
     cursor:not-allowed;
 }
-
 
 /* EMPTY */
 
 .empty{
     display:none;
-
     grid-column:1/-1;
-
     text-align:center;
-
+    padding:80px;
     color:var(--muted);
-
-    padding:80px 20px;
 }
-
 
 /* FOOTER */
 
 footer{
     border-top:1px solid rgba(255,255,255,.06);
-
-    background:#06030b;
-
-    padding:35px 5%;
-}
-
-.footer{
-    max-width:1250px;
-
-    margin:auto;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
-}
-
-.footer-logo{
-    font-weight:800;
-
-    letter-spacing:2px;
-}
-
-.footer-logo span{
-    color:var(--purple2);
-}
-
-.footer-text{
+    padding:35px 20px;
+    text-align:center;
     color:#77717e;
-
     font-size:10px;
 }
 
+footer strong{
+    color:var(--purple2);
+}
 
-/* RESPONSIVE */
+/* ANIMATION */
 
-@media(max-width:950px){
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
 
     .products{
         grid-template-columns:repeat(2,1fr);
@@ -550,141 +352,93 @@ footer{
 
 }
 
-@media(max-width:620px){
+@media(max-width:600px){
+
+    .products{
+        grid-template-columns:1fr;
+    }
 
     .back{
         display:none;
     }
 
     .hero{
-        padding-top:65px;
-    }
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    .controls{
-        display:block;
-    }
-
-    .filters{
-        margin-top:10px;
-    }
-
-    .filter{
-        flex:1;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .footer{
-        flex-direction:column;
-
-        align-items:flex-start;
+        padding-top:55px;
     }
 
 }
-
-
-/* ENTRY ANIMATION */
-
-.product{
-    animation:
-        productIn .7s both;
-}
-
-@keyframes productIn{
-
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
-
 
 <header>
 
-    <nav class="nav">
+<nav class="nav">
 
-        <a href="index.html" class="logo">
-            TAK <span>PERFUME</span>
-        </a>
+<a href="index.html" class="logo">
+TAK <span>PERFUME</span>
+</a>
 
-        <a href="index.html" class="back">
-            ← بازگشت به صفحه اصلی
-        </a>
+<a href="index.html" class="back">
+← بازگشت
+</a>
 
-        <button class="cart-btn" onclick="openCart()">
-            🛒 سبد خرید
-        </button>
+<button class="cart">
+🛒 سبد خرید
+</button>
 
-    </nav>
+</nav>
 
 </header>
 
 
 <section class="hero">
 
-    <small>TAK PERFUME</small>
+<small>TAK PERFUME</small>
 
-    <h1>
-        دنیای <span>عطر</span>
-    </h1>
+<h1>
+عطرهای <span>مردانه</span>
+</h1>
 
-    <p>
-        مجموعه‌ای از عطر و ادکلن‌های خاص برای سلیقه‌های مختلف.
-        رایحه مورد علاقه خود را پیدا کنید و انتخابی خاص داشته باشید.
-    </p>
+<p>
+انتخابی از رایحه‌های محبوب و خاص مردانه برای استایل‌های مختلف.
+</p>
 
 </section>
 
 
 <section class="controls">
 
-    <div class="search">
+<div class="search">
 
-        <input
-            id="search"
-            type="text"
-            placeholder="جستجوی نام عطر یا برند..."
-        >
+<input
+type="text"
+id="search"
+placeholder="جستجوی نام عطر یا برند..."
+>
 
-    </div>
+</div>
 
-    <div class="filters">
+<div class="filters">
 
-        <button class="filter active" data-filter="all">
-            همه
-        </button>
+<button class="filter active" data-filter="all">
+همه
+</button>
 
-        <button class="filter" data-filter="men">
-            مردانه
-        </button>
+<button class="filter" data-filter="men">
+مردانه
+</button>
 
-        <button class="filter" data-filter="women">
-            زنانه
-        </button>
+<button class="filter" data-filter="women">
+زنانه
+</button>
 
-        <button class="filter" data-filter="unisex">
-            یونیسکس
-        </button>
+<button class="filter" data-filter="unisex">
+یونیسکس
+</button>
 
-    </div>
+</div>
 
 </section>
 
@@ -692,13 +446,18 @@ footer{
 <section class="products" id="products">
 
 
-<!-- ================= MEN ================= -->
-
+<!-- 1 -->
 
 <article class="product" data-category="men" data-name="Dior Sauvage">
 
 <div class="product-image">
-<img src="IMAGE_SAUVAGE" alt="Dior Sauvage" loading="lazy">
+
+<img
+src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
+alt="Dior Sauvage"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -706,20 +465,19 @@ footer{
 <span class="status">ناموجود</span>
 </div>
 
-<h2>Sauvage EDP</h2>
+<h2>Sauvage</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Toilette | 100ml</div>
 
 <p class="description">
-رایحه‌ای مردانه، قدرتمند و مدرن با شروع مرکباتی
-و پایه‌ای چوبی و گرم.
+رایحه‌ای قدرتمند، مردانه و مدرن با شروع مرکباتی و پایه‌ای چوبی.
 </p>
 
 <div class="specs">
 <span class="spec">مردانه</span>
-<span class="spec">گرم</span>
-<span class="spec">تلخ</span>
+<span class="spec">خنک</span>
 <span class="spec">چوبی</span>
+<span class="spec">مرکباتی</span>
 </div>
 
 <div class="bottom">
@@ -733,10 +491,18 @@ footer{
 </article>
 
 
+<!-- 2 -->
+
 <article class="product" data-category="men" data-name="Bleu de Chanel">
 
 <div class="product-image">
-<img src="IMAGE_BLEU_CHANEL" alt="Bleu de Chanel" loading="lazy">
+
+<img
+src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
+alt="Bleu de Chanel"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -746,17 +512,17 @@ footer{
 
 <h2>Bleu de Chanel</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Toilette | 100ml</div>
 
 <p class="description">
-رایحه‌ای شیک و همه‌پسند از مرکبات، چوب و نت‌های آروماتیک.
+رایحه‌ای شیک، تمیز و همه‌پسند با ترکیبی از مرکبات و نت‌های چوبی.
 </p>
 
 <div class="specs">
 <span class="spec">مردانه</span>
 <span class="spec">خنک</span>
 <span class="spec">چوبی</span>
-<span class="spec">روزمره</span>
+<span class="spec">شیک</span>
 </div>
 
 <div class="bottom">
@@ -770,10 +536,18 @@ footer{
 </article>
 
 
+<!-- 3 -->
+
 <article class="product" data-category="men" data-name="Acqua di Gio">
 
 <div class="product-image">
-<img src="IMAGE_ACQUA_GIO" alt="Acqua di Gio" loading="lazy">
+
+<img
+src="https://m.media-amazon.com/images/I/51TWBd6rSwL._SL1500_.jpg"
+alt="Giorgio Armani Acqua di Gio"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -783,17 +557,17 @@ footer{
 
 <h2>Acqua di Giò</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Toilette | 100ml</div>
 
 <p class="description">
-رایحه‌ای خنک و دریایی با حس مرکباتی و تمیز، مناسب روزهای گرم.
+رایحه‌ای خنک و دریایی با حس مرکباتی و تمیز؛ مناسب روزهای گرم.
 </p>
 
 <div class="specs">
 <span class="spec">مردانه</span>
 <span class="spec">خنک</span>
-<span class="spec">مرکباتی</span>
-<span class="spec">تابستان</span>
+<span class="spec">دریایی</span>
+<span class="spec">تابستانی</span>
 </div>
 
 <div class="bottom">
@@ -807,10 +581,18 @@ footer{
 </article>
 
 
+<!-- 4 -->
+
 <article class="product" data-category="men" data-name="Tom Ford Oud Wood">
 
 <div class="product-image">
-<img src="IMAGE_OUD_WOOD" alt="Tom Ford Oud Wood" loading="lazy">
+
+<img
+src="https://liliome.com/wp-content/uploads/2017/01/%D8%B9%D8%B7%D8%B1-%D8%A7%D8%AF%DA%A9%D9%84%D9%86-%D8%AA%D8%A7%D9%85-%D9%81%D9%88%D8%B1%D8%AF-%D8%B9%D9%88%D8%AF-%D9%88%D9%88%D8%AF-Tom-Ford-Oud-Wood-100ml-1.jpg"
+alt="Tom Ford Oud Wood"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -820,7 +602,7 @@ footer{
 
 <h2>Oud Wood</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Parfum | 100ml</div>
 
 <p class="description">
 رایحه‌ای لوکس و عمیق با چوب عود، ادویه و نت‌های گرم و شرقی.
@@ -844,10 +626,18 @@ footer{
 </article>
 
 
+<!-- 5 -->
+
 <article class="product" data-category="men" data-name="YSL Y">
 
 <div class="product-image">
-<img src="IMAGE_YSL_Y" alt="YSL Y Eau de Parfum" loading="lazy">
+
+<img
+src="https://www.yslbeautyus.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwdab66b03/Y%20EDP/40mL%20-%203614274292848/3614274292848.jpg"
+alt="YSL Y Eau de Parfum"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -857,17 +647,17 @@ footer{
 
 <h2>Y Eau de Parfum</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Parfum | 100ml</div>
 
 <p class="description">
-رایحه‌ای مدرن، تمیز و کمی شیرین با ترکیب سیب، گیاهان و چوب.
+رایحه‌ای مدرن و تمیز با ترکیبی از سیب، گیاهان و نت‌های چوبی.
 </p>
 
 <div class="specs">
 <span class="spec">مردانه</span>
 <span class="spec">شیرین</span>
 <span class="spec">چوبی</span>
-<span class="spec">روزمره</span>
+<span class="spec">مدرن</span>
 </div>
 
 <div class="bottom">
@@ -881,10 +671,18 @@ footer{
 </article>
 
 
+<!-- 6 -->
+
 <article class="product" data-category="men" data-name="Azzaro Wanted">
 
 <div class="product-image">
-<img src="IMAGE_AZZARO_WANTED" alt="Azzaro Wanted" loading="lazy">
+
+<img
+src="https://cdn.salla.sa/DGdDlG/c7a0631c-1d07-4dcc-a181-2e5c9ed8f424-1000x1000-Di7de8haR2gtn66xPt8CCrT0oK7LrlvxIskblR8m.jpg"
+alt="Azzaro Wanted"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -894,7 +692,7 @@ footer{
 
 <h2>Wanted</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Toilette | 100ml</div>
 
 <p class="description">
 رایحه‌ای گرم و ادویه‌ای با شخصیت پرانرژی و مناسب شب‌های سرد.
@@ -904,7 +702,7 @@ footer{
 <span class="spec">مردانه</span>
 <span class="spec">گرم</span>
 <span class="spec">ادویه‌ای</span>
-<span class="spec">شب</span>
+<span class="spec">شبانه</span>
 </div>
 
 <div class="bottom">
@@ -918,10 +716,18 @@ footer{
 </article>
 
 
+<!-- 7 -->
+
 <article class="product" data-category="men" data-name="Versace Dylan Blue">
 
 <div class="product-image">
-<img src="IMAGE_DYLAN_BLUE" alt="Versace Dylan Blue" loading="lazy">
+
+<img
+src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw08702307/original/90_R721010-R100MLS_RNUL_22_DylanBluePourHommeEDT100ml--Versace-online-store_2_1.jpg?sw=850&q=85&strip=true"
+alt="Versace Dylan Blue"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -931,7 +737,7 @@ footer{
 
 <h2>Dylan Blue</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Toilette | 100ml</div>
 
 <p class="description">
 رایحه‌ای خنک و دریایی با حس مرکباتی و پایه چوبی تمیز.
@@ -955,10 +761,18 @@ footer{
 </article>
 
 
+<!-- 8 -->
+
 <article class="product" data-category="men" data-name="Paco Rabanne Invictus">
 
 <div class="product-image">
-<img src="IMAGE_INVICTUS" alt="Paco Rabanne Invictus" loading="lazy">
+
+<img
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrYJ045kD8x_FqQE6khWNkUJeoeYE-2pD3Chy9U9vksjnIjdxtxXM4XOe&s=10"
+alt="Paco Rabanne Invictus"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -968,7 +782,7 @@ footer{
 
 <h2>Invictus</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Toilette | 100ml</div>
 
 <p class="description">
 رایحه‌ای جوان‌پسند و اسپرت با حس دریایی، مرکباتی و کمی شیرین.
@@ -992,10 +806,18 @@ footer{
 </article>
 
 
+<!-- 9 -->
+
 <article class="product" data-category="men" data-name="Jean Paul Gaultier Le Male">
 
 <div class="product-image">
-<img src="IMAGE_LE_MALE" alt="Jean Paul Gaultier Le Male" loading="lazy">
+
+<img
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk4h2IOBeTNsJspAy8teAlhttBzLRThZ6Tqtn2lMVV6GZuaWc0_iiQLIA&s=10"
+alt="Jean Paul Gaultier Le Male"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -1005,7 +827,7 @@ footer{
 
 <h2>Le Male</h2>
 
-<div class="volume">حجم: 125ml</div>
+<div class="volume">Eau de Toilette | 125ml</div>
 
 <p class="description">
 ترکیبی گرم و شیرین از اسطوخودوس، وانیل و نت‌های شرقی.
@@ -1029,10 +851,18 @@ footer{
 </article>
 
 
+<!-- 10 -->
+
 <article class="product" data-category="men" data-name="Montblanc Explorer">
 
 <div class="product-image">
-<img src="IMAGE_EXPLORER" alt="Montblanc Explorer" loading="lazy">
+
+<img
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB1v7nfDCTUYw84LaH0LH1Ty_VIL70hsdKEtxFLgTHTl_xhfGbCMtGuYM&s=10"
+alt="Montblanc Explorer"
+loading="lazy"
+>
+
 </div>
 
 <div class="product-top">
@@ -1042,7 +872,7 @@ footer{
 
 <h2>Explorer</h2>
 
-<div class="volume">حجم: 100ml</div>
+<div class="volume">Eau de Parfum | 100ml</div>
 
 <p class="description">
 رایحه‌ای چوبی و مرکباتی با حس ماجراجویانه، تمیز و مدرن.
@@ -1066,777 +896,17 @@ footer{
 </article>
 
 
-<!-- ================= WOMEN ================= -->
-
-
-<article class="product" data-category="women" data-name="Chanel Coco Mademoiselle">
-
-<div class="product-image">
-<img src="IMAGE_COCO_MADEMOISELLE" alt="Chanel Coco Mademoiselle" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Chanel</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Coco Mademoiselle</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای شیک و زنانه با ترکیبی از مرکبات، گل و پایه‌ای گرم.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">شیک</span>
-<span class="spec">مرکباتی</span>
-<span class="spec">گرم</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۹,۲۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Dior J'adore">
-
-<div class="product-image">
-<img src="IMAGE_JADORE" alt="Dior J'adore" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Dior</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>J'adore</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای گلی، ظریف و زنانه با حس لوکس و لطیف.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">گلی</span>
-<span class="spec">ملایم</span>
-<span class="spec">لوکس</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۸,۴۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="YSL Libre">
-
-<div class="product-image">
-<img src="IMAGE_LIBRE" alt="YSL Libre" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Yves Saint Laurent</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Libre</h2>
-
-<div class="volume">حجم: 90ml</div>
-
-<p class="description">
-رایحه‌ای مدرن با ترکیب اسطوخودوس، شکوفه پرتقال و وانیل.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">شیرین</span>
-<span class="spec">گلی</span>
-<span class="spec">گرم</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۸,۷۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Carolina Herrera Good Girl">
-
-<div class="product-image">
-<img src="IMAGE_GOOD_GIRL" alt="Carolina Herrera Good Girl" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Carolina Herrera</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Good Girl</h2>
-
-<div class="volume">حجم: 80ml</div>
-
-<p class="description">
-رایحه‌ای شیرین و گرم با شخصیت زنانه و مناسب استفاده شبانه.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">شیرین</span>
-<span class="spec">گرم</span>
-<span class="spec">شب</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۷,۹۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Lancôme La Vie Est Belle">
-
-<div class="product-image">
-<img src="IMAGE_LA_VIE" alt="Lancôme La Vie Est Belle" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Lancôme</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>La Vie Est Belle</h2>
-
-<div class="volume">حجم: 75ml</div>
-
-<p class="description">
-رایحه‌ای شیرین و گرم با نت‌های گلی، وانیلی و میوه‌ای.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">شیرین</span>
-<span class="spec">وانیلی</span>
-<span class="spec">گرم</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۷,۶۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Dior Miss Dior">
-
-<div class="product-image">
-<img src="IMAGE_MISS_DIOR" alt="Dior Miss Dior" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Dior</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Miss Dior</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای لطیف و گلی با حس رمانتیک، تمیز و زنانه.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">گلی</span>
-<span class="spec">ملایم</span>
-<span class="spec">روزمره</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۸,۱۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Armani My Way">
-
-<div class="product-image">
-<img src="IMAGE_MY_WAY" alt="Armani My Way" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Giorgio Armani</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>My Way</h2>
-
-<div class="volume">حجم: 90ml</div>
-
-<p class="description">
-رایحه‌ای گلی و شیرین با حس مدرن و مناسب استفاده روزمره.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">گلی</span>
-<span class="spec">شیرین</span>
-<span class="spec">ملایم</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۷,۸۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Valentino Donna Born In Roma">
-
-<div class="product-image">
-<img src="IMAGE_BORN_ROMA" alt="Valentino Donna Born In Roma" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Valentino</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Donna Born In Roma</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای مدرن و شیرین با ترکیب گل، وانیل و نت‌های چوبی.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">شیرین</span>
-<span class="spec">وانیلی</span>
-<span class="spec">چوبی</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۸,۳۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Narciso Rodriguez For Her">
-
-<div class="product-image">
-<img src="IMAGE_FOR_HER" alt="Narciso Rodriguez For Her" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Narciso Rodriguez</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>For Her</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای نرم و ظریف با مشک، گل و پایه‌ای گرم و تمیز.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">مشکی</span>
-<span class="spec">گلی</span>
-<span class="spec">ملایم</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۷,۳۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="women" data-name="Burberry Her">
-
-<div class="product-image">
-<img src="IMAGE_BURBERRY_HER" alt="Burberry Her" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Burberry</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Her</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای میوه‌ای و شیرین با حس جوان، شاد و مدرن.
-</p>
-
-<div class="specs">
-<span class="spec">زنانه</span>
-<span class="spec">میوه‌ای</span>
-<span class="spec">شیرین</span>
-<span class="spec">جوان‌پسند</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۶,۹۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<!-- ================= UNISEX ================= -->
-
-
-<article class="product" data-category="unisex" data-name="Tom Ford Oud Minerale">
-
-<div class="product-image">
-<img src="IMAGE_OUD_MINERALE" alt="Tom Ford Oud Minerale" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Tom Ford</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Oud Minerale</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-ترکیبی خاص از نت‌های چوبی و دریایی با شخصیت متفاوت و مدرن.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">دریایی</span>
-<span class="spec">چوبی</span>
-<span class="spec">خاص</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۱۳,۰۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Baccarat Rouge 540">
-
-<div class="product-image">
-<img src="IMAGE_BACCARAT_540" alt="Baccarat Rouge 540" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Maison Francis Kurkdjian</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Baccarat Rouge 540</h2>
-
-<div class="volume">حجم: 70ml</div>
-
-<p class="description">
-رایحه‌ای خاص و ماندگار با حس شیرین، چوبی و کهربایی.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">شیرین</span>
-<span class="spec">کهربایی</span>
-<span class="spec">لوکس</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۲۱,۰۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Le Labo Santal 33">
-
-<div class="product-image">
-<img src="IMAGE_SANTAL_33" alt="Le Labo Santal 33" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Le Labo</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Santal 33</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای چوبی و گرم با شخصیت خاص، مینیمال و متفاوت.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">چوبی</span>
-<span class="spec">گرم</span>
-<span class="spec">خاص</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۱۷,۵۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Wood Sage Sea Salt">
-
-<div class="product-image">
-<img src="IMAGE_WOOD_SAGE" alt="Wood Sage Sea Salt" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Jo Malone</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Wood Sage & Sea Salt</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای تمیز، دریایی و چوبی با حس طبیعی و آرامش‌بخش.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">دریایی</span>
-<span class="spec">چوبی</span>
-<span class="spec">خنک</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۹,۸۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Diptyque Philosykos">
-
-<div class="product-image">
-<img src="IMAGE_PHILOSYKOS" alt="Diptyque Philosykos" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Diptyque</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Philosykos</h2>
-
-<div class="volume">حجم: 75ml</div>
-
-<p class="description">
-رایحه‌ای سبز و طبیعی با حس انجیر، چوب و فضای مدیترانه‌ای.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">سبز</span>
-<span class="spec">چوبی</span>
-<span class="spec">طبیعی</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۱۰,۵۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Byredo Gypsy Water">
-
-<div class="product-image">
-<img src="IMAGE_GYPSY_WATER" alt="Byredo Gypsy Water" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Byredo</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Gypsy Water</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای تمیز و چوبی با حس مرکباتی، سبک و متفاوت.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">چوبی</span>
-<span class="spec">مرکباتی</span>
-<span class="spec">خنک</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۱۵,۰۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Creed Aventus">
-
-<div class="product-image">
-<img src="IMAGE_AVENTUS" alt="Creed Aventus" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Creed</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Aventus</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای میوه‌ای و چوبی با شخصیت قدرتمند، شیک و ماندگار.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">میوه‌ای</span>
-<span class="spec">چوبی</span>
-<span class="spec">لوکس</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۱۸,۵۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Terre d'Hermes">
-
-<div class="product-image">
-<img src="IMAGE_TERRE_HERMES" alt="Terre d'Hermes" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Hermès</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Terre d'Hermès</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-ترکیبی خاکی، مرکباتی و چوبی با شخصیت کلاسیک و خاص.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">خاکی</span>
-<span class="spec">مرکباتی</span>
-<span class="spec">چوبی</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۸,۹۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="By the Fireplace">
-
-<div class="product-image">
-<img src="IMAGE_FIREPLACE" alt="Maison Margiela By the Fireplace" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Maison Margiela</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>By the Fireplace</h2>
-
-<div class="volume">حجم: 100ml</div>
-
-<p class="description">
-رایحه‌ای گرم و دودی با حس چوب سوخته، وانیل و فضای آرامش‌بخش.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">گرم</span>
-<span class="spec">دودی</span>
-<span class="spec">وانیلی</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۱۰,۲۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<article class="product" data-category="unisex" data-name="Mancera Cedrat Boise">
-
-<div class="product-image">
-<img src="IMAGE_CEDRAT_BOISE" alt="Mancera Cedrat Boise" loading="lazy">
-</div>
-
-<div class="product-top">
-<span class="brand">Mancera</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Cedrat Boise</h2>
-
-<div class="volume">حجم: 120ml</div>
-
-<p class="description">
-رایحه‌ای مرکباتی و چوبی با حس میوه‌ای، مدرن و ماندگار.
-</p>
-
-<div class="specs">
-<span class="spec">یونیسکس</span>
-<span class="spec">مرکباتی</span>
-<span class="spec">میوه‌ای</span>
-<span class="spec">چوبی</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۶,۷۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
 <div class="empty" id="empty">
-محصولی با این مشخصات پیدا نشد.
+محصولی پیدا نشد.
 </div>
 
 </section>
 
 
 <footer>
-
-<div class="footer">
-
-<div class="footer-logo">
-TAK <span>PERFUME</span>
-</div>
-
-<div class="footer-text">
+<strong>TAK PERFUME</strong>
+<br><br>
 انتخاب کن، خاص باش.
-</div>
-
-<div class="footer-text">
-© 2026 Tak Perfume
-</div>
-
-</div>
-
 </footer>
 
 
@@ -1864,7 +934,7 @@ function filterProducts(){
         .trim()
         .toLowerCase();
 
-    let visible = 0;
+    let count = 0;
 
     products.forEach(product => {
 
@@ -1883,34 +953,30 @@ function filterProducts(){
 
         if(categoryMatch && searchMatch){
 
-            product.style.display =
-                "block";
+            product.style.display = "";
 
-            visible++;
+            count++;
 
         }else{
 
-            product.style.display =
-                "none";
+            product.style.display = "none";
 
         }
 
     });
 
     empty.style.display =
-        visible === 0
-        ? "block"
-        : "none";
+        count === 0 ? "block" : "none";
 }
 
 
 filters.forEach(button => {
 
-    button.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
-        filters.forEach(item=>{
-            item.classList.remove("active");
-        });
+        filters.forEach(btn =>
+            btn.classList.remove("active")
+        );
 
         button.classList.add("active");
 
@@ -1929,17 +995,7 @@ search.addEventListener(
     filterProducts
 );
 
-
-function openCart(){
-
-    alert(
-        "سبد خرید در مرحله بعد فعال می‌شود."
-    );
-
-}
-
 </script>
 
 </body>
 </html>
-```
