@@ -41,6 +41,155 @@
         }
 
         /* =========================
+           ANIMATED TAK PERFUME BACKGROUND
+        ========================= */
+
+        #perfumeBackground {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(139, 92, 246, 0.13),
+                    transparent 48%
+                ),
+                #090510;
+        }
+
+        .floating-brand {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
+            perspective: 1000px;
+        }
+
+        .floating-brand span {
+            position: absolute;
+            left: 0;
+
+            white-space: nowrap;
+
+            color: rgba(167, 139, 250, 0.10);
+
+            font-family: Arial, sans-serif;
+            font-weight: 800;
+
+            letter-spacing: 7px;
+            text-transform: uppercase;
+
+            filter: blur(0.2px);
+
+            animation: brandFly linear infinite;
+            will-change: transform, opacity;
+        }
+
+        .floating-brand span:nth-child(1) {
+            top: 8%;
+            font-size: 22px;
+            animation-duration: 18s;
+            animation-delay: -7s;
+        }
+
+        .floating-brand span:nth-child(2) {
+            top: 27%;
+            font-size: 43px;
+            animation-duration: 23s;
+            animation-delay: -15s;
+        }
+
+        .floating-brand span:nth-child(3) {
+            top: 48%;
+            font-size: 18px;
+            animation-duration: 16s;
+            animation-delay: -5s;
+        }
+
+        .floating-brand span:nth-child(4) {
+            top: 67%;
+            font-size: 60px;
+            animation-duration: 26s;
+            animation-delay: -20s;
+        }
+
+        .floating-brand span:nth-child(5) {
+            top: 87%;
+            font-size: 29px;
+            animation-duration: 20s;
+            animation-delay: -11s;
+        }
+
+        @keyframes brandFly {
+
+            0% {
+                transform:
+                    translate3d(120vw, 0, -900px)
+                    scale(.20)
+                    rotateY(-14deg);
+
+                opacity: 0;
+            }
+
+            8% {
+                opacity: .30;
+            }
+
+            25% {
+                opacity: .65;
+            }
+
+            45% {
+                opacity: .80;
+            }
+
+            62% {
+                opacity: .45;
+            }
+
+            78% {
+                opacity: .20;
+            }
+
+            100% {
+                transform:
+                    translate3d(-130vw, -100px, 500px)
+                    scale(2.4)
+                    rotateY(14deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* نورهای بسیار نرم روی بک‌گراند */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            z-index: -1;
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 15% 25%,
+                    rgba(139, 92, 246, .07),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(109, 40, 217, .08),
+                    transparent 30%
+                );
+        }
+
+        /* =========================
            INTRO
         ========================= */
 
@@ -48,10 +197,13 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
+
             background:
-                radial-gradient(circle at center,
-                rgba(139, 92, 246, 0.18),
-                transparent 35%),
+                radial-gradient(
+                    circle at center,
+                    rgba(139, 92, 246, 0.18),
+                    transparent 35%
+                ),
                 #090510;
 
             display: flex;
@@ -64,15 +216,20 @@
 
         .intro-content {
             text-align: center;
-            animation: logoReveal 1.5s cubic-bezier(.16,1,.3,1) forwards;
+            animation:
+                logoReveal 1.5s cubic-bezier(.16,1,.3,1) forwards;
         }
 
         .intro-small {
             font-size: 11px;
             letter-spacing: 6px;
             color: var(--purple-light);
+
             opacity: 0;
-            animation: fadeUp 1s ease .2s forwards;
+
+            animation:
+                fadeUp 1s ease .2s forwards;
+
             margin-bottom: 12px;
         }
 
@@ -81,6 +238,7 @@
             font-weight: 800;
             letter-spacing: 8px;
             color: white;
+
             text-shadow:
                 0 0 30px rgba(139, 92, 246, .35);
         }
@@ -88,9 +246,13 @@
         .intro-line {
             width: 0;
             height: 1px;
+
             background: var(--purple);
+
             margin: 18px auto 0;
-            animation: lineGrow 1s ease .8s forwards;
+
+            animation:
+                lineGrow 1s ease .8s forwards;
         }
 
         /* =========================
@@ -102,18 +264,24 @@
             top: 0;
             right: 0;
             left: 0;
+
             z-index: 100;
 
             padding: 20px 5%;
 
-            background: rgba(9, 5, 16, .65);
+            background:
+                rgba(9, 5, 16, .65);
+
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
 
-            border-bottom: 1px solid rgba(255,255,255,.04);
+            border-bottom:
+                1px solid rgba(255,255,255,.04);
 
             opacity: 0;
-            animation: headerShow 1s ease 2.5s forwards;
+
+            animation:
+                headerShow 1s ease 2.5s forwards;
         }
 
         .nav {
@@ -128,6 +296,7 @@
         .logo {
             color: white;
             text-decoration: none;
+
             font-weight: 800;
             font-size: 20px;
             letter-spacing: 2px;
@@ -140,13 +309,16 @@
         .nav-links {
             display: flex;
             gap: 30px;
+
             list-style: none;
         }
 
         .nav-links a {
             color: var(--muted);
             text-decoration: none;
+
             font-size: 14px;
+
             transition: .3s ease;
         }
 
@@ -155,19 +327,31 @@
         }
 
         .cart-btn {
-            border: 1px solid var(--border);
-            background: rgba(139,92,246,.08);
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(139,92,246,.08);
+
             color: white;
+
             padding: 10px 17px;
+
             border-radius: 12px;
+
             cursor: pointer;
+
             font-family: inherit;
+
             transition: .3s ease;
         }
 
         .cart-btn:hover {
-            background: rgba(139,92,246,.18);
-            transform: translateY(-2px);
+            background:
+                rgba(139,92,246,.18);
+
+            transform:
+                translateY(-2px);
         }
 
         /* =========================
@@ -176,6 +360,7 @@
 
         .hero {
             min-height: 100vh;
+
             position: relative;
 
             display: flex;
@@ -188,6 +373,7 @@
 
         .hero::before {
             content: "";
+
             position: absolute;
 
             width: 500px;
@@ -196,13 +382,17 @@
             right: -180px;
             top: 10%;
 
-            background: rgba(109, 40, 217, .16);
+            background:
+                rgba(109, 40, 217, .16);
+
             filter: blur(100px);
+
             border-radius: 50%;
         }
 
         .hero::after {
             content: "";
+
             position: absolute;
 
             width: 350px;
@@ -211,27 +401,39 @@
             left: -150px;
             bottom: -100px;
 
-            background: rgba(139, 92, 246, .1);
+            background:
+                rgba(139, 92, 246, .1);
+
             filter: blur(90px);
+
             border-radius: 50%;
         }
 
         .hero-content {
             position: relative;
+
             z-index: 2;
 
             max-width: 750px;
 
             opacity: 0;
-            animation: heroShow 1.2s cubic-bezier(.16,1,.3,1) 2.5s forwards;
+
+            animation:
+                heroShow
+                1.2s
+                cubic-bezier(.16,1,.3,1)
+                2.5s
+                forwards;
         }
 
         .eyebrow {
             display: inline-flex;
+
             align-items: center;
             gap: 10px;
 
             color: var(--purple-light);
+
             font-size: 13px;
 
             margin-bottom: 22px;
@@ -239,15 +441,22 @@
 
         .eyebrow::before {
             content: "";
+
             width: 28px;
             height: 1px;
-            background: var(--purple);
+
+            background:
+                var(--purple);
         }
 
         .hero h1 {
-            font-size: clamp(42px, 7vw, 82px);
+            font-size:
+                clamp(42px, 7vw, 82px);
+
             line-height: 1.15;
+
             font-weight: 800;
+
             margin-bottom: 25px;
         }
 
@@ -257,55 +466,83 @@
 
         .hero p {
             color: var(--muted);
+
             font-size: 17px;
+
             line-height: 2;
+
             max-width: 650px;
+
             margin-bottom: 35px;
         }
 
         .hero-buttons {
             display: flex;
+
             gap: 14px;
+
             flex-wrap: wrap;
         }
 
         .primary-btn,
         .secondary-btn {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
             padding: 14px 25px;
+
             border-radius: 13px;
 
             text-decoration: none;
+
             font-family: inherit;
+
             font-size: 14px;
 
             transition: .35s ease;
         }
 
         .primary-btn {
-            background: var(--purple);
+            background:
+                var(--purple);
+
             color: white;
-            box-shadow: 0 10px 35px rgba(139,92,246,.25);
+
+            box-shadow:
+                0 10px 35px
+                rgba(139,92,246,.25);
         }
 
         .primary-btn:hover {
-            background: var(--purple-light);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(139,92,246,.35);
+            background:
+                var(--purple-light);
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(139,92,246,.35);
         }
 
         .secondary-btn {
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
+
             color: white;
-            background: rgba(255,255,255,.025);
+
+            background:
+                rgba(255,255,255,.025);
         }
 
         .secondary-btn:hover {
-            background: rgba(139,92,246,.1);
-            transform: translateY(-3px);
+            background:
+                rgba(139,92,246,.1);
+
+            transform:
+                translateY(-3px);
         }
 
         /* =========================
@@ -314,50 +551,66 @@
 
         .section {
             max-width: 1250px;
+
             margin: auto;
+
             padding: 100px 5%;
         }
 
         .section-head {
             display: flex;
+
             align-items: end;
             justify-content: space-between;
+
             gap: 20px;
+
             margin-bottom: 35px;
         }
 
         .section-title small {
             display: block;
+
             color: var(--purple-light);
+
             font-size: 12px;
+
             margin-bottom: 8px;
         }
 
         .section-title h2 {
             font-size: 32px;
+
             font-weight: 700;
         }
 
         .section-head p {
             color: var(--muted);
+
             font-size: 13px;
         }
 
         .categories {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 18px;
         }
 
         .category {
             position: relative;
+
             overflow: hidden;
 
             min-height: 180px;
 
             padding: 30px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
+
             border-radius: 22px;
 
             background:
@@ -368,14 +621,21 @@
                 );
 
             text-decoration: none;
+
             color: white;
 
-            transition: .4s cubic-bezier(.16,1,.3,1);
+            transition:
+                .4s
+                cubic-bezier(.16,1,.3,1);
         }
 
         .category:hover {
-            transform: translateY(-7px);
-            border-color: rgba(167,139,250,.35);
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(167,139,250,.35);
+
             background:
                 linear-gradient(
                     135deg,
@@ -385,12 +645,15 @@
         }
 
         .category-number {
-            color: var(--purple-light);
+            color:
+                var(--purple-light);
+
             font-size: 12px;
         }
 
         .category h3 {
             position: absolute;
+
             bottom: 28px;
             right: 30px;
 
@@ -401,17 +664,21 @@
             content: "→";
 
             position: absolute;
+
             left: 28px;
             bottom: 28px;
 
-            color: var(--purple-light);
+            color:
+                var(--purple-light);
+
             font-size: 22px;
 
             transition: .3s ease;
         }
 
         .category:hover::after {
-            transform: translateX(-5px);
+            transform:
+                translateX(-5px);
         }
 
         /* =========================
@@ -423,7 +690,9 @@
 
             padding: 45px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
+
             border-radius: 25px;
 
             background:
@@ -437,13 +706,17 @@
 
         .feature h2 {
             font-size: 30px;
+
             margin-bottom: 18px;
         }
 
         .feature p {
             max-width: 750px;
+
             color: var(--muted);
+
             line-height: 2;
+
             font-size: 15px;
         }
 
@@ -452,32 +725,43 @@
         ========================= */
 
         footer {
-            border-top: 1px solid var(--border);
+            border-top:
+                1px solid var(--border);
+
             padding: 45px 5%;
-            background: #07040d;
+
+            background:
+                rgba(7,4,13,.82);
         }
 
         .footer-inner {
             max-width: 1250px;
+
             margin: auto;
 
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             gap: 20px;
         }
 
         .footer-logo {
             font-size: 19px;
+
             font-weight: 800;
         }
 
         .footer-logo span {
-            color: var(--purple-light);
+            color:
+                var(--purple-light);
         }
 
         .footer-text {
-            color: var(--muted);
+            color:
+                var(--muted);
+
             font-size: 12px;
         }
 
@@ -486,32 +770,49 @@
         ========================= */
 
         @keyframes logoReveal {
+
             from {
                 opacity: 0;
-                transform: translateY(20px) scale(.95);
-                filter: blur(12px);
+
+                transform:
+                    translateY(20px)
+                    scale(.95);
+
+                filter:
+                    blur(12px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
-                filter: blur(0);
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+                filter:
+                    blur(0);
             }
         }
 
         @keyframes fadeUp {
+
             from {
                 opacity: 0;
-                transform: translateY(12px);
+
+                transform:
+                    translateY(12px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
         @keyframes lineGrow {
+
             from {
                 width: 0;
             }
@@ -522,35 +823,51 @@
         }
 
         @keyframes introOut {
+
             to {
                 opacity: 0;
+
                 visibility: hidden;
             }
         }
 
         @keyframes headerShow {
+
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+
+                transform:
+                    translateY(-20px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
         @keyframes heroShow {
+
             from {
                 opacity: 0;
-                transform: translateY(30px);
-                filter: blur(5px);
+
+                transform:
+                    translateY(30px);
+
+                filter:
+                    blur(5px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
-                filter: blur(0);
+
+                transform:
+                    translateY(0);
+
+                filter:
+                    blur(0);
             }
         }
 
@@ -561,7 +878,8 @@
         @media (max-width: 700px) {
 
             header {
-                padding: 16px 5%;
+                padding:
+                    16px 5%;
             }
 
             .nav-links {
@@ -569,23 +887,28 @@
             }
 
             .hero {
-                padding: 130px 7% 80px;
+                padding:
+                    130px 7% 80px;
             }
 
             .hero h1 {
-                font-size: 46px;
+                font-size:
+                    46px;
             }
 
             .hero p {
-                font-size: 14px;
+                font-size:
+                    14px;
             }
 
             .categories {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
             }
 
             .section {
-                padding: 75px 5%;
+                padding:
+                    75px 5%;
             }
 
             .section-head {
@@ -593,20 +916,51 @@
             }
 
             .section-head p {
-                margin-top: 10px;
+                margin-top:
+                    10px;
             }
 
             .feature {
-                padding: 30px 22px;
+                padding:
+                    30px 22px;
             }
 
             .feature h2 {
-                font-size: 24px;
+                font-size:
+                    24px;
             }
 
             .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+            .floating-brand span:nth-child(1) {
+                font-size: 15px;
+                letter-spacing: 4px;
+            }
+
+            .floating-brand span:nth-child(2) {
+                font-size: 27px;
+                letter-spacing: 4px;
+            }
+
+            .floating-brand span:nth-child(3) {
+                font-size: 13px;
+                letter-spacing: 3px;
+            }
+
+            .floating-brand span:nth-child(4) {
+                font-size: 37px;
+                letter-spacing: 4px;
+            }
+
+            .floating-brand span:nth-child(5) {
+                font-size: 19px;
+                letter-spacing: 4px;
             }
         }
     </style>
@@ -615,10 +969,28 @@
 <body>
 
     <!-- =========================
+         ANIMATED BACKGROUND
+    ========================== -->
+
+    <canvas id="perfumeBackground"></canvas>
+
+    <div class="floating-brand">
+
+        <span>TAK PERFUME</span>
+        <span>TAK PERFUME</span>
+        <span>TAK PERFUME</span>
+        <span>TAK PERFUME</span>
+        <span>TAK PERFUME</span>
+
+    </div>
+
+
+    <!-- =========================
          INTRO
     ========================== -->
 
     <div class="intro">
+
         <div class="intro-content">
 
             <div class="intro-small">
@@ -632,6 +1004,7 @@
             <div class="intro-line"></div>
 
         </div>
+
     </div>
 
 
@@ -648,21 +1021,31 @@
             </a>
 
             <ul class="nav-links">
+
                 <li>
-                    <a href="#home">خانه</a>
+                    <a href="#home">
+                        خانه
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#categories">دسته‌بندی</a>
+                    <a href="#categories">
+                        دسته‌بندی
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#about">درباره ما</a>
+                    <a href="#about">
+                        درباره ما
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#contact">تماس با ما</a>
+                    <a href="#contact">
+                        تماس با ما
+                    </a>
                 </li>
+
             </ul>
 
             <button class="cart-btn">
@@ -690,7 +1073,9 @@
 
                 <h1>
                     رایحه‌ای برای
-                    <span>خاص بودن.</span>
+                    <span>
+                        خاص بودن.
+                    </span>
                 </h1>
 
                 <p>
@@ -701,11 +1086,17 @@
 
                 <div class="hero-buttons">
 
-                    <a href="shop.html" class="primary-btn">
+                    <a
+                        href="shop.html"
+                        class="primary-btn"
+                    >
                         مشاهده محصولات
                     </a>
 
-                    <a href="#about" class="secondary-btn">
+                    <a
+                        href="#about"
+                        class="secondary-btn"
+                    >
                         درباره تک پرفیوم
                     </a>
 
@@ -720,13 +1111,18 @@
              CATEGORIES
         ========================== -->
 
-        <section class="section" id="categories">
+        <section
+            class="section"
+            id="categories"
+        >
 
             <div class="section-head">
 
                 <div class="section-title">
 
-                    <small>EXPLORE</small>
+                    <small>
+                        EXPLORE
+                    </small>
 
                     <h2>
                         انتخابت رو پیدا کن
@@ -743,7 +1139,10 @@
 
             <div class="categories">
 
-                <a href="shop.html?category=men" class="category">
+                <a
+                    href="shop.html?category=men"
+                    class="category"
+                >
 
                     <span class="category-number">
                         01
@@ -756,7 +1155,10 @@
                 </a>
 
 
-                <a href="shop.html?category=women" class="category">
+                <a
+                    href="shop.html?category=women"
+                    class="category"
+                >
 
                     <span class="category-number">
                         02
@@ -769,7 +1171,10 @@
                 </a>
 
 
-                <a href="shop.html?category=unisex" class="category">
+                <a
+                    href="shop.html?category=unisex"
+                    class="category"
+                >
 
                     <span class="category-number">
                         03
@@ -790,7 +1195,10 @@
              ABOUT
         ========================== -->
 
-        <section class="section" id="about">
+        <section
+            class="section"
+            id="about"
+        >
 
             <div class="feature">
 
@@ -799,23 +1207,31 @@
                 </h2>
 
                 <p>
-                    به تک پرفیوم خوش آمدید؛ جایی برای انتخاب عطری که فقط خوشبو نیست،
+
+                    به تک پرفیوم خوش آمدید؛
+                    جایی برای انتخاب عطری که فقط خوشبو نیست،
                     بلکه بخشی از شخصیت و استایل شماست.
+
                     <br><br>
 
-                    ما در تک پرفیوم مجموعه‌ای از عطر و ادکلن‌های متنوع را برای
-                    سلیقه‌های مختلف فراهم کرده‌ایم تا بتوانید رایحه‌ای متناسب با
-                    شخصیت، استایل و بودجه خود پیدا کنید.
+                    ما در تک پرفیوم مجموعه‌ای از عطر و ادکلن‌های
+                    متنوع را برای سلیقه‌های مختلف فراهم کرده‌ایم
+                    تا بتوانید رایحه‌ای متناسب با شخصیت،
+                    استایل و بودجه خود پیدا کنید.
+
                     <br><br>
 
-                    از رایحه‌های مردانه و زنانه گرفته تا عطرهای خاص و جذاب،
-                    تلاش ما این است که تجربه‌ای ساده، مطمئن و لذت‌بخش از انتخاب
-                    و خرید عطر داشته باشید.
+                    از رایحه‌های مردانه و زنانه گرفته تا عطرهای
+                    خاص و جذاب، تلاش ما این است که تجربه‌ای ساده،
+                    مطمئن و لذت‌بخش از انتخاب و خرید عطر داشته باشید.
+
                     <br><br>
 
-                    اگر برای انتخاب عطر مناسب مردد هستید، می‌توانید روی راهنمایی
-                    ما حساب کنید؛ چون باور داریم عطر خوب فقط یک رایحه نیست،
+                    اگر برای انتخاب عطر مناسب مردد هستید،
+                    می‌توانید روی راهنمایی ما حساب کنید؛
+                    چون باور داریم عطر خوب فقط یک رایحه نیست،
                     امضای شماست.
+
                 </p>
 
             </div>
@@ -827,13 +1243,18 @@
              CONTACT
         ========================== -->
 
-        <section class="section" id="contact">
+        <section
+            class="section"
+            id="contact"
+        >
 
             <div class="section-head">
 
                 <div class="section-title">
 
-                    <small>CONTACT</small>
+                    <small>
+                        CONTACT
+                    </small>
 
                     <h2>
                         تک پرفیوم
@@ -843,19 +1264,24 @@
 
             </div>
 
+
             <div class="feature">
 
                 <p>
+
                     📍 خیابان امام، نرسیده به چهارراه آبرسان،
                     پاساژ گلدیس، همکف،
                     گالری عطر و ادکلن تک پرفیوم
+
                     <br><br>
 
                     📞 09147600084
+
                     <br><br>
 
                     ✈️ تلگرام:
                     @Perfume1655
+
                 </p>
 
             </div>
@@ -888,6 +1314,282 @@
         </div>
 
     </footer>
+
+
+    <!-- =========================
+         BACKGROUND ANIMATION
+    ========================== -->
+
+    <script>
+
+        const bgCanvas =
+            document.getElementById(
+                "perfumeBackground"
+            );
+
+        const bgCtx =
+            bgCanvas.getContext("2d");
+
+        let bgWidth = 0;
+        let bgHeight = 0;
+        let bgDpr = 1;
+
+        function resizePerfumeBackground() {
+
+            bgDpr =
+                Math.min(
+                    window.devicePixelRatio || 1,
+                    2
+                );
+
+            bgWidth =
+                window.innerWidth;
+
+            bgHeight =
+                window.innerHeight;
+
+            bgCanvas.width =
+                bgWidth * bgDpr;
+
+            bgCanvas.height =
+                bgHeight * bgDpr;
+
+            bgCanvas.style.width =
+                bgWidth + "px";
+
+            bgCanvas.style.height =
+                bgHeight + "px";
+
+            bgCtx.setTransform(
+                bgDpr,
+                0,
+                0,
+                bgDpr,
+                0,
+                0
+            );
+        }
+
+        window.addEventListener(
+            "resize",
+            resizePerfumeBackground
+        );
+
+        resizePerfumeBackground();
+
+
+        let bgTime = 0;
+
+
+        function animatePerfumeBackground() {
+
+            bgTime += 0.006;
+
+            bgCtx.clearRect(
+                0,
+                0,
+                bgWidth,
+                bgHeight
+            );
+
+
+            /* =========================
+               CENTER GLOW
+            ========================== */
+
+            const centerGlow =
+                bgCtx.createRadialGradient(
+                    bgWidth * .5,
+                    bgHeight * .48,
+                    0,
+                    bgWidth * .5,
+                    bgHeight * .48,
+                    Math.max(
+                        bgWidth,
+                        bgHeight
+                    ) * .7
+                );
+
+            centerGlow.addColorStop(
+                0,
+                "rgba(139,92,246,.10)"
+            );
+
+            centerGlow.addColorStop(
+                .45,
+                "rgba(109,40,217,.035)"
+            );
+
+            centerGlow.addColorStop(
+                1,
+                "rgba(0,0,0,0)"
+            );
+
+            bgCtx.fillStyle =
+                centerGlow;
+
+            bgCtx.fillRect(
+                0,
+                0,
+                bgWidth,
+                bgHeight
+            );
+
+
+            /* =========================
+               PERSPECTIVE HORIZONTAL LINES
+            ========================== */
+
+            const horizon =
+                bgHeight * .48;
+
+            for (
+                let i = 0;
+                i < 18;
+                i++
+            ) {
+
+                const progress =
+                    (
+                        i / 18 +
+                        bgTime * .25
+                    ) % 1;
+
+                const y =
+                    horizon +
+                    Math.pow(
+                        progress,
+                        2.4
+                    ) *
+                    bgHeight *
+                    .7;
+
+                bgCtx.beginPath();
+
+                bgCtx.moveTo(
+                    0,
+                    y
+                );
+
+                bgCtx.lineTo(
+                    bgWidth,
+                    y
+                );
+
+                bgCtx.strokeStyle =
+                    `rgba(139,92,246,${
+                        .025 +
+                        progress * .035
+                    })`;
+
+                bgCtx.lineWidth = 1;
+
+                bgCtx.stroke();
+            }
+
+
+            /* =========================
+               PERSPECTIVE VERTICAL LINES
+            ========================== */
+
+            const vanishX =
+                bgWidth / 2;
+
+            const vanishY =
+                horizon;
+
+            for (
+                let i = -14;
+                i <= 14;
+                i++
+            ) {
+
+                const bottomX =
+                    bgWidth / 2 +
+                    i *
+                    bgWidth *
+                    .10;
+
+                bgCtx.beginPath();
+
+                bgCtx.moveTo(
+                    vanishX,
+                    vanishY
+                );
+
+                bgCtx.lineTo(
+                    bottomX,
+                    bgHeight
+                );
+
+                bgCtx.strokeStyle =
+                    "rgba(139,92,246,.035)";
+
+                bgCtx.lineWidth = 1;
+
+                bgCtx.stroke();
+            }
+
+
+            /* =========================
+               MOVING LIGHT
+            ========================== */
+
+            const lightX =
+                (
+                    (
+                        bgTime * 180
+                    ) %
+                    (
+                        bgWidth * 1.5
+                    )
+                )
+                -
+                bgWidth * .25;
+
+            const movingGlow =
+                bgCtx.createLinearGradient(
+                    lightX - 250,
+                    0,
+                    lightX + 250,
+                    0
+                );
+
+            movingGlow.addColorStop(
+                0,
+                "rgba(139,92,246,0)"
+            );
+
+            movingGlow.addColorStop(
+                .5,
+                "rgba(167,139,250,.035)"
+            );
+
+            movingGlow.addColorStop(
+                1,
+                "rgba(139,92,246,0)"
+            );
+
+            bgCtx.fillStyle =
+                movingGlow;
+
+            bgCtx.fillRect(
+                0,
+                0,
+                bgWidth,
+                bgHeight
+            );
+
+
+            requestAnimationFrame(
+                animatePerfumeBackground
+            );
+        }
+
+
+        animatePerfumeBackground();
+
+    </script>
 
 </body>
 </html>
