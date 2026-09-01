@@ -1,1247 +1,706 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>فروشگاه | تک پرفیوم</title>
+<title>تک پرفیوم | فروشگاه عطر و ادکلن</title>
 
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 :root{
     --bg:#08040f;
     --card:#12091c;
+    --card2:#180d25;
     --purple:#8b5cf6;
     --purple2:#a78bfa;
-    --text:#ffffff;
+    --text:#fff;
     --muted:#aaa1b5;
     --border:rgba(167,139,250,.16);
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-
     font-family:Vazirmatn,sans-serif;
-
     background:
-    radial-gradient(
-        circle at 80% 0%,
-        rgba(124,58,237,.20),
-        transparent 35%
-    ),
-    radial-gradient(
-        circle at 10% 40%,
-        rgba(139,92,246,.08),
-        transparent 30%
-    ),
-    var(--bg);
-
+        radial-gradient(circle at 80% 0%,rgba(124,58,237,.22),transparent 35%),
+        radial-gradient(circle at 10% 40%,rgba(139,92,246,.08),transparent 30%),
+        var(--bg);
     color:var(--text);
-
     min-height:100vh;
 }
 
+/* INTRO */
 
-/* =========================
-   HEADER
-========================= */
+.intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#08040f;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    animation:introOut 1s ease 2.2s forwards;
+    pointer-events:none;
+}
+
+.intro-logo{
+    font-size:clamp(42px,10vw,85px);
+    font-weight:800;
+    letter-spacing:5px;
+    animation:logoIn 1s ease;
+}
+
+.intro-logo span{
+    color:var(--purple2);
+}
+
+.intro-line{
+    width:0;
+    height:2px;
+    background:var(--purple2);
+    margin-top:15px;
+    animation:lineIn 1s ease .4s forwards;
+}
+
+@keyframes logoIn{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+@keyframes lineIn{
+    to{
+        width:180px;
+    }
+}
+
+@keyframes introOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* HEADER */
 
 header{
-
     position:sticky;
     top:0;
     z-index:100;
-
     padding:15px 5%;
-
     background:rgba(8,4,15,.78);
-
     backdrop-filter:blur(20px);
-
-    border-bottom:1px solid
-    rgba(255,255,255,.06);
-
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .nav{
-
     max-width:1200px;
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
-    gap:15px;
-
 }
 
 .logo{
-
-    color:white;
-
+    color:#fff;
     text-decoration:none;
-
-    font-size:21px;
-
+    font-size:20px;
     font-weight:800;
-
     letter-spacing:2px;
-
 }
 
 .logo span{
-
     color:var(--purple2);
-
 }
 
 .cart-btn{
-
     border:1px solid var(--border);
-
-    background:
-    rgba(139,92,246,.12);
-
-    color:white;
-
+    background:rgba(139,92,246,.12);
+    color:#fff;
     padding:10px 16px;
-
     border-radius:12px;
-
     font-family:inherit;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
 
 .cart-btn:hover{
-
-    background:
-    rgba(139,92,246,.25);
-
+    background:rgba(139,92,246,.25);
     transform:translateY(-2px);
-
 }
 
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
-
     text-align:center;
-
-    padding:
-    75px 20px 45px;
-
+    padding:75px 20px 45px;
 }
 
 .hero small{
-
     color:var(--purple2);
-
     letter-spacing:4px;
-
     font-size:11px;
-
 }
 
 .hero h1{
-
-    font-size:
-    clamp(38px,7vw,65px);
-
+    font-size:clamp(38px,7vw,65px);
     margin:15px 0;
-
 }
 
 .hero h1 span{
-
     color:var(--purple2);
-
 }
 
 .hero p{
-
     color:var(--muted);
-
     font-size:13px;
-
+    line-height:2;
 }
 
-
-/* =========================
-   CATEGORY
-========================= */
+/* CATEGORY */
 
 .categories{
-
     max-width:900px;
-
-    margin:
-    0 auto 40px;
-
+    margin:0 auto 35px;
     padding:0 20px;
-
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:15px;
-
 }
 
 .category{
-
     border:1px solid var(--border);
-
-    background:
-    rgba(255,255,255,.035);
-
+    background:rgba(255,255,255,.035);
     border-radius:20px;
-
-    padding:26px;
-
+    padding:25px;
     text-align:center;
-
     cursor:pointer;
-
     transition:.4s;
-
 }
 
 .category:hover{
-
-    transform:
-    translateY(-5px);
-
-    border-color:
-    rgba(167,139,250,.45);
-
+    transform:translateY(-5px);
+    border-color:rgba(167,139,250,.45);
 }
 
 .category.active{
-
-    background:
-    rgba(139,92,246,.14);
-
-    border-color:
-    rgba(167,139,250,.5);
-
+    background:rgba(139,92,246,.14);
+    border-color:rgba(167,139,250,.5);
 }
 
 .category-icon{
-
-    font-size:36px;
-
+    font-size:35px;
     margin-bottom:10px;
-
 }
 
 .category h2{
-
     font-size:18px;
-
 }
 
 .category p{
-
     color:var(--muted);
-
     font-size:10px;
-
     margin-top:7px;
-
 }
 
-
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search-box{
-
     max-width:900px;
-
-    margin:
-    0 auto 35px;
-
+    margin:0 auto 35px;
     padding:0 20px;
-
 }
 
 .search-box input{
-
     width:100%;
-
-    background:
-    rgba(255,255,255,.035);
-
-    border:
-    1px solid var(--border);
-
-    color:white;
-
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    color:#fff;
     padding:15px 18px;
-
     border-radius:14px;
-
     outline:none;
-
     font-family:inherit;
-
 }
 
 .search-box input:focus{
-
-    border-color:
-    var(--purple);
-
+    border-color:var(--purple);
 }
 
-
-/* =========================
-   PRODUCTS
-========================= */
+/* PRODUCTS */
 
 .products{
-
     max-width:1200px;
-
     margin:auto;
-
-    padding:
-    0 20px 100px;
-
+    padding:0 20px 100px;
     display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
-
 }
 
 .product{
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         145deg,
         rgba(139,92,246,.08),
         rgba(255,255,255,.025)
     );
-
-    border:
-    1px solid var(--border);
-
+    border:1px solid var(--border);
     border-radius:22px;
-
     padding:18px;
-
     transition:.4s;
-
-    animation:
-    appear .6s ease both;
-
+    animation:appear .6s ease both;
 }
 
 .product:hover{
-
-    transform:
-    translateY(-7px);
-
-    border-color:
-    rgba(167,139,250,.4);
-
+    transform:translateY(-7px);
+    border-color:rgba(167,139,250,.4);
 }
-
-
-/* =========================
-   PRODUCT IMAGE
-========================= */
 
 .product-image{
-
     width:100%;
-
     height:250px;
-
     background:#f5f5f5;
-
     border-radius:17px;
-
     overflow:hidden;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     margin-bottom:18px;
-
 }
 
 .product-image img{
-
     width:100%;
-
     height:100%;
-
     object-fit:contain;
-
     padding:10px;
-
     transition:.5s;
-
 }
 
-.product:hover
-.product-image img{
-
+.product:hover .product-image img{
     transform:scale(1.05);
-
 }
-
-
-/* =========================
-   PRODUCT INFO
-========================= */
 
 .brand{
-
-    color:
-    var(--purple2);
-
+    color:var(--purple2);
     font-size:10px;
-
 }
 
 .product h2{
-
     font-size:19px;
-
-    margin:
-    7px 0;
-
+    margin:7px 0;
 }
 
 .product-desc{
-
     color:var(--muted);
-
     font-size:11px;
-
     line-height:2;
-
     margin-bottom:15px;
-
 }
 
 .tags{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:6px;
-
     margin-bottom:18px;
-
 }
 
 .tag{
-
-    background:
-    rgba(255,255,255,.045);
-
-    padding:
-    6px 9px;
-
+    background:rgba(255,255,255,.045);
+    padding:6px 9px;
     border-radius:8px;
-
     color:#c9c0d0;
-
     font-size:9px;
-
 }
 
-
-/* =========================
-   OPTIONS
-========================= */
-
 .options{
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.06);
-
+    border-top:1px solid rgba(255,255,255,.06);
     padding-top:16px;
-
 }
 
 .option-title{
-
     color:#c8bfd0;
-
     font-size:10px;
-
     margin-bottom:8px;
-
 }
 
 .select{
-
     width:100%;
-
     background:#0d0715;
-
-    border:
-    1px solid var(--border);
-
-    color:white;
-
+    border:1px solid var(--border);
+    color:#fff;
     border-radius:10px;
-
     padding:11px;
-
     font-family:inherit;
-
     margin-bottom:13px;
-
     outline:none;
-
 }
 
 .price{
-
     font-size:15px;
-
     font-weight:700;
-
-    margin:
-    8px 0 12px;
-
+    margin:8px 0 12px;
 }
 
 .add{
-
     width:100%;
-
     border:0;
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
         #7c3aed,
         #a78bfa
     );
-
-    color:white;
-
+    color:#fff;
     padding:12px;
-
     border-radius:11px;
-
     font-family:inherit;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
 
 .add:hover{
-
-    transform:
-    translateY(-2px);
-
-    filter:
-    brightness(1.08);
-
+    transform:translateY(-2px);
 }
-
-.disabled{
-
-    background:
-    rgba(255,255,255,.06);
-
-    color:#77717e;
-
-    cursor:not-allowed;
-
-}
-
-
-/* =========================
-   EMPTY
-========================= */
 
 .empty{
-
-    grid-column:
-    1/-1;
-
+    grid-column:1/-1;
     text-align:center;
-
     color:var(--muted);
-
     padding:60px;
-
+    display:none;
 }
 
-
-/* =========================
-   CART
-========================= */
+/* CART */
 
 .cart-panel{
-
     position:fixed;
-
     inset:0;
-
     z-index:1000;
-
-    background:
-    rgba(0,0,0,.72);
-
-    backdrop-filter:
-    blur(10px);
-
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(10px);
     display:none;
-
     align-items:flex-end;
-
     justify-content:center;
-
 }
 
 .cart-panel.show{
-
     display:flex;
-
 }
 
 .cart-box{
-
-    width:
-    min(600px,100%);
-
+    width:min(600px,100%);
     max-height:88vh;
-
     overflow:auto;
-
     background:#100719;
-
-    border:
-    1px solid var(--border);
-
-    border-radius:
-    25px 25px 0 0;
-
+    border:1px solid var(--border);
+    border-radius:25px 25px 0 0;
     padding:25px;
-
-    animation:
-    slideUp .35s ease;
-
+    animation:slideUp .35s ease;
 }
 
 .cart-head{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:20px;
-
 }
 
 .close{
-
     background:none;
-
     border:0;
-
     color:#aaa;
-
     font-size:27px;
-
     cursor:pointer;
-
 }
 
 .cart-item{
-
     position:relative;
-
-    border:
-    1px solid
-    rgba(255,255,255,.07);
-
+    border:1px solid rgba(255,255,255,.07);
     border-radius:14px;
-
     padding:14px;
-
     margin-bottom:10px;
-
 }
 
 .cart-item strong{
-
     display:block;
-
     margin-bottom:7px;
-
 }
 
 .cart-item small{
-
     color:var(--muted);
-
     line-height:2;
-
 }
 
 .remove{
-
     position:absolute;
-
     left:12px;
-
     top:12px;
-
     border:0;
-
-    background:
-    rgba(255,70,70,.08);
-
+    background:rgba(255,70,70,.08);
     color:#ff8585;
-
     border-radius:8px;
-
     padding:5px 8px;
-
     cursor:pointer;
-
 }
 
 .total{
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.07);
-
+    border-top:1px solid rgba(255,255,255,.07);
     margin-top:18px;
-
     padding-top:18px;
-
     display:flex;
-
     justify-content:space-between;
-
     font-weight:700;
-
 }
 
 .checkout{
-
     width:100%;
-
     margin-top:15px;
-
     padding:14px;
-
     border:0;
-
     border-radius:12px;
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
         #7c3aed,
         #a78bfa
     );
-
-    color:white;
-
+    color:#fff;
     font-family:inherit;
-
     cursor:pointer;
-
 }
 
-
-/* =========================
-   PAYMENT
-========================= */
+/* PAYMENT */
 
 .payment-overlay{
-
     position:fixed;
-
     inset:0;
-
     z-index:2000;
-
-    background:
-    rgba(0,0,0,.75);
-
-    backdrop-filter:
-    blur(12px);
-
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(12px);
     display:none;
-
     align-items:center;
-
     justify-content:center;
-
     padding:20px;
-
 }
 
 .payment-overlay.show{
-
     display:flex;
-
 }
 
 .payment-box{
-
-    width:
-    min(500px,100%);
-
+    width:min(500px,100%);
     max-height:90vh;
-
     overflow:auto;
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         145deg,
         #170b25,
         #0d0615
     );
-
-    border:
-    1px solid
-    rgba(167,139,250,.25);
-
+    border:1px solid rgba(167,139,250,.25);
     border-radius:25px;
-
     padding:28px;
-
     position:relative;
-
-    animation:
-    paymentIn .35s ease;
-
+    animation:paymentIn .35s ease;
 }
 
 .payment-close{
-
     position:absolute;
-
     left:18px;
-
     top:14px;
-
     background:none;
-
     border:0;
-
     color:#aaa;
-
     font-size:27px;
-
     cursor:pointer;
-
 }
 
 .payment-icon{
-
     width:60px;
-
     height:60px;
-
     border-radius:18px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    background:
-    rgba(139,92,246,.15);
-
+    background:rgba(139,92,246,.15);
     font-size:28px;
-
     margin-bottom:15px;
-
 }
 
 .payment-box h2{
-
     font-size:24px;
-
     margin-bottom:7px;
-
 }
 
 .payment-subtitle{
-
     color:var(--muted);
-
     font-size:11px;
-
     margin-bottom:22px;
-
 }
 
 .payment-total{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     padding:15px;
-
     border-radius:14px;
-
-    background:
-    rgba(139,92,246,.09);
-
-    border:
-    1px solid
-    rgba(167,139,250,.14);
-
+    background:rgba(139,92,246,.09);
+    border:1px solid rgba(167,139,250,.14);
     margin-bottom:15px;
-
     font-size:11px;
-
 }
 
 .payment-total strong{
-
     color:#c4a7ff;
-
     font-size:15px;
-
 }
 
 .card-info{
-
     padding:20px;
-
     border-radius:18px;
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
         #24103b,
         #12091d
     );
-
-    border:
-    1px solid
-    rgba(167,139,250,.2);
-
+    border:1px solid rgba(167,139,250,.2);
     text-align:center;
-
 }
 
-.card-info > span{
-
+.card-label{
     display:block;
-
     color:var(--muted);
-
     font-size:10px;
-
     margin-bottom:10px;
-
 }
 
 .card-number{
-
     direction:ltr;
-
     font-size:22px;
-
     font-weight:800;
-
     letter-spacing:2px;
-
     margin-bottom:8px;
-
 }
 
-.card-info strong{
-
+.card-owner{
     font-size:11px;
-
     color:#cfc6d7;
-
 }
 
 .card-copy{
-
     display:block;
-
-    margin:
-    14px auto 0;
-
-    border:
-    1px solid
-    rgba(167,139,250,.2);
-
-    background:
-    rgba(255,255,255,.05);
-
-    color:white;
-
+    margin:14px auto 0;
+    border:1px solid rgba(167,139,250,.2);
+    background:rgba(255,255,255,.05);
+    color:#fff;
     border-radius:9px;
-
     padding:8px 14px;
-
     font-family:inherit;
-
     cursor:pointer;
-
 }
 
 .payment-note{
-
     margin:15px 0;
-
     padding:13px;
-
     border-radius:12px;
-
-    background:
-    rgba(255,255,255,.035);
-
+    background:rgba(255,255,255,.035);
     color:var(--muted);
-
     font-size:10px;
-
     line-height:2;
-
 }
 
 .payment-note strong{
-
     color:#c4a7ff;
-
-}
-
-.receipt-section{
-
-    margin-bottom:15px;
-
-}
-
-.receipt-section label{
-
-    display:block;
-
-    font-size:11px;
-
-    margin-bottom:8px;
-
-}
-
-.receipt-section input{
-
-    width:100%;
-
-    padding:12px;
-
-    border-radius:11px;
-
-    border:
-    1px solid
-    rgba(167,139,250,.16);
-
-    background:
-    rgba(255,255,255,.035);
-
-    color:var(--muted);
-
-    font-family:inherit;
-
 }
 
 .send-receipt{
-
     width:100%;
-
     border:0;
-
     padding:14px;
-
     border-radius:12px;
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
         #7c3aed,
         #a78bfa
     );
-
-    color:white;
-
+    color:#fff;
     font-family:inherit;
-
     font-weight:600;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
 
 .send-receipt:hover{
-
-    transform:
-    translateY(-2px);
-
+    transform:translateY(-2px);
 }
 
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.06);
-
+    border-top:1px solid rgba(255,255,255,.06);
     padding:35px;
-
     text-align:center;
-
     color:#77717e;
-
     font-size:10px;
-
 }
 
 footer strong{
-
     color:var(--purple2);
-
 }
 
-
-/* =========================
-   ANIMATIONS
-========================= */
+/* ANIMATIONS */
 
 @keyframes appear{
-
     from{
-
         opacity:0;
-
-        transform:
-        translateY(20px);
-
+        transform:translateY(20px);
     }
 
     to{
-
         opacity:1;
-
-        transform:
-        translateY(0);
-
+        transform:none;
     }
-
 }
 
 @keyframes slideUp{
-
     from{
-
-        transform:
-        translateY(100%);
-
+        transform:translateY(100%);
     }
 
     to{
-
-        transform:
-        translateY(0);
-
+        transform:translateY(0);
     }
-
 }
 
 @keyframes paymentIn{
-
     from{
-
         opacity:0;
-
-        transform:
-        translateY(25px)
-        scale(.97);
-
+        transform:translateY(25px) scale(.97);
     }
 
     to{
-
         opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-
+        transform:none;
     }
-
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:900px){
 
     .products{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
@@ -1249,801 +708,668 @@ footer strong{
 @media(max-width:600px){
 
     .products{
-
         grid-template-columns:1fr;
-
     }
 
     .categories{
-
         grid-template-columns:1fr;
-
     }
 
     .hero{
-
         padding-top:55px;
+    }
 
+    .card-number{
+        font-size:18px;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- INTRO -->
+
+<div class="intro">
+
+    <div class="intro-logo">
+        TAK <span>PERFUME</span>
+    </div>
+
+    <div class="intro-line"></div>
+
+</div>
+
+
+<!-- HEADER -->
 
 <header>
 
-<nav class="nav">
+    <nav class="nav">
 
-<a href="index.html" class="logo">
-TAK <span>PERFUME</span>
-</a>
+        <a href="#" class="logo">
+            TAK <span>PERFUME</span>
+        </a>
 
-<button
-class="cart-btn"
-onclick="openCart()"
->
-🛒 سبد خرید
-<span id="cartCount">0</span>
-</button>
+        <button
+            class="cart-btn"
+            onclick="openCart()"
+        >
+            🛒 سبد خرید
+            <span id="cartCount">0</span>
+        </button>
 
-</nav>
+    </nav>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
-<small>TAK PERFUME</small>
+    <small>TAK PERFUME</small>
 
-<h1>
-دنیای <span>رایحه</span>
-</h1>
+    <h1>
+        دنیای <span>عطر و ادکلن</span>
+    </h1>
 
-<p>
-رایحه‌ای انتخاب کن که امضای شخصیت تو باشد.
-</p>
+    <p>
+        انتخاب کن، خاص باش.
+        <br>
+        رایحه‌ای که بخشی از شخصیت توست.
+    </p>
 
 </section>
 
 
-<!-- =========================
-     CATEGORY
-========================= -->
+<!-- CATEGORIES -->
 
 <section class="categories">
 
+    <div
+        class="category active"
+        onclick="setCategory('perfume',this)"
+    >
 
-<div
-class="category active"
-onclick="setCategory('perfume',this)"
->
+        <div class="category-icon">
+            🧴
+        </div>
 
-<div class="category-icon">
-🧴
-</div>
+        <h2>
+            عطر
+        </h2>
 
-<h2>
-عطر
-</h2>
+        <p>
+            انتخاب مدل شیشه و حجم دلخواه
+        </p>
 
-<p>
-انتخاب رایحه، مدل شیشه و حجم دلخواه
-</p>
-
-</div>
+    </div>
 
 
-<div
-class="category"
-onclick="setCategory('cologne',this)"
->
+    <div
+        class="category"
+        onclick="setCategory('cologne',this)"
+    >
 
-<div class="category-icon">
-🧪
-</div>
+        <div class="category-icon">
+            🧪
+        </div>
 
-<h2>
-ادکلن
-</h2>
+        <h2>
+            ادکلن
+        </h2>
 
-<p>
-ادکلن‌های آماده با شیشه اصلی
-</p>
+        <p>
+            ادکلن‌های دارای شیشه اصلی
+        </p>
 
-</div>
-
+    </div>
 
 </section>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
+<!-- SEARCH -->
 
 <div class="search-box">
 
-<input
-type="text"
-id="search"
-placeholder="جستجوی نام عطر یا برند..."
->
+    <input
+        id="search"
+        type="text"
+        placeholder="جستجوی نام عطر یا برند..."
+    >
 
 </div>
 
 
-<!-- =========================
-     PRODUCTS
-========================= -->
+<!-- PRODUCTS -->
 
 <section
-class="products"
-id="products"
+    class="products"
+    id="products"
 >
 
 
-<!-- =========================
-     PERFUME 1
-========================= -->
+<!-- PRODUCT 1 -->
 
 <article
-class="product"
-data-type="perfume"
-data-name="Dior Sauvage"
+    class="product"
+    data-type="perfume"
+    data-name="Dior Sauvage"
 >
 
-<div class="product-image">
+    <div class="product-image">
 
-<img
-src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
-alt="Dior Sauvage"
-loading="lazy"
->
+        <img
+            src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
+            alt="Dior Sauvage"
+            loading="lazy"
+        >
 
-</div>
+    </div>
 
-<span class="brand">
-Dior
-</span>
+    <span class="brand">
+        Dior
+    </span>
 
-<h2>
-Sauvage
-</h2>
+    <h2>
+        Sauvage
+    </h2>
 
-<p class="product-desc">
-رایحه‌ای قدرتمند و مردانه با ترکیبی از مرکبات، ادویه و نت‌های چوبی.
-</p>
+    <p class="product-desc">
+        رایحه‌ای قدرتمند و مردانه با ترکیبی از مرکبات، ادویه و نت‌های چوبی.
+    </p>
 
-<div class="tags">
+    <div class="tags">
 
-<span class="tag">
-مردانه
-</span>
+        <span class="tag">مردانه</span>
+        <span class="tag">خنک</span>
+        <span class="tag">چوبی</span>
 
-<span class="tag">
-خنک
-</span>
+    </div>
 
-<span class="tag">
-چوبی
-</span>
+    <div class="options">
 
-</div>
+        <div class="option-title">
+            مدل شیشه
+        </div>
 
+        <select class="select bottle">
 
-<div class="options">
+            <option>کلاسیک</option>
+            <option>لوکس</option>
+            <option>فانتزی</option>
 
-
-<div class="option-title">
-مدل شیشه
-</div>
-
-<select class="select bottle">
-
-<option>
-کلاسیک
-</option>
-
-<option>
-لوکس
-</option>
-
-<option>
-فانتزی
-</option>
-
-</select>
+        </select>
 
 
-<div class="option-title">
-حجم
-</div>
+        <div class="option-title">
+            حجم
+        </div>
 
-<select
-class="select volume"
->
+        <select class="select volume">
 
-<option
-value="10"
-data-price="180000"
->
-10ml
-</option>
+            <option value="10" data-price="180000">
+                10ml
+            </option>
 
-<option
-value="20"
-data-price="280000"
->
-20ml
-</option>
+            <option value="20" data-price="280000">
+                20ml
+            </option>
 
-<option
-value="30"
-data-price="380000"
->
-30ml
-</option>
+            <option value="30" data-price="380000">
+                30ml
+            </option>
 
-<option
-value="50"
-data-price="550000"
->
-50ml
-</option>
+            <option value="50" data-price="550000">
+                50ml
+            </option>
 
-<option
-value="100"
-data-price="900000"
->
-100ml
-</option>
+            <option value="100" data-price="900000">
+                100ml
+            </option>
 
-</select>
+        </select>
 
 
-<div class="price">
-
-<span class="price-value">
-180,000
-</span>
-
-تومان
-
-</div>
+        <div class="price">
+            <span class="price-value">180,000</span>
+            تومان
+        </div>
 
 
-<button
-class="add"
-onclick="addPerfume(this)"
->
-افزودن به سبد
-</button>
+        <button
+            class="add"
+            onclick="addPerfume(this)"
+        >
+            افزودن به سبد
+        </button>
 
-
-</div>
+    </div>
 
 </article>
 
 
-
-<!-- =========================
-     PERFUME 2
-========================= -->
+<!-- PRODUCT 2 -->
 
 <article
-class="product"
-data-type="perfume"
-data-name="Bleu de Chanel"
+    class="product"
+    data-type="perfume"
+    data-name="Bleu de Chanel"
 >
 
-<div class="product-image">
+    <div class="product-image">
 
-<img
-src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
-alt="Bleu de Chanel"
-loading="lazy"
->
+        <img
+            src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
+            alt="Bleu de Chanel"
+            loading="lazy"
+        >
 
-</div>
+    </div>
 
-<span class="brand">
-Chanel
-</span>
+    <span class="brand">
+        Chanel
+    </span>
 
-<h2>
-Bleu de Chanel
-</h2>
+    <h2>
+        Bleu de Chanel
+    </h2>
 
-<p class="product-desc">
-رایحه‌ای شیک و تمیز با ترکیبی از مرکبات و نت‌های چوبی.
-</p>
+    <p class="product-desc">
+        رایحه‌ای شیک و تمیز با ترکیبی از مرکبات، چوب و ادویه.
+    </p>
 
-<div class="tags">
+    <div class="tags">
 
-<span class="tag">
-مردانه
-</span>
+        <span class="tag">مردانه</span>
+        <span class="tag">خنک</span>
+        <span class="tag">شیک</span>
 
-<span class="tag">
-خنک
-</span>
+    </div>
 
-<span class="tag">
-چوبی
-</span>
+    <div class="options">
 
-</div>
+        <div class="option-title">
+            مدل شیشه
+        </div>
 
+        <select class="select bottle">
 
-<div class="options">
+            <option>کلاسیک</option>
+            <option>لوکس</option>
+            <option>فانتزی</option>
 
-
-<div class="option-title">
-مدل شیشه
-</div>
-
-<select class="select bottle">
-
-<option>
-کلاسیک
-</option>
-
-<option>
-لوکس
-</option>
-
-<option>
-فانتزی
-</option>
-
-</select>
+        </select>
 
 
-<div class="option-title">
-حجم
-</div>
+        <div class="option-title">
+            حجم
+        </div>
 
-<select class="select volume">
+        <select class="select volume">
 
-<option
-value="10"
-data-price="190000"
->
-10ml
-</option>
+            <option value="10" data-price="190000">
+                10ml
+            </option>
 
-<option
-value="20"
-data-price="290000"
->
-20ml
-</option>
+            <option value="20" data-price="290000">
+                20ml
+            </option>
 
-<option
-value="30"
-data-price="390000"
->
-30ml
-</option>
+            <option value="30" data-price="390000">
+                30ml
+            </option>
 
-<option
-value="50"
-data-price="560000"
->
-50ml
-</option>
+            <option value="50" data-price="560000">
+                50ml
+            </option>
 
-<option
-value="100"
-data-price="920000"
->
-100ml
-</option>
+            <option value="100" data-price="920000">
+                100ml
+            </option>
 
-</select>
+        </select>
 
 
-<div class="price">
-
-<span class="price-value">
-190,000
-</span>
-
-تومان
-
-</div>
+        <div class="price">
+            <span class="price-value">190,000</span>
+            تومان
+        </div>
 
 
-<button
-class="add"
-onclick="addPerfume(this)"
->
-افزودن به سبد
-</button>
+        <button
+            class="add"
+            onclick="addPerfume(this)"
+        >
+            افزودن به سبد
+        </button>
 
-
-</div>
+    </div>
 
 </article>
 
 
-
-<!-- =========================
-     COLOGNE 1
-========================= -->
+<!-- PRODUCT 3 -->
 
 <article
-class="product"
-data-type="cologne"
-data-name="Dior Sauvage EDT"
+    class="product"
+    data-type="cologne"
+    data-name="Dior Sauvage EDT"
 >
 
-<div class="product-image">
+    <div class="product-image">
 
-<img
-src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
-alt="Dior Sauvage EDT"
-loading="lazy"
->
+        <img
+            src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
+            alt="Dior Sauvage EDT"
+            loading="lazy"
+        >
 
-</div>
+    </div>
 
-<span class="brand">
-Dior
-</span>
+    <span class="brand">
+        Dior
+    </span>
 
-<h2>
-Sauvage EDT
-</h2>
+    <h2>
+        Sauvage EDT
+    </h2>
 
-<p class="product-desc">
-ادکلن آماده با شیشه اصلی و رایحه‌ای قدرتمند و ماندگار.
-</p>
+    <p class="product-desc">
+        ادکلن مردانه با رایحه‌ای قدرتمند، خنک و ماندگار.
+    </p>
 
-<div class="tags">
+    <div class="tags">
 
-<span class="tag">
-مردانه
-</span>
+        <span class="tag">مردانه</span>
+        <span class="tag">100ml</span>
+        <span class="tag">ادکلن</span>
 
-<span class="tag">
-100ml
-</span>
+    </div>
 
-<span class="tag">
-اصل
-</span>
+    <div class="options">
 
-</div>
+        <div class="price">
+            6,800,000 تومان
+        </div>
 
+        <button
+            class="add"
+            onclick="addCologne(
+                'Dior Sauvage EDT',
+                '100ml',
+                6800000
+            )"
+        >
+            افزودن به سبد
+        </button>
 
-<div class="options">
-
-<div class="price">
-6,800,000 تومان
-</div>
-
-<button
-class="add"
-onclick="addCologne(
-'Dior Sauvage EDT',
-'100ml',
-6800000
-)"
->
-افزودن به سبد
-</button>
-
-</div>
+    </div>
 
 </article>
 
 
-
-<!-- =========================
-     COLOGNE 2
-========================= -->
+<!-- PRODUCT 4 -->
 
 <article
-class="product"
-data-type="cologne"
-data-name="Bleu de Chanel EDT"
+    class="product"
+    data-type="cologne"
+    data-name="Bleu de Chanel EDT"
 >
 
-<div class="product-image">
+    <div class="product-image">
 
-<img
-src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
-alt="Bleu de Chanel EDT"
-loading="lazy"
->
+        <img
+            src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
+            alt="Bleu de Chanel EDT"
+            loading="lazy"
+        >
 
-</div>
+    </div>
 
-<span class="brand">
-Chanel
-</span>
+    <span class="brand">
+        Chanel
+    </span>
 
-<h2>
-Bleu de Chanel EDT
-</h2>
+    <h2>
+        Bleu de Chanel EDT
+    </h2>
 
-<p class="product-desc">
-ادکلن آماده با شیشه اصلی و رایحه‌ای شیک و ماندگار.
-</p>
+    <p class="product-desc">
+        ادکلن شیک و رسمی با رایحه مرکباتی و چوبی.
+    </p>
 
-<div class="tags">
+    <div class="tags">
 
-<span class="tag">
-مردانه
-</span>
+        <span class="tag">مردانه</span>
+        <span class="tag">100ml</span>
+        <span class="tag">ادکلن</span>
 
-<span class="tag">
-100ml
-</span>
+    </div>
 
-<span class="tag">
-اصل
-</span>
+    <div class="options">
 
-</div>
+        <div class="price">
+            7,900,000 تومان
+        </div>
 
+        <button
+            class="add"
+            onclick="addCologne(
+                'Bleu de Chanel EDT',
+                '100ml',
+                7900000
+            )"
+        >
+            افزودن به سبد
+        </button>
 
-<div class="options">
-
-<div class="price">
-7,900,000 تومان
-</div>
-
-<button
-class="add"
-onclick="addCologne(
-'Bleu de Chanel EDT',
-'100ml',
-7900000
-)"
->
-افزودن به سبد
-</button>
-
-</div>
+    </div>
 
 </article>
 
 
 <div
-class="empty"
-id="empty"
+    class="empty"
+    id="empty"
 >
-محصولی پیدا نشد.
+    محصولی پیدا نشد.
 </div>
 
 
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
-<strong>
-TAK PERFUME
-</strong>
+    <strong>
+        TAK PERFUME
+    </strong>
 
-<br><br>
+    <br><br>
 
-انتخاب کن، خاص باش.
+    کالری عطر و ادکلن تک پرفیوم
+
+    <br>
+
+    خیابان امام، نرسیده به چهارراه آبرسان،
+    پاساژ گلدیس، همکف
+
+    <br><br>
+
+    09147600084
 
 </footer>
 
 
-
-<!-- =========================
-     CART PANEL
-========================= -->
+<!-- CART -->
 
 <div
-class="cart-panel"
-id="cartPanel"
-onclick="closeCartOutside(event)"
+    class="cart-panel"
+    id="cartPanel"
+    onclick="closeCartOutside(event)"
 >
 
-<div class="cart-box">
+    <div class="cart-box">
+
+        <div class="cart-head">
+
+            <h2>
+                سبد خرید
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeCart()"
+            >
+                ×
+            </button>
+
+        </div>
 
 
-<div class="cart-head">
-
-<h2>
-سبد خرید
-</h2>
-
-<button
-class="close"
-onclick="closeCart()"
->
-×
-</button>
-
-</div>
+        <div id="cartItems"></div>
 
 
-<div id="cartItems"></div>
+        <div class="total">
+
+            <span>
+                مبلغ کل
+            </span>
+
+            <span>
+
+                <span id="total">
+                    0
+                </span>
+
+                تومان
+
+            </span>
+
+        </div>
 
 
-<div class="total">
+        <button
+            class="checkout"
+            onclick="checkout()"
+        >
+            ادامه پرداخت
+        </button>
 
-<span>
-مبلغ کل
-</span>
-
-<span>
-
-<span id="total">
-0
-</span>
-
-تومان
-
-</span>
-
-</div>
-
-
-<button
-class="checkout"
-onclick="checkout()"
->
-ادامه پرداخت
-</button>
-
-
-</div>
+    </div>
 
 </div>
 
 
-
-<!-- =========================
-     PAYMENT
-========================= -->
+<!-- PAYMENT -->
 
 <div
-class="payment-overlay"
-id="paymentOverlay"
+    class="payment-overlay"
+    id="paymentOverlay"
 >
 
-<div class="payment-box">
+    <div class="payment-box">
+
+        <button
+            class="payment-close"
+            onclick="closePayment()"
+        >
+            ×
+        </button>
 
 
-<button
-class="payment-close"
-onclick="closePayment()"
->
-×
-</button>
+        <div class="payment-icon">
+            💳
+        </div>
 
 
-<div class="payment-icon">
-💳
-</div>
+        <h2>
+            پرداخت سفارش
+        </h2>
 
 
-<h2>
-پرداخت سفارش
-</h2>
+        <p class="payment-subtitle">
+            مبلغ سفارش را به کارت زیر کارت‌به‌کارت کنید.
+        </p>
 
 
-<p class="payment-subtitle">
-مبلغ سفارش را به شماره کارت زیر کارت‌به‌کارت کنید.
-</p>
+        <div class="payment-total">
+
+            <span>
+                مبلغ قابل پرداخت
+            </span>
+
+            <strong id="paymentTotal">
+                0 تومان
+            </strong>
+
+        </div>
 
 
-<div class="payment-total">
+        <div class="card-info">
 
-<span>
-مبلغ قابل پرداخت
-</span>
+            <span class="card-label">
+                شماره کارت
+            </span>
 
-<strong id="paymentTotal">
-0 تومان
-</strong>
+            <div class="card-number">
+                5022 2915 7126 0742
+            </div>
 
-</div>
+            <div class="card-owner">
+                علی ستارکیا
+            </div>
 
+            <button
+                class="card-copy"
+                onclick="copyCard()"
+            >
+                کپی شماره کارت
+            </button>
 
-<div class="card-info">
-
-<span>
-شماره کارت
-</span>
-
-
-<div
-class="card-number"
->
-5022 2915 7126 0742
-</div>
+        </div>
 
 
-<strong>
-علی ستارکیا
-</strong>
+        <div class="payment-note">
+
+            <strong>
+                بعد از پرداخت:
+            </strong>
+
+            روی دکمه زیر بزنید.
+            متن سفارش آماده می‌شود و وارد PV تک پرفیوم می‌شوید.
+            سپس تصویر رسید را خودتان در تلگرام ارسال کنید.
+
+        </div>
 
 
-<button
-class="card-copy"
-onclick="copyCard()"
->
-کپی شماره کارت
-</button>
+        <button
+            class="send-receipt"
+            onclick="sendReceipt()"
+        >
+            پرداخت کردم، ارسال رسید
+        </button>
 
-</div>
-
-
-<div class="payment-note">
-
-<strong>
-مهم:
-</strong>
-
-بعد از کارت‌به‌کارت، تصویر رسید پرداخت را انتخاب کنید و سپس روی «پرداخت کردم و ارسال رسید» بزنید.
-
-</div>
-
-
-<div class="receipt-section">
-
-<label>
-تصویر رسید پرداخت
-</label>
-
-<input
-type="file"
-id="receipt"
-accept="image/*"
->
+    </div>
 
 </div>
-
-
-<button
-class="send-receipt"
-onclick="sendReceipt()"
->
-پرداخت کردم و ارسال رسید
-</button>
-
-
-</div>
-
-</div>
-
 
 
 <script>
-
 
 /* =========================
    VARIABLES
 ========================= */
 
-let currentCategory =
-"perfume";
+let currentCategory = "perfume";
 
 let cart = [];
 
@@ -2052,25 +1378,19 @@ let cart = [];
    CATEGORY
 ========================= */
 
-function setCategory(
-    category,
-    element
-){
+function setCategory(category, element){
 
-    currentCategory =
-    category;
+    currentCategory = category;
 
     document
     .querySelectorAll(".category")
     .forEach(item => {
 
-        item.classList
-        .remove("active");
+        item.classList.remove("active");
 
     });
 
-    element.classList
-    .add("active");
+    element.classList.add("active");
 
     filterProducts();
 
@@ -2092,16 +1412,15 @@ document
 function filterProducts(){
 
     const query =
-    document
-    .getElementById("search")
-    .value
-    .trim()
-    .toLowerCase();
+        document
+        .getElementById("search")
+        .value
+        .trim()
+        .toLowerCase();
 
 
     const products =
-    document
-    .querySelectorAll(".product");
+        document.querySelectorAll(".product");
 
 
     let found = 0;
@@ -2110,11 +1429,11 @@ function filterProducts(){
     products.forEach(product => {
 
         const type =
-        product.dataset.type;
+            product.dataset.type;
 
         const name =
-        product.dataset.name
-        .toLowerCase();
+            product.dataset.name
+            .toLowerCase();
 
 
         if(
@@ -2122,17 +1441,13 @@ function filterProducts(){
             name.includes(query)
         ){
 
-            product.style.display =
-            "";
+            product.style.display = "";
 
             found++;
 
-        }
+        }else{
 
-        else{
-
-            product.style.display =
-            "none";
+            product.style.display = "none";
 
         }
 
@@ -2142,15 +1457,13 @@ function filterProducts(){
     document
     .getElementById("empty")
     .style.display =
-    found === 0
-    ? "block"
-    : "none";
+        found === 0 ? "block" : "none";
 
 }
 
 
 /* =========================
-   PERFUME PRICE
+   VOLUME PRICE
 ========================= */
 
 document
@@ -2162,24 +1475,22 @@ document
         function(){
 
             const option =
-            this.options[
-                this.selectedIndex
-            ];
+                this.options[
+                    this.selectedIndex
+                ];
 
 
             const price =
-            Number(
-                option.dataset.price
-            );
+                Number(
+                    option.dataset.price
+                );
 
 
             this
             .closest(".options")
-            .querySelector(
-                ".price-value"
-            )
+            .querySelector(".price-value")
             .textContent =
-            price.toLocaleString("en-US");
+                price.toLocaleString("en-US");
 
         }
     );
@@ -2194,40 +1505,41 @@ document
 function addPerfume(button){
 
     const product =
-    button.closest(".product");
+        button.closest(".product");
 
 
     const name =
-    product
-    .querySelector("h2")
-    .textContent;
+        product
+        .querySelector("h2")
+        .textContent
+        .trim();
 
 
     const bottle =
-    product
-    .querySelector(".bottle")
-    .value;
+        product
+        .querySelector(".bottle")
+        .value;
 
 
     const volumeSelect =
-    product
-    .querySelector(".volume");
+        product
+        .querySelector(".volume");
 
 
     const volume =
-    volumeSelect.value;
+        volumeSelect.value;
 
 
     const option =
-    volumeSelect.options[
-        volumeSelect.selectedIndex
-    ];
+        volumeSelect.options[
+            volumeSelect.selectedIndex
+        ];
 
 
     const price =
-    Number(
-        option.dataset.price
-    );
+        Number(
+            option.dataset.price
+        );
 
 
     cart.push({
@@ -2238,8 +1550,7 @@ function addPerfume(button){
 
         bottle:bottle,
 
-        volume:
-        volume + "ml",
+        volume:volume + "ml",
 
         price:price
 
@@ -2248,9 +1559,8 @@ function addPerfume(button){
 
     updateCart();
 
-
     alert(
-        "محصول با موفقیت به سبد خرید اضافه شد ✓"
+        "محصول به سبد خرید اضافه شد ✓"
     );
 
 }
@@ -2283,7 +1593,6 @@ function addCologne(
 
     updateCart();
 
-
     alert(
         "ادکلن به سبد خرید اضافه شد ✓"
     );
@@ -2298,12 +1607,12 @@ function addCologne(
 function updateCart(){
 
     const container =
-    document
-    .getElementById("cartItems");
+        document.getElementById(
+            "cartItems"
+        );
 
 
-    container.innerHTML =
-    "";
+    container.innerHTML = "";
 
 
     let total = 0;
@@ -2312,79 +1621,77 @@ function updateCart(){
     cart.forEach(
         (item,index) => {
 
-        total +=
-        item.price;
+            total += item.price;
 
 
-        container.innerHTML += `
+            container.innerHTML += `
 
-        <div class="cart-item">
+                <div class="cart-item">
 
-            <button
-                class="remove"
-                onclick="removeItem(${index})"
-            >
-                حذف
-            </button>
+                    <button
+                        class="remove"
+                        onclick="removeItem(${index})"
+                    >
+                        حذف
+                    </button>
 
-            <strong>
-                ${item.name}
-            </strong>
+                    <strong>
+                        ${item.name}
+                    </strong>
 
-            <small>
+                    <small>
 
-                نوع:
-                ${item.type}
+                        نوع:
+                        ${item.type}
 
-                <br>
+                        <br>
 
-                ${item.type === "عطر"
-                    ? `مدل شیشه: ${item.bottle}<br>`
-                    : `شیشه: ${item.bottle}<br>`
-                }
+                        ${
+                            item.type === "عطر"
+                            ? `مدل شیشه: ${item.bottle}<br>`
+                            : `شیشه: ${item.bottle}<br>`
+                        }
 
-                حجم:
-                ${item.volume}
+                        حجم:
+                        ${item.volume}
 
-                <br>
+                        <br>
 
-                قیمت:
-                ${item.price.toLocaleString("en-US")}
-                تومان
+                        قیمت:
+                        ${item.price.toLocaleString("en-US")}
+                        تومان
 
-            </small>
+                    </small>
 
-        </div>
+                </div>
 
-        `;
+            `;
 
-    });
+        }
+    );
 
 
     document
     .getElementById("total")
     .textContent =
-    total.toLocaleString("en-US");
+        total.toLocaleString("en-US");
 
 
     document
     .getElementById("cartCount")
     .textContent =
-    cart.length;
+        cart.length;
 
 }
 
 
 /* =========================
-   REMOVE ITEM
+   REMOVE
 ========================= */
 
 function removeItem(index){
 
-    cart.splice(
-        index,
-        1
-    );
+    cart.splice(index,1);
 
     updateCart();
 
@@ -2392,15 +1699,14 @@ function removeItem(index){
 
 
 /* =========================
-   CART OPEN / CLOSE
+   CART
 ========================= */
 
 function openCart(){
 
     document
     .getElementById("cartPanel")
-    .classList
-    .add("show");
+    .classList.add("show");
 
 }
 
@@ -2409,8 +1715,7 @@ function closeCart(){
 
     document
     .getElementById("cartPanel")
-    .classList
-    .remove("show");
+    .classList.remove("show");
 
 }
 
@@ -2418,8 +1723,7 @@ function closeCart(){
 function closeCartOutside(event){
 
     if(
-        event.target.id ===
-        "cartPanel"
+        event.target.id === "cartPanel"
     ){
 
         closeCart();
@@ -2447,18 +1751,18 @@ function checkout(){
 
 
     let total =
-    cart.reduce(
-        (sum,item) =>
-        sum + item.price,
-        0
-    );
+        cart.reduce(
+            (sum,item) =>
+                sum + item.price,
+            0
+        );
 
 
     document
     .getElementById("paymentTotal")
     .textContent =
-    total.toLocaleString("en-US")
-    + " تومان";
+        total.toLocaleString("en-US")
+        + " تومان";
 
 
     closeCart();
@@ -2466,8 +1770,7 @@ function checkout(){
 
     document
     .getElementById("paymentOverlay")
-    .classList
-    .add("show");
+    .classList.add("show");
 
 }
 
@@ -2480,8 +1783,7 @@ function closePayment(){
 
     document
     .getElementById("paymentOverlay")
-    .classList
-    .remove("show");
+    .classList.remove("show");
 
 }
 
@@ -2493,7 +1795,7 @@ function closePayment(){
 function copyCard(){
 
     const card =
-    "5022291571260742";
+        "5022291571260742";
 
 
     navigator.clipboard
@@ -2508,7 +1810,7 @@ function copyCard(){
     .catch(() => {
 
         alert(
-            "کپی خودکار انجام نشد. شماره کارت: 5022291571260742"
+            "شماره کارت: 5022291571260742"
         );
 
     });
@@ -2517,10 +1819,10 @@ function copyCard(){
 
 
 /* =========================
-   SEND RECEIPT
+   SEND ORDER TO TELEGRAM
 ========================= */
 
-async function sendReceipt(){
+function sendReceipt(){
 
     if(cart.length === 0){
 
@@ -2533,29 +1835,10 @@ async function sendReceipt(){
     }
 
 
-    const receipt =
-    document
-    .getElementById("receipt");
-
-
-    if(
-        !receipt.files.length
-    ){
-
-        alert(
-            "ابتدا تصویر رسید پرداخت را انتخاب کنید."
-        );
-
-        return;
-
-    }
-
-
     let total = 0;
 
 
     let orderText =
-
 `🛍 سفارش جدید از تک پرفیوم
 
 `;
@@ -2564,80 +1847,69 @@ async function sendReceipt(){
     cart.forEach(
         (item,index) => {
 
-        total +=
-        item.price;
+            total += item.price;
 
 
-        orderText +=
-
+            orderText +=
 `${index + 1}. ${item.name}
-نوع: ${item.type}
 `;
 
 
-        if(item.type === "عطر"){
-
             orderText +=
+`نوع: ${item.type}
+`;
+
+
+            if(item.type === "عطر"){
+
+                orderText +=
 `مدل شیشه: ${item.bottle}
 `;
 
-        }
+            }
 
-        else{
 
             orderText +=
-`شیشه: ${item.bottle}
+`حجم: ${item.volume}
+`;
+
+
+            orderText +=
+`قیمت: ${item.price.toLocaleString("en-US")} تومان
+
 `;
 
         }
-
-
-        orderText +=
-
-`حجم: ${item.volume}
-قیمت: ${item.price.toLocaleString("en-US")} تومان
-
-`;
-
-    });
-
-
-    orderText +=
-
-`💰 مبلغ کل:
-${total.toLocaleString("en-US")} تومان
-
-📎 رسید پرداخت پیوست شده است.`;
-
-
-    try{
-
-        await navigator
-        .clipboard
-        .writeText(orderText);
-
-    }
-
-    catch(error){
-
-        console.log(error);
-
-    }
-
-
-    window.open(
-        "https://t.me/Perfume1655",
-        "_blank"
     );
 
 
-    setTimeout(() => {
+    orderText +=
+`━━━━━━━━━━━━
+💰 مبلغ کل:
+${total.toLocaleString("en-US")} تومان
 
-        alert(
-            "متن سفارش کپی شد. داخل تلگرام Paste کنید و تصویر رسید را هم ارسال کنید."
+📎 رسید پرداخت را در همین چت ارسال می‌کنم.`;
+
+
+    /*
+       Telegram Share
+       متن سفارش آماده می‌شود.
+    */
+
+    const telegramURL =
+        "https://t.me/share/url" +
+        "?url=" +
+        encodeURIComponent(
+            "https://t.me/Perfume1655"
+        ) +
+        "&text=" +
+        encodeURIComponent(
+            orderText
         );
 
-    },500);
+
+    window.location.href =
+        telegramURL;
 
 }
 
@@ -2650,10 +1922,7 @@ filterProducts();
 
 updateCart();
 
-
 </script>
 
 </body>
-
 </html>
-```
