@@ -1,11 +1,13 @@
 ```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>محصولات | تک پرفیوم</title>
+<title>فروشگاه | تک پرفیوم</title>
 
 <style>
 
@@ -22,435 +24,1224 @@
     --card:#12091c;
     --purple:#8b5cf6;
     --purple2:#a78bfa;
-    --text:#fff;
+    --text:#ffffff;
     --muted:#aaa1b5;
     --border:rgba(167,139,250,.16);
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
+
     font-family:Vazirmatn,sans-serif;
+
     background:
-    radial-gradient(circle at 80% 0%,rgba(124,58,237,.18),transparent 35%),
+    radial-gradient(
+        circle at 80% 0%,
+        rgba(124,58,237,.20),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 10% 40%,
+        rgba(139,92,246,.08),
+        transparent 30%
+    ),
     var(--bg);
+
     color:var(--text);
+
     min-height:100vh;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
+
     position:sticky;
     top:0;
     z-index:100;
+
     padding:15px 5%;
+
     background:rgba(8,4,15,.78);
+
     backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+
+    border-bottom:1px solid
+    rgba(255,255,255,.06);
+
 }
 
 .nav{
+
     max-width:1200px;
     margin:auto;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
+    gap:15px;
+
 }
 
 .logo{
-    text-decoration:none;
+
     color:white;
-    font-weight:800;
+
+    text-decoration:none;
+
     font-size:21px;
+
+    font-weight:800;
+
     letter-spacing:2px;
+
 }
 
 .logo span{
+
     color:var(--purple2);
+
 }
 
 .cart-btn{
+
     border:1px solid var(--border);
-    background:rgba(139,92,246,.12);
+
+    background:
+    rgba(139,92,246,.12);
+
     color:white;
+
     padding:10px 16px;
+
     border-radius:12px;
+
     font-family:inherit;
+
     cursor:pointer;
+
+    transition:.3s;
+
 }
 
-/* HERO */
+.cart-btn:hover{
+
+    background:
+    rgba(139,92,246,.25);
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
+
     text-align:center;
-    padding:70px 20px 40px;
+
+    padding:
+    75px 20px 45px;
+
 }
 
 .hero small{
+
     color:var(--purple2);
+
     letter-spacing:4px;
+
     font-size:11px;
+
 }
 
 .hero h1{
-    font-size:clamp(38px,7vw,64px);
+
+    font-size:
+    clamp(38px,7vw,65px);
+
     margin:15px 0;
+
 }
 
 .hero h1 span{
+
     color:var(--purple2);
+
 }
 
 .hero p{
+
     color:var(--muted);
+
     font-size:13px;
+
 }
 
-/* CATEGORY */
+
+/* =========================
+   CATEGORY
+========================= */
 
 .categories{
+
     max-width:900px;
-    margin:0 auto 45px;
+
+    margin:
+    0 auto 40px;
+
     padding:0 20px;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:15px;
+
 }
 
 .category{
+
     border:1px solid var(--border);
-    background:rgba(255,255,255,.035);
+
+    background:
+    rgba(255,255,255,.035);
+
     border-radius:20px;
-    padding:25px;
+
+    padding:26px;
+
     text-align:center;
+
     cursor:pointer;
-    transition:.35s;
+
+    transition:.4s;
+
 }
 
-.category:hover,
+.category:hover{
+
+    transform:
+    translateY(-5px);
+
+    border-color:
+    rgba(167,139,250,.45);
+
+}
+
 .category.active{
-    transform:translateY(-4px);
-    border-color:rgba(167,139,250,.5);
-    background:rgba(139,92,246,.13);
+
+    background:
+    rgba(139,92,246,.14);
+
+    border-color:
+    rgba(167,139,250,.5);
+
 }
 
 .category-icon{
-    font-size:35px;
+
+    font-size:36px;
+
     margin-bottom:10px;
+
 }
 
 .category h2{
+
     font-size:18px;
+
 }
 
 .category p{
+
     color:var(--muted);
+
     font-size:10px;
+
     margin-top:7px;
+
 }
 
-/* SEARCH */
+
+/* =========================
+   SEARCH
+========================= */
 
 .search-box{
+
     max-width:900px;
-    margin:0 auto 30px;
+
+    margin:
+    0 auto 35px;
+
     padding:0 20px;
+
 }
 
 .search-box input{
+
     width:100%;
-    background:rgba(255,255,255,.035);
-    border:1px solid var(--border);
-    padding:15px 18px;
-    border-radius:14px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid var(--border);
+
     color:white;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
     outline:none;
+
     font-family:inherit;
+
 }
 
 .search-box input:focus{
-    border-color:var(--purple);
+
+    border-color:
+    var(--purple);
+
 }
 
-/* PRODUCTS */
+
+/* =========================
+   PRODUCTS
+========================= */
 
 .products{
+
     max-width:1200px;
+
     margin:auto;
-    padding:0 20px 100px;
+
+    padding:
+    0 20px 100px;
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:18px;
+
 }
 
 .product{
+
     background:
-    linear-gradient(145deg,
-    rgba(139,92,246,.08),
-    rgba(255,255,255,.025));
-    border:1px solid var(--border);
+    linear-gradient(
+        145deg,
+        rgba(139,92,246,.08),
+        rgba(255,255,255,.025)
+    );
+
+    border:
+    1px solid var(--border);
+
     border-radius:22px;
+
     padding:18px;
+
     transition:.4s;
-    animation:appear .6s ease both;
+
+    animation:
+    appear .6s ease both;
+
 }
 
 .product:hover{
-    transform:translateY(-6px);
-    border-color:rgba(167,139,250,.4);
+
+    transform:
+    translateY(-7px);
+
+    border-color:
+    rgba(167,139,250,.4);
+
 }
 
-/* IMAGE */
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
 
 .product-image{
+
     width:100%;
+
     height:250px;
+
     background:#f5f5f5;
+
     border-radius:17px;
+
     overflow:hidden;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     margin-bottom:18px;
+
 }
 
 .product-image img{
+
     width:100%;
+
     height:100%;
+
     object-fit:contain;
+
     padding:10px;
+
+    transition:.5s;
+
 }
 
-/* INFO */
+.product:hover
+.product-image img{
+
+    transform:scale(1.05);
+
+}
+
+
+/* =========================
+   PRODUCT INFO
+========================= */
 
 .brand{
-    color:var(--purple2);
+
+    color:
+    var(--purple2);
+
     font-size:10px;
+
 }
 
 .product h2{
+
     font-size:19px;
-    margin:7px 0;
+
+    margin:
+    7px 0;
+
 }
 
 .product-desc{
+
     color:var(--muted);
+
     font-size:11px;
+
     line-height:2;
+
     margin-bottom:15px;
+
 }
 
 .tags{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:6px;
+
     margin-bottom:18px;
+
 }
 
 .tag{
-    background:rgba(255,255,255,.045);
-    padding:6px 9px;
+
+    background:
+    rgba(255,255,255,.045);
+
+    padding:
+    6px 9px;
+
     border-radius:8px;
+
     color:#c9c0d0;
+
     font-size:9px;
+
 }
 
-/* PERFUME OPTIONS */
+
+/* =========================
+   OPTIONS
+========================= */
 
 .options{
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.06);
+
     padding-top:16px;
-    margin-top:5px;
+
 }
 
 .option-title{
-    font-size:10px;
+
     color:#c8bfd0;
+
+    font-size:10px;
+
     margin-bottom:8px;
+
 }
 
 .select{
+
     width:100%;
+
     background:#0d0715;
-    border:1px solid var(--border);
+
+    border:
+    1px solid var(--border);
+
     color:white;
+
     border-radius:10px;
+
     padding:11px;
+
     font-family:inherit;
-    margin-bottom:12px;
+
+    margin-bottom:13px;
+
     outline:none;
+
 }
 
 .price{
+
     font-size:15px;
+
     font-weight:700;
-    margin:8px 0 12px;
+
+    margin:
+    8px 0 12px;
+
 }
 
 .add{
+
     width:100%;
+
     border:0;
-    background:linear-gradient(135deg,#7c3aed,#a78bfa);
+
+    background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #a78bfa
+    );
+
     color:white;
+
     padding:12px;
+
     border-radius:11px;
+
     font-family:inherit;
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
 .add:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.1);
-}
 
-/* UNAVAILABLE */
+    transform:
+    translateY(-2px);
 
-.unavailable{
-    color:#77717e;
-    font-size:10px;
-    margin-bottom:12px;
+    filter:
+    brightness(1.08);
+
 }
 
 .disabled{
-    background:rgba(255,255,255,.06);
+
+    background:
+    rgba(255,255,255,.06);
+
     color:#77717e;
+
     cursor:not-allowed;
+
 }
 
-/* CART */
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+
+    grid-column:
+    1/-1;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    padding:60px;
+
+}
+
+
+/* =========================
+   CART
+========================= */
 
 .cart-panel{
+
     position:fixed;
+
     inset:0;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(8px);
+
+    z-index:1000;
+
+    background:
+    rgba(0,0,0,.72);
+
+    backdrop-filter:
+    blur(10px);
+
     display:none;
+
     align-items:flex-end;
+
     justify-content:center;
-    z-index:999;
+
 }
 
 .cart-panel.show{
+
     display:flex;
+
 }
 
 .cart-box{
-    width:min(600px,100%);
-    max-height:85vh;
+
+    width:
+    min(600px,100%);
+
+    max-height:88vh;
+
     overflow:auto;
+
     background:#100719;
-    border:1px solid var(--border);
-    border-radius:25px 25px 0 0;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    25px 25px 0 0;
+
     padding:25px;
-    animation:slideUp .35s ease;
+
+    animation:
+    slideUp .35s ease;
+
 }
 
 .cart-head{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     margin-bottom:20px;
+
 }
 
 .close{
+
     background:none;
+
     border:0;
+
     color:#aaa;
-    font-size:22px;
+
+    font-size:27px;
+
     cursor:pointer;
+
 }
 
 .cart-item{
-    border:1px solid rgba(255,255,255,.07);
+
+    position:relative;
+
+    border:
+    1px solid
+    rgba(255,255,255,.07);
+
     border-radius:14px;
-    padding:13px;
+
+    padding:14px;
+
     margin-bottom:10px;
+
 }
 
 .cart-item strong{
+
     display:block;
+
     margin-bottom:7px;
+
 }
 
 .cart-item small{
+
     color:var(--muted);
+
     line-height:2;
+
+}
+
+.remove{
+
+    position:absolute;
+
+    left:12px;
+
+    top:12px;
+
+    border:0;
+
+    background:
+    rgba(255,70,70,.08);
+
+    color:#ff8585;
+
+    border-radius:8px;
+
+    padding:5px 8px;
+
+    cursor:pointer;
+
 }
 
 .total{
-    border-top:1px solid rgba(255,255,255,.07);
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.07);
+
     margin-top:18px;
+
     padding-top:18px;
+
     display:flex;
+
     justify-content:space-between;
+
     font-weight:700;
+
 }
 
 .checkout{
+
     width:100%;
+
     margin-top:15px;
-    padding:13px;
+
+    padding:14px;
+
     border:0;
+
     border-radius:12px;
-    background:var(--purple);
+
+    background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #a78bfa
+    );
+
     color:white;
+
     font-family:inherit;
+
     cursor:pointer;
+
 }
 
-/* EMPTY */
 
-.empty{
-    grid-column:1/-1;
-    text-align:center;
+/* =========================
+   PAYMENT
+========================= */
+
+.payment-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:2000;
+
+    background:
+    rgba(0,0,0,.75);
+
+    backdrop-filter:
+    blur(12px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+.payment-overlay.show{
+
+    display:flex;
+
+}
+
+.payment-box{
+
+    width:
+    min(500px,100%);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:
+    linear-gradient(
+        145deg,
+        #170b25,
+        #0d0615
+    );
+
+    border:
+    1px solid
+    rgba(167,139,250,.25);
+
+    border-radius:25px;
+
+    padding:28px;
+
+    position:relative;
+
+    animation:
+    paymentIn .35s ease;
+
+}
+
+.payment-close{
+
+    position:absolute;
+
+    left:18px;
+
+    top:14px;
+
+    background:none;
+
+    border:0;
+
+    color:#aaa;
+
+    font-size:27px;
+
+    cursor:pointer;
+
+}
+
+.payment-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    rgba(139,92,246,.15);
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.payment-box h2{
+
+    font-size:24px;
+
+    margin-bottom:7px;
+
+}
+
+.payment-subtitle{
+
     color:var(--muted);
-    padding:60px;
+
+    font-size:11px;
+
+    margin-bottom:22px;
+
 }
 
-/* FOOTER */
+.payment-total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    background:
+    rgba(139,92,246,.09);
+
+    border:
+    1px solid
+    rgba(167,139,250,.14);
+
+    margin-bottom:15px;
+
+    font-size:11px;
+
+}
+
+.payment-total strong{
+
+    color:#c4a7ff;
+
+    font-size:15px;
+
+}
+
+.card-info{
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #24103b,
+        #12091d
+    );
+
+    border:
+    1px solid
+    rgba(167,139,250,.2);
+
+    text-align:center;
+
+}
+
+.card-info > span{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-bottom:10px;
+
+}
+
+.card-number{
+
+    direction:ltr;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+}
+
+.card-info strong{
+
+    font-size:11px;
+
+    color:#cfc6d7;
+
+}
+
+.card-copy{
+
+    display:block;
+
+    margin:
+    14px auto 0;
+
+    border:
+    1px solid
+    rgba(167,139,250,.2);
+
+    background:
+    rgba(255,255,255,.05);
+
+    color:white;
+
+    border-radius:9px;
+
+    padding:8px 14px;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+}
+
+.payment-note{
+
+    margin:15px 0;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:2;
+
+}
+
+.payment-note strong{
+
+    color:#c4a7ff;
+
+}
+
+.receipt-section{
+
+    margin-bottom:15px;
+
+}
+
+.receipt-section label{
+
+    display:block;
+
+    font-size:11px;
+
+    margin-bottom:8px;
+
+}
+
+.receipt-section input{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:11px;
+
+    border:
+    1px solid
+    rgba(167,139,250,.16);
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:var(--muted);
+
+    font-family:inherit;
+
+}
+
+.send-receipt{
+
+    width:100%;
+
+    border:0;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #a78bfa
+    );
+
+    color:white;
+
+    font-family:inherit;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.send-receipt:hover{
+
+    transform:
+    translateY(-2px);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.06);
+
     padding:35px;
+
+    text-align:center;
+
     color:#77717e;
+
     font-size:10px;
+
 }
 
 footer strong{
+
     color:var(--purple2);
+
 }
 
-/* ANIMATION */
+
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes appear{
+
     from{
+
         opacity:0;
-        transform:translateY(20px);
+
+        transform:
+        translateY(20px);
+
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+        translateY(0);
+
     }
+
 }
 
 @keyframes slideUp{
+
     from{
-        transform:translateY(100%);
+
+        transform:
+        translateY(100%);
+
     }
 
     to{
-        transform:translateY(0);
+
+        transform:
+        translateY(0);
+
     }
+
 }
 
-/* MOBILE */
+@keyframes paymentIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px)
+        scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
     .products{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
+
     }
 
 }
@@ -458,20 +1249,36 @@ footer strong{
 @media(max-width:600px){
 
     .products{
+
         grid-template-columns:1fr;
+
     }
 
     .categories{
+
         grid-template-columns:1fr;
+
+    }
+
+    .hero{
+
+        padding-top:55px;
+
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -481,7 +1288,10 @@ footer strong{
 TAK <span>PERFUME</span>
 </a>
 
-<button class="cart-btn" onclick="openCart()">
+<button
+class="cart-btn"
+onclick="openCart()"
+>
 🛒 سبد خرید
 <span id="cartCount">0</span>
 </button>
@@ -491,30 +1301,44 @@ TAK <span>PERFUME</span>
 </header>
 
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
 <small>TAK PERFUME</small>
 
 <h1>
-انتخاب <span>رایحه</span>
+دنیای <span>رایحه</span>
 </h1>
 
 <p>
-رایحه‌ای که بخشی از شخصیت توست.
+رایحه‌ای انتخاب کن که امضای شخصیت تو باشد.
 </p>
 
 </section>
 
 
-<!-- CATEGORY -->
+<!-- =========================
+     CATEGORY
+========================= -->
 
 <section class="categories">
 
-<div class="category active" onclick="setCategory('perfume',this)">
 
-<div class="category-icon">🧴</div>
+<div
+class="category active"
+onclick="setCategory('perfume',this)"
+>
 
-<h2>عطر</h2>
+<div class="category-icon">
+🧴
+</div>
+
+<h2>
+عطر
+</h2>
 
 <p>
 انتخاب رایحه، مدل شیشه و حجم دلخواه
@@ -523,11 +1347,18 @@ TAK <span>PERFUME</span>
 </div>
 
 
-<div class="category" onclick="setCategory('cologne',this)">
+<div
+class="category"
+onclick="setCategory('cologne',this)"
+>
 
-<div class="category-icon">🧪</div>
+<div class="category-icon">
+🧪
+</div>
 
-<h2>ادکلن</h2>
+<h2>
+ادکلن
+</h2>
 
 <p>
 ادکلن‌های آماده با شیشه اصلی
@@ -535,26 +1366,38 @@ TAK <span>PERFUME</span>
 
 </div>
 
+
 </section>
 
+
+<!-- =========================
+     SEARCH
+========================= -->
 
 <div class="search-box">
 
 <input
-id="search"
 type="text"
+id="search"
 placeholder="جستجوی نام عطر یا برند..."
 >
 
 </div>
 
 
-<section class="products" id="products">
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section
+class="products"
+id="products"
+>
 
 
-<!-- ========================= -->
-<!-- PERFUME 1 -->
-<!-- ========================= -->
+<!-- =========================
+     PERFUME 1
+========================= -->
 
 <article
 class="product"
@@ -572,22 +1415,37 @@ loading="lazy"
 
 </div>
 
-<span class="brand">Dior</span>
+<span class="brand">
+Dior
+</span>
 
-<h2>Sauvage</h2>
+<h2>
+Sauvage
+</h2>
 
 <p class="product-desc">
 رایحه‌ای قدرتمند و مردانه با ترکیبی از مرکبات، ادویه و نت‌های چوبی.
 </p>
 
 <div class="tags">
-<span class="tag">مردانه</span>
-<span class="tag">خنک</span>
-<span class="tag">چوبی</span>
+
+<span class="tag">
+مردانه
+</span>
+
+<span class="tag">
+خنک
+</span>
+
+<span class="tag">
+چوبی
+</span>
+
 </div>
 
 
 <div class="options">
+
 
 <div class="option-title">
 مدل شیشه
@@ -595,9 +1453,17 @@ loading="lazy"
 
 <select class="select bottle">
 
-<option value="کلاسیک">شیشه کلاسیک</option>
-<option value="لوکس">شیشه لوکس</option>
-<option value="فانتزی">شیشه فانتزی</option>
+<option>
+کلاسیک
+</option>
+
+<option>
+لوکس
+</option>
+
+<option>
+فانتزی
+</option>
 
 </select>
 
@@ -606,25 +1472,42 @@ loading="lazy"
 حجم
 </div>
 
-<select class="select volume">
+<select
+class="select volume"
+>
 
-<option value="10" data-price="180000">
+<option
+value="10"
+data-price="180000"
+>
 10ml
 </option>
 
-<option value="20" data-price="280000">
+<option
+value="20"
+data-price="280000"
+>
 20ml
 </option>
 
-<option value="30" data-price="380000">
+<option
+value="30"
+data-price="380000"
+>
 30ml
 </option>
 
-<option value="50" data-price="550000">
+<option
+value="50"
+data-price="550000"
+>
 50ml
 </option>
 
-<option value="100" data-price="900000">
+<option
+value="100"
+data-price="900000"
+>
 100ml
 </option>
 
@@ -632,22 +1515,33 @@ loading="lazy"
 
 
 <div class="price">
-<span class="price-value">180,000</span> تومان
+
+<span class="price-value">
+180,000
+</span>
+
+تومان
+
 </div>
 
 
-<button class="add" onclick="addPerfume(this)">
+<button
+class="add"
+onclick="addPerfume(this)"
+>
 افزودن به سبد
 </button>
+
 
 </div>
 
 </article>
 
 
-<!-- ========================= -->
-<!-- PERFUME 2 -->
-<!-- ========================= -->
+
+<!-- =========================
+     PERFUME 2
+========================= -->
 
 <article
 class="product"
@@ -665,22 +1559,37 @@ loading="lazy"
 
 </div>
 
-<span class="brand">Chanel</span>
+<span class="brand">
+Chanel
+</span>
 
-<h2>Bleu de Chanel</h2>
+<h2>
+Bleu de Chanel
+</h2>
 
 <p class="product-desc">
 رایحه‌ای شیک و تمیز با ترکیبی از مرکبات و نت‌های چوبی.
 </p>
 
 <div class="tags">
-<span class="tag">مردانه</span>
-<span class="tag">خنک</span>
-<span class="tag">چوبی</span>
+
+<span class="tag">
+مردانه
+</span>
+
+<span class="tag">
+خنک
+</span>
+
+<span class="tag">
+چوبی
+</span>
+
 </div>
 
 
 <div class="options">
+
 
 <div class="option-title">
 مدل شیشه
@@ -688,9 +1597,17 @@ loading="lazy"
 
 <select class="select bottle">
 
-<option>کلاسیک</option>
-<option>لوکس</option>
-<option>فانتزی</option>
+<option>
+کلاسیک
+</option>
+
+<option>
+لوکس
+</option>
+
+<option>
+فانتزی
+</option>
 
 </select>
 
@@ -701,61 +1618,115 @@ loading="lazy"
 
 <select class="select volume">
 
-<option value="10" data-price="190000">10ml</option>
-<option value="20" data-price="290000">20ml</option>
-<option value="30" data-price="390000">30ml</option>
-<option value="50" data-price="560000">50ml</option>
-<option value="100" data-price="920000">100ml</option>
+<option
+value="10"
+data-price="190000"
+>
+10ml
+</option>
+
+<option
+value="20"
+data-price="290000"
+>
+20ml
+</option>
+
+<option
+value="30"
+data-price="390000"
+>
+30ml
+</option>
+
+<option
+value="50"
+data-price="560000"
+>
+50ml
+</option>
+
+<option
+value="100"
+data-price="920000"
+>
+100ml
+</option>
 
 </select>
 
 
 <div class="price">
-<span class="price-value">190,000</span> تومان
+
+<span class="price-value">
+190,000
+</span>
+
+تومان
+
 </div>
 
 
-<button class="add" onclick="addPerfume(this)">
+<button
+class="add"
+onclick="addPerfume(this)"
+>
 افزودن به سبد
 </button>
+
 
 </div>
 
 </article>
 
 
-<!-- ========================= -->
-<!-- COLOGNE -->
-<!-- ========================= -->
+
+<!-- =========================
+     COLOGNE 1
+========================= -->
 
 <article
 class="product"
 data-type="cologne"
-data-name="Dior Sauvage Eau de Toilette"
+data-name="Dior Sauvage EDT"
 >
 
 <div class="product-image">
 
 <img
 src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
-alt="Dior Sauvage"
+alt="Dior Sauvage EDT"
 loading="lazy"
 >
 
 </div>
 
-<span class="brand">Dior</span>
+<span class="brand">
+Dior
+</span>
 
-<h2>Sauvage EDT</h2>
+<h2>
+Sauvage EDT
+</h2>
 
 <p class="product-desc">
-ادکلن اورجینال با شیشه و بسته‌بندی اصلی محصول.
+ادکلن آماده با شیشه اصلی و رایحه‌ای قدرتمند و ماندگار.
 </p>
 
 <div class="tags">
-<span class="tag">مردانه</span>
-<span class="tag">100ml</span>
-<span class="tag">اصل</span>
+
+<span class="tag">
+مردانه
+</span>
+
+<span class="tag">
+100ml
+</span>
+
+<span class="tag">
+اصل
+</span>
+
 </div>
 
 
@@ -765,15 +1736,15 @@ loading="lazy"
 6,800,000 تومان
 </div>
 
-<div class="unavailable">
-فعلاً ناموجود
-</div>
-
 <button
-class="add disabled"
-disabled
+class="add"
+onclick="addCologne(
+'Dior Sauvage EDT',
+'100ml',
+6800000
+)"
 >
-ناموجود
+افزودن به سبد
 </button>
 
 </div>
@@ -781,9 +1752,10 @@ disabled
 </article>
 
 
-<!-- ========================= -->
-<!-- COLOGNE 2 -->
-<!-- ========================= -->
+
+<!-- =========================
+     COLOGNE 2
+========================= -->
 
 <article
 class="product"
@@ -795,24 +1767,38 @@ data-name="Bleu de Chanel EDT"
 
 <img
 src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
-alt="Bleu de Chanel"
+alt="Bleu de Chanel EDT"
 loading="lazy"
 >
 
 </div>
 
-<span class="brand">Chanel</span>
+<span class="brand">
+Chanel
+</span>
 
-<h2>Bleu de Chanel</h2>
+<h2>
+Bleu de Chanel EDT
+</h2>
 
 <p class="product-desc">
 ادکلن آماده با شیشه اصلی و رایحه‌ای شیک و ماندگار.
 </p>
 
 <div class="tags">
-<span class="tag">مردانه</span>
-<span class="tag">100ml</span>
-<span class="tag">اصل</span>
+
+<span class="tag">
+مردانه
+</span>
+
+<span class="tag">
+100ml
+</span>
+
+<span class="tag">
+اصل
+</span>
+
 </div>
 
 
@@ -822,15 +1808,15 @@ loading="lazy"
 7,900,000 تومان
 </div>
 
-<div class="unavailable">
-فعلاً ناموجود
-</div>
-
 <button
-class="add disabled"
-disabled
+class="add"
+onclick="addCologne(
+'Bleu de Chanel EDT',
+'100ml',
+7900000
+)"
 >
-ناموجود
+افزودن به سبد
 </button>
 
 </div>
@@ -838,16 +1824,26 @@ disabled
 </article>
 
 
-<div class="empty" id="empty">
+<div
+class="empty"
+id="empty"
+>
 محصولی پیدا نشد.
 </div>
+
 
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-<strong>TAK PERFUME</strong>
+<strong>
+TAK PERFUME
+</strong>
 
 <br><br>
 
@@ -856,7 +1852,10 @@ disabled
 </footer>
 
 
-<!-- CART -->
+
+<!-- =========================
+     CART PANEL
+========================= -->
 
 <div
 class="cart-panel"
@@ -866,9 +1865,12 @@ onclick="closeCartOutside(event)"
 
 <div class="cart-box">
 
+
 <div class="cart-head">
 
-<h2>سبد خرید</h2>
+<h2>
+سبد خرید
+</h2>
 
 <button
 class="close"
@@ -885,11 +1887,18 @@ onclick="closeCart()"
 
 <div class="total">
 
-<span>مبلغ کل</span>
+<span>
+مبلغ کل
+</span>
 
 <span>
-<span id="total">0</span>
+
+<span id="total">
+0
+</span>
+
 تومان
+
 </span>
 
 </div>
@@ -902,142 +1911,324 @@ onclick="checkout()"
 ادامه پرداخت
 </button>
 
+
 </div>
 
 </div>
+
+
+
+<!-- =========================
+     PAYMENT
+========================= -->
+
+<div
+class="payment-overlay"
+id="paymentOverlay"
+>
+
+<div class="payment-box">
+
+
+<button
+class="payment-close"
+onclick="closePayment()"
+>
+×
+</button>
+
+
+<div class="payment-icon">
+💳
+</div>
+
+
+<h2>
+پرداخت سفارش
+</h2>
+
+
+<p class="payment-subtitle">
+مبلغ سفارش را به شماره کارت زیر کارت‌به‌کارت کنید.
+</p>
+
+
+<div class="payment-total">
+
+<span>
+مبلغ قابل پرداخت
+</span>
+
+<strong id="paymentTotal">
+0 تومان
+</strong>
+
+</div>
+
+
+<div class="card-info">
+
+<span>
+شماره کارت
+</span>
+
+
+<div
+class="card-number"
+>
+5022 2915 7126 0742
+</div>
+
+
+<strong>
+علی ستارکیا
+</strong>
+
+
+<button
+class="card-copy"
+onclick="copyCard()"
+>
+کپی شماره کارت
+</button>
+
+</div>
+
+
+<div class="payment-note">
+
+<strong>
+مهم:
+</strong>
+
+بعد از کارت‌به‌کارت، تصویر رسید پرداخت را انتخاب کنید و سپس روی «پرداخت کردم و ارسال رسید» بزنید.
+
+</div>
+
+
+<div class="receipt-section">
+
+<label>
+تصویر رسید پرداخت
+</label>
+
+<input
+type="file"
+id="receipt"
+accept="image/*"
+>
+
+</div>
+
+
+<button
+class="send-receipt"
+onclick="sendReceipt()"
+>
+پرداخت کردم و ارسال رسید
+</button>
+
+
+</div>
+
+</div>
+
 
 
 <script>
 
-let currentCategory = "perfume";
+
+/* =========================
+   VARIABLES
+========================= */
+
+let currentCategory =
+"perfume";
 
 let cart = [];
 
 
-/* CATEGORY */
+/* =========================
+   CATEGORY
+========================= */
 
-function setCategory(category,element){
+function setCategory(
+    category,
+    element
+){
 
-    currentCategory = category;
+    currentCategory =
+    category;
 
     document
     .querySelectorAll(".category")
-    .forEach(x =>
-        x.classList.remove("active")
-    );
+    .forEach(item => {
 
-    element.classList.add("active");
+        item.classList
+        .remove("active");
+
+    });
+
+    element.classList
+    .add("active");
 
     filterProducts();
 
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 document
 .getElementById("search")
-.addEventListener("input",filterProducts);
+.addEventListener(
+    "input",
+    filterProducts
+);
 
 
 function filterProducts(){
 
-    const search =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
+    const query =
+    document
+    .getElementById("search")
+    .value
+    .trim()
+    .toLowerCase();
+
 
     const products =
-        document.querySelectorAll(".product");
+    document
+    .querySelectorAll(".product");
+
 
     let found = 0;
+
 
     products.forEach(product => {
 
         const type =
-            product.dataset.type;
+        product.dataset.type;
 
         const name =
-            product.dataset.name
-            .toLowerCase();
+        product.dataset.name
+        .toLowerCase();
+
 
         if(
             type === currentCategory &&
-            name.includes(search)
+            name.includes(query)
         ){
 
-            product.style.display = "";
+            product.style.display =
+            "";
 
             found++;
 
-        }else{
+        }
 
-            product.style.display = "none";
+        else{
+
+            product.style.display =
+            "none";
 
         }
 
     });
 
+
     document
     .getElementById("empty")
     .style.display =
-        found === 0 ? "block" : "none";
+    found === 0
+    ? "block"
+    : "none";
 
 }
 
 
-/* PRICE */
+/* =========================
+   PERFUME PRICE
+========================= */
 
 document
 .querySelectorAll(".volume")
 .forEach(select => {
 
-    select.addEventListener("change",function(){
+    select.addEventListener(
+        "change",
+        function(){
 
-        const price =
+            const option =
+            this.options[
+                this.selectedIndex
+            ];
+
+
+            const price =
+            Number(
+                option.dataset.price
+            );
+
+
             this
-            .options[this.selectedIndex]
-            .dataset.price;
+            .closest(".options")
+            .querySelector(
+                ".price-value"
+            )
+            .textContent =
+            price.toLocaleString("en-US");
 
-        this
-        .closest(".options")
-        .querySelector(".price-value")
-        .textContent =
-            Number(price)
-            .toLocaleString("en-US");
-
-    });
+        }
+    );
 
 });
 
 
-/* ADD PERFUME */
+/* =========================
+   ADD PERFUME
+========================= */
 
 function addPerfume(button){
 
     const product =
-        button.closest(".product");
+    button.closest(".product");
+
 
     const name =
-        product.querySelector("h2").textContent;
+    product
+    .querySelector("h2")
+    .textContent;
+
 
     const bottle =
-        product.querySelector(".bottle").value;
+    product
+    .querySelector(".bottle")
+    .value;
+
+
+    const volumeSelect =
+    product
+    .querySelector(".volume");
+
 
     const volume =
-        product.querySelector(".volume").value;
+    volumeSelect.value;
+
 
     const option =
-        product
-        .querySelector(".volume")
-        .options[
-            product.querySelector(".volume").selectedIndex
-        ];
+    volumeSelect.options[
+        volumeSelect.selectedIndex
+    ];
+
 
     const price =
-        Number(option.dataset.price);
+    Number(
+        option.dataset.price
+    );
+
 
     cart.push({
 
@@ -1047,54 +2238,119 @@ function addPerfume(button){
 
         bottle:bottle,
 
-        volume:volume + "ml",
+        volume:
+        volume + "ml",
 
         price:price
 
     });
 
+
     updateCart();
 
-    alert("محصول به سبد خرید اضافه شد ✓");
+
+    alert(
+        "محصول با موفقیت به سبد خرید اضافه شد ✓"
+    );
 
 }
 
 
-/* CART */
+/* =========================
+   ADD COLOGNE
+========================= */
+
+function addCologne(
+    name,
+    volume,
+    price
+){
+
+    cart.push({
+
+        name:name,
+
+        type:"ادکلن",
+
+        bottle:"شیشه اصلی",
+
+        volume:volume,
+
+        price:price
+
+    });
+
+
+    updateCart();
+
+
+    alert(
+        "ادکلن به سبد خرید اضافه شد ✓"
+    );
+
+}
+
+
+/* =========================
+   UPDATE CART
+========================= */
 
 function updateCart(){
 
     const container =
-        document.getElementById("cartItems");
+    document
+    .getElementById("cartItems");
 
-    container.innerHTML = "";
+
+    container.innerHTML =
+    "";
+
 
     let total = 0;
 
-    cart.forEach((item,index)=>{
 
-        total += item.price;
+    cart.forEach(
+        (item,index) => {
+
+        total +=
+        item.price;
+
 
         container.innerHTML += `
 
         <div class="cart-item">
 
+            <button
+                class="remove"
+                onclick="removeItem(${index})"
+            >
+                حذف
+            </button>
+
             <strong>
-            ${item.name}
+                ${item.name}
             </strong>
 
             <small>
 
-            نوع: ${item.type}
-            <br>
+                نوع:
+                ${item.type}
 
-            شیشه: ${item.bottle}
-            <br>
+                <br>
 
-            حجم: ${item.volume}
-            <br>
+                ${item.type === "عطر"
+                    ? `مدل شیشه: ${item.bottle}<br>`
+                    : `شیشه: ${item.bottle}<br>`
+                }
 
-            قیمت: ${item.price.toLocaleString("en-US")} تومان
+                حجم:
+                ${item.volume}
+
+                <br>
+
+                قیمت:
+                ${item.price.toLocaleString("en-US")}
+                تومان
 
             </small>
 
@@ -1108,22 +2364,43 @@ function updateCart(){
     document
     .getElementById("total")
     .textContent =
-        total.toLocaleString("en-US");
+    total.toLocaleString("en-US");
 
 
     document
     .getElementById("cartCount")
     .textContent =
-        cart.length;
+    cart.length;
 
 }
 
+
+/* =========================
+   REMOVE ITEM
+========================= */
+
+function removeItem(index){
+
+    cart.splice(
+        index,
+        1
+    );
+
+    updateCart();
+
+}
+
+
+/* =========================
+   CART OPEN / CLOSE
+========================= */
 
 function openCart(){
 
     document
     .getElementById("cartPanel")
-    .classList.add("show");
+    .classList
+    .add("show");
 
 }
 
@@ -1132,14 +2409,18 @@ function closeCart(){
 
     document
     .getElementById("cartPanel")
-    .classList.remove("show");
+    .classList
+    .remove("show");
 
 }
 
 
 function closeCartOutside(event){
 
-    if(event.target.id === "cartPanel"){
+    if(
+        event.target.id ===
+        "cartPanel"
+    ){
 
         closeCart();
 
@@ -1148,31 +2429,231 @@ function closeCartOutside(event){
 }
 
 
-/* CHECKOUT */
+/* =========================
+   CHECKOUT
+========================= */
 
 function checkout(){
 
     if(cart.length === 0){
 
-        alert("سبد خرید شما خالی است.");
+        alert(
+            "سبد خرید شما خالی است."
+        );
 
         return;
 
     }
 
-    alert(
-        "مرحله پرداخت را در مرحله بعد به کارت‌به‌کارت و ارسال رسید تلگرام متصل می‌کنیم."
+
+    let total =
+    cart.reduce(
+        (sum,item) =>
+        sum + item.price,
+        0
     );
+
+
+    document
+    .getElementById("paymentTotal")
+    .textContent =
+    total.toLocaleString("en-US")
+    + " تومان";
+
+
+    closeCart();
+
+
+    document
+    .getElementById("paymentOverlay")
+    .classList
+    .add("show");
 
 }
 
 
-/* START */
+/* =========================
+   CLOSE PAYMENT
+========================= */
+
+function closePayment(){
+
+    document
+    .getElementById("paymentOverlay")
+    .classList
+    .remove("show");
+
+}
+
+
+/* =========================
+   COPY CARD
+========================= */
+
+function copyCard(){
+
+    const card =
+    "5022291571260742";
+
+
+    navigator.clipboard
+    .writeText(card)
+    .then(() => {
+
+        alert(
+            "شماره کارت کپی شد ✓"
+        );
+
+    })
+    .catch(() => {
+
+        alert(
+            "کپی خودکار انجام نشد. شماره کارت: 5022291571260742"
+        );
+
+    });
+
+}
+
+
+/* =========================
+   SEND RECEIPT
+========================= */
+
+async function sendReceipt(){
+
+    if(cart.length === 0){
+
+        alert(
+            "سبد خرید شما خالی است."
+        );
+
+        return;
+
+    }
+
+
+    const receipt =
+    document
+    .getElementById("receipt");
+
+
+    if(
+        !receipt.files.length
+    ){
+
+        alert(
+            "ابتدا تصویر رسید پرداخت را انتخاب کنید."
+        );
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    let orderText =
+
+`🛍 سفارش جدید از تک پرفیوم
+
+`;
+
+
+    cart.forEach(
+        (item,index) => {
+
+        total +=
+        item.price;
+
+
+        orderText +=
+
+`${index + 1}. ${item.name}
+نوع: ${item.type}
+`;
+
+
+        if(item.type === "عطر"){
+
+            orderText +=
+`مدل شیشه: ${item.bottle}
+`;
+
+        }
+
+        else{
+
+            orderText +=
+`شیشه: ${item.bottle}
+`;
+
+        }
+
+
+        orderText +=
+
+`حجم: ${item.volume}
+قیمت: ${item.price.toLocaleString("en-US")} تومان
+
+`;
+
+    });
+
+
+    orderText +=
+
+`💰 مبلغ کل:
+${total.toLocaleString("en-US")} تومان
+
+📎 رسید پرداخت پیوست شده است.`;
+
+
+    try{
+
+        await navigator
+        .clipboard
+        .writeText(orderText);
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+
+    window.open(
+        "https://t.me/Perfume1655",
+        "_blank"
+    );
+
+
+    setTimeout(() => {
+
+        alert(
+            "متن سفارش کپی شد. داخل تلگرام Paste کنید و تصویر رسید را هم ارسال کنید."
+        );
+
+    },500);
+
+}
+
+
+/* =========================
+   START
+========================= */
 
 filterProducts();
+
+updateCart();
+
 
 </script>
 
 </body>
+
 </html>
 ```
