@@ -4,30 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TAK PERFUME | فروشگاه عطر و ادکلن</title>
+<title>TAK PERFUME | فروشگاه</title>
 
-<meta name="theme-color" content="#08050d">
+<meta name="theme-color" content="#09070d">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
 :root{
-    --bg:#07050a;
-    --bg2:#0c0711;
-    --card:rgba(19,13,24,.78);
-    --purple:#b86cff;
-    --purple2:#7d32b8;
-    --purple3:#d5a1ff;
-    --text:#fff;
-    --muted:#a49daa;
-    --border:rgba(255,255,255,.09);
-    --border-purple:rgba(190,105,255,.28);
+    --bg:#08070b;
+    --bg2:#100c15;
+    --card:rgba(255,255,255,.045);
+    --card2:rgba(255,255,255,.065);
+    --border:rgba(255,255,255,.10);
+    --text:#f8f5fa;
+    --muted:#aaa3af;
+    --purple:#a66cff;
+    --purple2:#7d3cff;
+    --danger:#ff5b6e;
+    --success:#55d98b;
+    --shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -35,1188 +37,758 @@ html{
 }
 
 body{
-    font-family:"Vazirmatn",Tahoma,Arial,sans-serif;
+    font-family:'Vazirmatn',sans-serif;
     background:
-        radial-gradient(circle at 50% 0%,rgba(126,48,175,.13),transparent 35%),
-        linear-gradient(180deg,#08050b 0%,#050308 100%);
+        radial-gradient(circle at 80% 0%,rgba(126,60,255,.12),transparent 30%),
+        radial-gradient(circle at 10% 80%,rgba(166,108,255,.06),transparent 28%),
+        var(--bg);
     color:var(--text);
     min-height:100vh;
-    overflow-x:hidden;
 }
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
-
-#liveGrid{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    z-index:0;
-    opacity:.8;
-}
-
-.bg-title{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:1;
-}
-
-.flying-text{
-    position:absolute;
-    white-space:nowrap;
-    color:rgba(198,126,255,.045);
-    font-size:clamp(22px,4vw,62px);
-    font-weight:900;
-    letter-spacing:8px;
-    text-transform:uppercase;
-    user-select:none;
-    animation:luxuryMove linear infinite;
-}
-
-.flying-text:nth-child(1){
-    top:12%;
-    animation-duration:30s;
-    animation-delay:-14s;
-}
-
-.flying-text:nth-child(2){
-    top:31%;
-    font-size:32px;
-    animation-duration:38s;
-    animation-delay:-25s;
-}
-
-.flying-text:nth-child(3){
-    top:51%;
-    font-size:58px;
-    animation-duration:34s;
-    animation-delay:-9s;
-}
-
-.flying-text:nth-child(4){
-    top:73%;
-    font-size:27px;
-    animation-duration:42s;
-    animation-delay:-30s;
-}
-
-.flying-text:nth-child(5){
-    top:89%;
-    font-size:42px;
-    animation-duration:35s;
-    animation-delay:-19s;
-}
-
-@keyframes luxuryMove{
-    0%{
-        transform:translate3d(115vw,0,0) scale(.7);
-        opacity:0;
-    }
-
-    15%{
-        opacity:.7;
-    }
-
-    50%{
-        opacity:1;
-    }
-
-    82%{
-        opacity:.45;
-    }
-
-    100%{
-        transform:translate3d(-125vw,-35px,0) scale(1.15);
-        opacity:0;
-    }
-}
-
-/* =====================================================
-   CONTENT
-===================================================== */
-
-header,
-main,
-footer{
-    position:relative;
-    z-index:5;
-}
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* ---------- HEADER ---------- */
 
 header{
     position:sticky;
     top:0;
     z-index:100;
+    background:rgba(8,7,11,.88);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+}
 
-    width:100%;
-    min-height:78px;
-    padding:15px clamp(20px,6vw,90px);
-
+.header-inner{
+    max-width:1400px;
+    margin:auto;
+    min-height:82px;
+    padding:0 24px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    border-bottom:1px solid rgba(255,255,255,.07);
-
-    background:rgba(7,5,10,.76);
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
+    gap:20px;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:3px;
     color:#fff;
-    user-select:none;
+    text-decoration:none;
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:2px;
 }
 
 .logo span{
     color:var(--purple);
 }
 
-.cart-btn{
-    position:relative;
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-    border:1px solid rgba(190,105,255,.25);
-    background:rgba(145,65,220,.10);
+.icon-btn{
+    width:45px;
+    height:45px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.045);
     color:#fff;
-
-    padding:11px 17px;
     border-radius:14px;
-
     cursor:pointer;
-    font-family:inherit;
-    font-size:13px;
-    font-weight:600;
-
-    transition:.3s ease;
-}
-
-.cart-btn:hover{
-    transform:translateY(-2px);
-    border-color:rgba(202,125,255,.55);
-    background:rgba(153,67,220,.20);
-    box-shadow:0 10px 35px rgba(128,40,190,.16);
-}
-
-#cartCount{
-    display:inline-flex;
+    display:flex;
     align-items:center;
     justify-content:center;
+    transition:.25s;
+    position:relative;
+    font-size:19px;
+}
 
-    min-width:22px;
-    height:22px;
+.icon-btn:hover{
+    border-color:rgba(166,108,255,.45);
+    background:rgba(166,108,255,.10);
+    transform:translateY(-2px);
+}
 
-    margin-right:6px;
-    padding:0 6px;
-
-    border-radius:50px;
-
-    background:linear-gradient(135deg,#7625a8,#b967ff);
-    color:white;
-
-    font-size:11px;
+.cart-count{
+    position:absolute;
+    top:-5px;
+    left:-5px;
+    min-width:19px;
+    height:19px;
+    border-radius:50%;
+    background:var(--purple);
+    color:#fff;
+    font-size:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-weight:800;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+/* ---------- MAIN ---------- */
 
-.hero{
-    width:min(1000px,92%);
+.container{
+    max-width:1400px;
     margin:auto;
-    text-align:center;
-    padding:82px 20px 38px;
+    padding:55px 24px 90px;
 }
 
-.hero h1{
-    font-size:clamp(34px,6vw,68px);
-    line-height:1.15;
-    font-weight:900;
-    letter-spacing:5px;
-    margin-bottom:15px;
-
-    text-shadow:
-        0 0 35px rgba(187,99,255,.18);
+.top-section{
+    margin-bottom:35px;
 }
 
-.hero h1 span{
-    color:var(--purple);
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--muted);
+    text-decoration:none;
+    font-size:13px;
+    margin-bottom:22px;
+    transition:.2s;
 }
 
-.hero p{
+.back-btn:hover{
+    color:#fff;
+}
+
+.title-row{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+.title-area h1{
+    font-size:clamp(27px,4vw,42px);
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.title-area p{
     color:var(--muted);
     font-size:14px;
-    font-weight:400;
 }
 
-.hero::after{
-    content:"";
-    display:block;
-
-    width:75px;
-    height:1px;
-
-    margin:28px auto 0;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        var(--purple),
-        transparent
-    );
+.category-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 14px;
+    border:1px solid rgba(166,108,255,.25);
+    background:rgba(166,108,255,.08);
+    color:#d8c4ff;
+    border-radius:999px;
+    font-size:12px;
+    margin-bottom:15px;
 }
 
-/* =====================================================
-   TYPE SWITCH
-===================================================== */
+/* ---------- FILTERS ---------- */
 
-.type-switch{
-    width:min(700px,90%);
-    margin:10px auto 28px;
-
-    padding:6px;
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:6px;
-
-    border:1px solid var(--border);
-    border-radius:18px;
-
-    background:rgba(255,255,255,.035);
-
-    backdrop-filter:blur(18px);
+.controls{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:32px;
 }
-
-.type-btn{
-    border:0;
-    border-radius:13px;
-
-    padding:15px 12px;
-
-    background:transparent;
-    color:#88818d;
-
-    cursor:pointer;
-
-    font-family:inherit;
-    font-size:14px;
-    font-weight:700;
-
-    transition:.35s ease;
-}
-
-.type-btn:hover{
-    color:#fff;
-}
-
-.type-btn.active{
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(112,39,157,.95),
-            rgba(177,76,244,.95)
-        );
-
-    box-shadow:
-        0 8px 28px rgba(144,52,211,.20),
-        inset 0 1px 0 rgba(255,255,255,.14);
-}
-
-/* =====================================================
-   SEARCH
-===================================================== */
 
 .search-box{
-    width:min(620px,90%);
-    margin:0 auto 38px;
+    flex:1;
+    min-width:240px;
     position:relative;
-}
-
-.search-box::before{
-    content:"⌕";
-    position:absolute;
-    left:18px;
-    top:50%;
-    transform:translateY(-52%);
-
-    color:#817989;
-    font-size:20px;
-
-    pointer-events:none;
 }
 
 .search-box input{
     width:100%;
-
-    padding:16px 20px 16px 48px;
-
+    height:50px;
+    padding:0 45px 0 16px;
     border:1px solid var(--border);
     border-radius:15px;
-
-    outline:none;
-
     background:rgba(255,255,255,.035);
     color:#fff;
-
-    font-family:inherit;
-    font-size:13px;
-
-    backdrop-filter:blur(18px);
-
-    transition:.3s ease;
-}
-
-.search-box input:hover{
-    border-color:rgba(255,255,255,.14);
-}
-
-.search-box input:focus{
-    border-color:rgba(190,100,255,.45);
-
-    background:rgba(255,255,255,.05);
-
-    box-shadow:
-        0 0 0 3px rgba(171,75,235,.06),
-        0 15px 45px rgba(100,30,145,.10);
-}
-
-.search-box input::placeholder{
-    color:#68616d;
-}
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-.products{
-    width:min(1200px,92%);
-    margin:0 auto 100px;
-
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(265px,1fr));
-
-    gap:24px;
-}
-
-.product{
-    position:relative;
-    overflow:hidden;
-
-    border:1px solid var(--border);
-    border-radius:23px;
-
-    padding:12px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(26,17,33,.88),
-            rgba(11,7,15,.82)
-        );
-
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    transition:
-        transform .45s ease,
-        border-color .45s ease,
-        box-shadow .45s ease;
-}
-
-.product::before{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-
-    top:-110px;
-    right:-80px;
-
-    background:rgba(181,83,255,.09);
-    filter:blur(45px);
-
-    pointer-events:none;
-}
-
-.product::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    border-radius:23px;
-
-    background:
-        linear-gradient(
-            120deg,
-            rgba(255,255,255,.035),
-            transparent 30%
-        );
-
-    pointer-events:none;
-}
-
-.product:hover{
-    transform:translateY(-7px);
-
-    border-color:var(--border-purple);
-
-    box-shadow:
-        0 25px 65px rgba(0,0,0,.30),
-        0 10px 35px rgba(124,43,175,.10);
-}
-
-/* =====================================================
-   PRODUCT IMAGE
-===================================================== */
-
-.product-image{
-    position:relative;
-    width:100%;
-    height:270px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    border-radius:17px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(178,93,245,.08),
-            rgba(255,255,255,.015) 55%,
-            rgba(0,0,0,.15)
-        );
-
-    border:1px solid rgba(255,255,255,.045);
-}
-
-.product-image::after{
-    content:"";
-
-    position:absolute;
-    left:10%;
-    right:10%;
-    bottom:12px;
-
-    height:35px;
-
-    border-radius:50%;
-
-    background:rgba(0,0,0,.55);
-    filter:blur(18px);
-
-    opacity:.6;
-}
-
-.product-image img{
-    position:relative;
-    z-index:2;
-
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    padding:10px;
-
-    transition:
-        transform .6s cubic-bezier(.2,.8,.2,1),
-        filter .6s ease;
-}
-
-.product:hover .product-image img{
-    transform:scale(1.055) translateY(-4px);
-    filter:drop-shadow(0 15px 25px rgba(0,0,0,.4));
-}
-
-/* =====================================================
-   PRODUCT INFO
-===================================================== */
-
-.product-info{
-    position:relative;
-    z-index:4;
-
-    padding:18px 5px 5px;
-}
-
-.product-name{
-    font-size:18px;
-    font-weight:800;
-    letter-spacing:.1px;
-    margin-bottom:6px;
-}
-
-.product-type{
-    display:inline-block;
-
-    color:#c989ff;
-
-    font-size:11px;
-    font-weight:600;
-
-    padding:4px 9px;
-
-    border-radius:20px;
-
-    background:rgba(178,91,244,.08);
-    border:1px solid rgba(178,91,244,.12);
-
-    margin-bottom:12px;
-}
-
-.option-label{
-    display:block;
-
-    color:#8e8794;
-
-    font-size:11px;
-    font-weight:500;
-
-    margin:13px 0 7px;
-}
-
-.product select{
-    width:100%;
-
-    padding:12px 13px;
-
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;
-
     outline:none;
-
-    background:#130c18;
-    color:#fff;
-
     font-family:inherit;
-    font-size:12px;
-
-    cursor:pointer;
-
     transition:.25s;
 }
 
-.product select:hover{
-    border-color:rgba(190,100,255,.25);
+.search-box input:focus{
+    border-color:rgba(166,108,255,.55);
+    box-shadow:0 0 0 4px rgba(166,108,255,.07);
 }
 
-.product select:focus{
-    border-color:rgba(190,100,255,.45);
+.search-icon{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#88818d;
 }
 
-.product select:disabled{
-    color:#aaa;
-    opacity:.75;
-    cursor:not-allowed;
+.select-box{
+    position:relative;
 }
 
-/* =====================================================
-   PRICE
-===================================================== */
+.select-box select{
+    height:50px;
+    min-width:190px;
+    padding:0 15px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:#121016;
+    color:#fff;
+    outline:none;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.select-box select option{
+    background:#121016;
+    color:#fff;
+}
+
+/* ---------- PRODUCTS ---------- */
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product-card{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.065),
+        rgba(255,255,255,.025)
+    );
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    transition:.3s ease;
+}
+
+.product-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(166,108,255,.32);
+}
+
+.product-card.unavailable{
+    opacity:.86;
+}
+
+.product-image{
+    height:290px;
+    background:
+        radial-gradient(circle at center,rgba(166,108,255,.12),transparent 55%),
+        #0d0b11;
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    transition:.45s;
+    padding:18px;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.045);
+}
+
+.status{
+    position:absolute;
+    top:14px;
+    right:14px;
+    z-index:2;
+    padding:7px 11px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:700;
+    backdrop-filter:blur(12px);
+}
+
+.status.available{
+    color:#9affbd;
+    background:rgba(85,217,139,.10);
+    border:1px solid rgba(85,217,139,.22);
+}
+
+.status.unavailable{
+    color:#ff9ba8;
+    background:rgba(255,91,110,.10);
+    border:1px solid rgba(255,91,110,.22);
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-type{
+    color:#a992c9;
+    font-size:11px;
+    margin-bottom:7px;
+}
+
+.product-name{
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.product-description{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+    min-height:47px;
+}
+
+.product-bottom{
+    margin-top:18px;
+}
 
 .price{
-    min-height:30px;
-
-    margin:17px 0 13px;
-
-    display:flex;
-    align-items:center;
-    gap:5px;
-
-    color:var(--purple3);
-
-    font-size:18px;
+    font-size:16px;
     font-weight:800;
+    margin-bottom:12px;
 }
 
-.price small{
-    color:#777;
-    font-size:11px;
-    font-weight:400;
+.price.unavailable-price{
+    color:#8f8994;
+    font-size:13px;
+    font-weight:500;
 }
 
-/* =====================================================
-   ADD BUTTON
-===================================================== */
+.product-options{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+    margin-bottom:13px;
+}
+
+.product-options select{
+    width:100%;
+    height:43px;
+    border:1px solid var(--border);
+    background:#121016;
+    color:#fff;
+    border-radius:12px;
+    padding:0 10px;
+    font-family:inherit;
+    outline:none;
+    font-size:12px;
+}
 
 .add-btn{
     width:100%;
-
-    padding:14px;
-
-    border:1px solid rgba(218,160,255,.10);
+    height:45px;
+    border:0;
     border-radius:13px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7025a0,
-            #a94be2
-        );
-
+    background:linear-gradient(135deg,var(--purple),var(--purple2));
     color:#fff;
-
     font-family:inherit;
-    font-size:12px;
     font-weight:700;
-
     cursor:pointer;
-
-    transition:.3s ease;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10);
+    transition:.25s;
 }
 
 .add-btn:hover{
     transform:translateY(-2px);
-
-    background:
-        linear-gradient(
-            135deg,
-            #7c29ae,
-            #b657ee
-        );
-
-    box-shadow:
-        0 12px 30px rgba(160,60,220,.20);
+    box-shadow:0 10px 25px rgba(126,60,255,.25);
 }
 
-.add-btn:active{
-    transform:translateY(0);
+.add-btn.disabled{
+    background:rgba(255,255,255,.07);
+    color:#77717c;
+    cursor:not-allowed;
 }
 
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.empty{
-    grid-column:1/-1;
-
-    min-height:220px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:#777;
-
-    border:1px dashed rgba(255,255,255,.08);
-    border-radius:22px;
-
-    background:rgba(255,255,255,.02);
-
-    font-size:14px;
+.add-btn.disabled:hover{
+    transform:none;
+    box-shadow:none;
 }
 
-/* =====================================================
-   MODAL
-===================================================== */
+/* ---------- EMPTY ---------- */
 
-.modal{
+.empty-state{
+    display:none;
+    text-align:center;
+    padding:80px 20px;
+    border:1px solid var(--border);
+    border-radius:24px;
+    background:rgba(255,255,255,.025);
+}
+
+.empty-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.empty-state h2{
+    margin-bottom:8px;
+}
+
+.empty-state p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ---------- CART ---------- */
+
+.modal-overlay{
     position:fixed;
     inset:0;
-
-    z-index:1000;
-
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    z-index:500;
     display:none;
     align-items:center;
     justify-content:center;
-
-    padding:20px;
-
-    background:rgba(0,0,0,.78);
-
-    backdrop-filter:blur(15px);
-    -webkit-backdrop-filter:blur(15px);
+    padding:18px;
 }
 
-.modal.show{
+.modal-overlay.active{
     display:flex;
-    animation:modalFade .25s ease;
 }
 
-@keyframes modalFade{
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-}
-
-.modal-box{
-    width:min(590px,100%);
+.modal{
+    width:min(620px,100%);
     max-height:90vh;
-
     overflow:auto;
-
-    padding:26px;
-
-    border:1px solid rgba(190,100,255,.20);
+    background:#100d14;
+    border:1px solid var(--border);
     border-radius:25px;
-
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(146,58,198,.12),
-            transparent 35%
-        ),
-        #100a15;
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.65);
-
-    animation:modalUp .3s ease;
+    box-shadow:0 30px 90px rgba(0,0,0,.55);
 }
 
-@keyframes modalUp{
-    from{
-        transform:translateY(15px) scale(.98);
-        opacity:0;
-    }
-
-    to{
-        transform:translateY(0) scale(1);
-        opacity:1;
-    }
-}
-
-.modal-box::-webkit-scrollbar{
-    width:5px;
-}
-
-.modal-box::-webkit-scrollbar-thumb{
-    background:#51226d;
-    border-radius:10px;
-}
-
-/* =====================================================
-   MODAL TITLE
-===================================================== */
-
-.modal-title{
+.modal-header{
+    padding:22px;
+    border-bottom:1px solid var(--border);
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    margin-bottom:20px;
 }
 
-.modal-title h2{
+.modal-header h2{
     font-size:19px;
-    font-weight:800;
 }
 
-.close{
+.close-btn{
     width:38px;
     height:38px;
-
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;
-
-    background:rgba(255,255,255,.05);
+    border-radius:11px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
     color:#fff;
-
     cursor:pointer;
-
-    font-family:Arial,sans-serif;
-    font-size:21px;
-
-    transition:.25s;
 }
 
-.close:hover{
-    background:rgba(255,255,255,.10);
-    transform:rotate(90deg);
+.modal-body{
+    padding:20px;
 }
 
-/* =====================================================
-   CART
-===================================================== */
+.cart-empty{
+    padding:50px 10px;
+    text-align:center;
+    color:var(--muted);
+}
 
 .cart-item{
-    position:relative;
-
-    padding:16px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.065);
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.cart-item-title{
-    font-size:14px;
-    font-weight:800;
-
-    margin-bottom:7px;
-
-    padding-left:35px;
+.cart-item:last-child{
+    border-bottom:0;
 }
 
-.cart-item-details{
-    color:#99929e;
+.cart-item-image{
+    width:65px;
+    height:65px;
+    border-radius:13px;
+    background:#0a090d;
+    overflow:hidden;
+    flex:none;
+}
 
-    font-size:11px;
-    line-height:2;
+.cart-item-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
 
-    padding-left:35px;
+.cart-item-info{
+    flex:1;
+}
+
+.cart-item-name{
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.cart-item-meta{
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.8;
+}
+
+.cart-item-price{
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
 }
 
 .remove-item{
-    position:absolute;
-    left:0;
-    top:17px;
-
-    width:28px;
-    height:28px;
-
-    border:1px solid rgba(255,80,110,.12);
+    width:31px;
+    height:31px;
+    border:1px solid rgba(255,91,110,.18);
+    background:rgba(255,91,110,.06);
+    color:#ff7f8c;
     border-radius:9px;
-
-    background:rgba(255,70,100,.05);
-    color:#ff8299;
-
     cursor:pointer;
-
-    transition:.25s;
-}
-
-.remove-item:hover{
-    background:rgba(255,70,100,.12);
 }
 
 .cart-total{
-    margin-top:5px;
-    padding:20px 0;
-
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid var(--border);
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
+}
 
-    color:#aaa;
-
-    font-size:14px;
-    font-weight:600;
+.cart-total span:first-child{
+    color:var(--muted);
+    font-size:13px;
 }
 
 .cart-total strong{
-    color:#d89aff;
     font-size:20px;
 }
 
-/* =====================================================
-   CHECKOUT
-===================================================== */
-
-.checkout-btn,
-.send-btn{
+.checkout-btn{
     width:100%;
-
-    padding:15px;
-
+    height:50px;
     border:0;
-    border-radius:13px;
-
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--purple),var(--purple2));
     color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7025a0,
-            #ae4be9
-        );
-
     font-family:inherit;
-    font-size:13px;
     font-weight:700;
-
     cursor:pointer;
-
-    transition:.3s;
+    margin-top:18px;
 }
 
-.checkout-btn:hover,
-.send-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 12px 35px rgba(166,67,228,.22);
-}
-
-/* =====================================================
-   PAYMENT
-===================================================== */
+/* ---------- PAYMENT ---------- */
 
 .payment-card{
-    padding:19px;
-
-    margin-bottom:18px;
-
-    border:1px solid rgba(255,255,255,.07);
+    padding:17px;
+    border:1px solid rgba(166,108,255,.18);
+    background:rgba(166,108,255,.055);
     border-radius:17px;
-
-    background:rgba(255,255,255,.035);
+    margin-bottom:18px;
 }
 
 .payment-label{
-    color:#88818c;
+    color:var(--muted);
     font-size:11px;
-}
-
-.payment-total{
-    margin-top:7px;
-
-    color:#d89aff;
-
-    font-size:25px;
-    font-weight:900;
+    margin-bottom:8px;
 }
 
 .card-number{
+    font-size:20px;
+    font-weight:800;
     direction:ltr;
     text-align:center;
-
-    margin:13px 0 7px;
-
-    color:#e1b5ff;
-
-    font-family:Arial,sans-serif;
-    font-size:21px;
-    font-weight:700;
-
     letter-spacing:2px;
 }
 
-.card-owner{
-    text-align:center;
-    color:#8e8794;
-    font-size:12px;
-}
-
-.copy-btn{
+.copy-card{
     width:100%;
-
-    padding:13px;
-
-    margin-top:17px;
-
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;
-
-    background:rgba(255,255,255,.055);
+    margin-top:12px;
+    height:40px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.045);
     color:#fff;
-
+    border-radius:11px;
     font-family:inherit;
-    font-size:12px;
-    font-weight:600;
-
     cursor:pointer;
-
-    transition:.25s;
 }
 
-.copy-btn:hover{
-    background:rgba(255,255,255,.09);
+.field{
+    margin-bottom:15px;
 }
 
-.payment-description{
-    color:#918a96;
-    font-size:12px;
-    line-height:2;
+.field label{
+    display:block;
+    color:#bbb4c0;
+    font-size:11px;
+    margin-bottom:7px;
 }
 
-.phone-input{
+.field input{
     width:100%;
-
-    padding:14px 16px;
-
-    margin:11px 0 15px;
-
-    border:1px solid rgba(255,255,255,.09);
+    height:47px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
     border-radius:12px;
-
-    outline:none;
-
-    background:#09060d;
     color:#fff;
-
-    font-family:Arial,sans-serif;
-    font-size:14px;
-
+    padding:0 13px;
+    outline:none;
+    font-family:inherit;
     direction:ltr;
     text-align:left;
-
-    transition:.25s;
 }
 
-.phone-input:focus{
-    border-color:rgba(188,101,255,.45);
-    box-shadow:0 0 0 3px rgba(172,75,235,.06);
+.field input:focus{
+    border-color:rgba(166,108,255,.5);
 }
 
-.phone-input::placeholder{
-    color:#625c67;
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-    padding:40px 20px;
-
-    border-top:1px solid rgba(255,255,255,.07);
-
-    background:rgba(5,3,8,.7);
-
-    text-align:center;
-
-    color:#777;
-
-    font-size:12px;
+.payment-note{
+    color:#8e8792;
+    font-size:10px;
     line-height:2;
+    margin-top:12px;
 }
 
-footer strong{
-    color:#bd68ff;
-    font-size:15px;
+.telegram-btn{
+    width:100%;
+    height:50px;
+    border:0;
+    border-radius:14px;
+    background:#229ed9;
+    color:#fff;
+    font-family:inherit;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:12px;
 }
 
-/* =====================================================
-   TOAST
-===================================================== */
+/* ---------- TOAST ---------- */
 
 .toast{
     position:fixed;
-
+    bottom:24px;
     left:50%;
-    bottom:25px;
-
-    transform:translateX(-50%) translateY(20px);
-
-    z-index:3000;
-
-    padding:12px 18px;
-
-    border:1px solid rgba(190,100,255,.22);
-    border-radius:12px;
-
-    background:rgba(20,12,27,.94);
+    transform:translate(-50%,120px);
+    z-index:1000;
+    background:#18141d;
+    border:1px solid var(--border);
     color:#fff;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
-
+    padding:12px 18px;
+    border-radius:13px;
     font-size:12px;
-
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    transition:.35s;
     opacity:0;
-    pointer-events:none;
-
-    transition:.3s ease;
 }
 
 .toast.show{
+    transform:translate(-50%,0);
     opacity:1;
-    transform:translateX(-50%) translateY(0);
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ---------- FOOTER ---------- */
 
-@media(max-width:700px){
+footer{
+    border-top:1px solid var(--border);
+    padding:30px 20px;
+    text-align:center;
+    color:#77717d;
+    font-size:11px;
+}
 
-    header{
-        min-height:68px;
-        padding:13px 5%;
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:1100px){
+    .products-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:800px){
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
+    }
+
+    .product-image{
+        height:245px;
+    }
+
+    .product-info{
+        padding:15px;
+    }
+
+    .title-row{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+}
+
+@media(max-width:520px){
+    .header-inner{
+        min-height:70px;
+        padding:0 15px;
     }
 
     .logo{
         font-size:18px;
-        letter-spacing:2px;
     }
 
-    .cart-btn{
-        padding:10px 13px;
-        font-size:11px;
+    .container{
+        padding:35px 14px 70px;
     }
 
-    .hero{
-        padding-top:58px;
-    }
-
-    .hero h1{
-        font-size:34px;
-        letter-spacing:2px;
-    }
-
-    .hero p{
-        font-size:12px;
-    }
-
-    .type-switch{
-        margin-top:5px;
-    }
-
-    .products{
-        width:92%;
-        grid-template-columns:1fr;
-        gap:18px;
-    }
-
-    .product{
-        border-radius:20px;
+    .products-grid{
+        grid-template-columns:1fr 1fr;
     }
 
     .product-image{
-        height:300px;
+        height:200px;
     }
 
-    .modal{
-        padding:12px;
+    .product-name{
+        font-size:14px;
     }
 
-    .modal-box{
-        padding:20px;
-        border-radius:21px;
-        max-height:92vh;
+    .product-description{
+        font-size:10px;
+        min-height:42px;
+    }
+
+    .price{
+        font-size:13px;
+    }
+
+    .add-btn{
+        height:42px;
+        font-size:11px;
+    }
+
+    .controls{
+        flex-direction:column;
+    }
+
+    .search-box{
+        min-width:100%;
+    }
+
+    .select-box select{
+        width:100%;
     }
 
     .card-number{
-        font-size:18px;
-        letter-spacing:1px;
-    }
-}
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        transition-duration:.01ms !important;
-        scroll-behavior:auto !important;
+        font-size:16px;
     }
 }
 </style>
@@ -1224,936 +796,1297 @@ footer strong{
 
 <body>
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
-<canvas id="liveGrid"></canvas>
-
-<div class="bg-title">
-    <div class="flying-text">TAK PERFUME</div>
-    <div class="flying-text">TAK PERFUME</div>
-    <div class="flying-text">TAK PERFUME</div>
-    <div class="flying-text">TAK PERFUME</div>
-    <div class="flying-text">TAK PERFUME</div>
-</div>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
+    <div class="header-inner">
 
-    <div class="logo">
-        TAK <span>PERFUME</span>
+        <a href="index.html" class="logo">
+            TAK <span>PERFUME</span>
+        </a>
+
+        <div class="header-actions">
+
+            <button class="icon-btn" onclick="openCart()" aria-label="سبد خرید">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+        </div>
+
     </div>
-
-    <button class="cart-btn" onclick="openCart()">
-        🛒 سبد خرید
-        <span id="cartCount">0</span>
-    </button>
-
 </header>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
+<main class="container">
 
-<main>
+    <section class="top-section">
 
-    <section class="hero">
+        <a href="javascript:history.back()" class="back-btn">
+            ← بازگشت
+        </a>
 
-        <h1>
-            TAK <span>PERFUME</span>
-        </h1>
+        <div class="title-row">
 
-        <p>
-            فروشگاه تخصصی عطر و ادکلن
-        </p>
+            <div class="title-area">
+
+                <div class="category-badge" id="categoryBadge">
+                    ✦ TAK PERFUME
+                </div>
+
+                <h1 id="pageTitle">محصولات</h1>
+
+                <p id="pageSubtitle">
+                    انتخابی خاص برای سلیقه‌ای خاص
+                </p>
+
+            </div>
+
+        </div>
 
     </section>
 
 
-    <!-- TYPE -->
+    <section class="controls">
 
-    <div class="type-switch">
+        <div class="search-box">
 
-        <button
-            class="type-btn active"
-            id="perfumeBtn"
-            onclick="changeType('perfume')"
-        >
-            🌸 عطر
-        </button>
+            <span class="search-icon">⌕</span>
 
-        <button
-            class="type-btn"
-            id="cologneBtn"
-            onclick="changeType('cologne')"
-        >
-            🖤 ادکلن
-        </button>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="جستجوی محصول..."
+                autocomplete="off"
+            >
 
-    </div>
+        </div>
 
 
-    <!-- SEARCH -->
+        <div class="select-box">
 
-    <div class="search-box">
+            <select id="typeFilter">
+                <option value="all">همه دسته‌ها</option>
+                <option value="perfume">عطر</option>
+                <option value="cologne">ادکلن</option>
+                <option value="body-splash">بادی اسپلش</option>
+                <option value="body-spray">اسپری بدن</option>
+                <option value="lotion">لوسیون</option>
+                <option value="gift-set">ست هدیه</option>
+            </select>
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="جستجوی نام عطر یا ادکلن..."
-            autocomplete="off"
-            oninput="renderProducts()"
-        >
+        </div>
 
-    </div>
+    </section>
 
 
-    <!-- PRODUCTS -->
+    <section class="products-grid" id="productsGrid"></section>
 
-    <section
-        class="products"
-        id="products"
-    ></section>
+
+    <section class="empty-state" id="emptyState">
+
+        <div class="empty-icon">✦</div>
+
+        <h2>محصولی پیدا نشد</h2>
+
+        <p id="emptyText">
+            این بخش به‌زودی با محصولات جدید تکمیل می‌شود.
+        </p>
+
+    </section>
 
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
-
-    <strong>TAK PERFUME</strong>
-
-    <br><br>
-
-    خیابان امام، نرسیده به چهارراه آبرسان،
-    پاساژ گلدیس، همکف
-
-    <br>
-
-    گالری عطر و ادکلن تک پرفیوم
-
-    <br><br>
-
-    📞 09147600084
-
+    © 2026 TAK PERFUME — انتخابی متفاوت، عطری ماندگار
 </footer>
 
 
-<!-- =====================================================
-     CART MODAL
-===================================================== -->
+<!-- CART MODAL -->
 
-<div
-    class="modal"
-    id="cartModal"
-    onclick="modalOutside(event,'cartModal')"
->
+<div class="modal-overlay" id="cartModal">
 
-    <div class="modal-box">
+    <div class="modal">
 
-        <div class="modal-title">
+        <div class="modal-header">
 
-            <h2>🛒 سبد خرید</h2>
+            <h2>سبد خرید</h2>
 
-            <button
-                class="close"
-                onclick="closeCart()"
-            >
-                ×
+            <button class="close-btn" onclick="closeCart()">×</button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div id="cartItems"></div>
+
+            <div class="cart-total">
+
+                <span>مبلغ نهایی</span>
+
+                <strong id="cartTotal">۰ تومان</strong>
+
+            </div>
+
+            <button class="checkout-btn" onclick="openPayment()">
+                ادامه و پرداخت
             </button>
 
         </div>
-
-        <div id="cartItems"></div>
-
-        <div class="cart-total">
-
-            <span>مجموع سفارش</span>
-
-            <strong>
-                <span id="cartTotal">0</span>
-                تومان
-            </strong>
-
-        </div>
-
-        <button
-            class="checkout-btn"
-            onclick="openPayment()"
-        >
-            ادامه و پرداخت
-        </button>
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
-     PAYMENT MODAL
-===================================================== -->
+<!-- PAYMENT MODAL -->
 
-<div
-    class="modal"
-    id="paymentModal"
-    onclick="modalOutside(event,'paymentModal')"
->
+<div class="modal-overlay" id="paymentModal">
 
-    <div class="modal-box">
+    <div class="modal">
 
-        <div class="modal-title">
+        <div class="modal-header">
 
-            <h2>💳 پرداخت سفارش</h2>
+            <h2>تکمیل سفارش</h2>
 
-            <button
-                class="close"
-                onclick="closePayment()"
-            >
-                ×
-            </button>
+            <button class="close-btn" onclick="closePayment()">×</button>
 
         </div>
 
+        <div class="modal-body">
 
-        <div class="payment-card">
+            <div class="payment-card">
 
-            <div class="payment-label">
-                مبلغ قابل پرداخت
-            </div>
+                <div class="payment-label">
+                    کارت به کارت به نام
+                </div>
 
-            <div
-                id="paymentTotal"
-                class="payment-total"
-            >
-                0 تومان
-            </div>
+                <strong style="display:block;margin-bottom:12px;">
+                    علی ستارکیا
+                </strong>
 
+                <div class="card-number">
+                    5022 2915 7126 0742
+                </div>
 
-            <div
-                class="payment-label"
-                style="margin-top:20px"
-            >
-                شماره کارت
-            </div>
+                <button class="copy-card" onclick="copyCardNumber()">
+                    کپی شماره کارت
+                </button>
 
-            <div class="card-number">
-                5022 2915 7126 0742
-            </div>
-
-            <div class="card-owner">
-                علی ستارکیا
             </div>
 
 
-            <button
-                class="copy-btn"
-                onclick="copyCard()"
-            >
-                📋 کپی شماره کارت
+            <div class="field">
+
+                <label>
+                    شماره تماس شما
+                </label>
+
+                <input
+                    type="tel"
+                    id="phoneInput"
+                    placeholder="09123456789"
+                    maxlength="13"
+                >
+
+            </div>
+
+
+            <div class="payment-note">
+
+                بعد از کارت‌به‌کارت، روی دکمه ارسال سفارش بزنید.
+                متن سفارش به تلگرام فروشگاه ارسال می‌شود.
+                سپس تصویر رسید را داخل همان چت به‌صورت دستی ارسال کنید.
+
+            </div>
+
+
+            <button class="telegram-btn" onclick="sendTelegramOrder()">
+                ارسال سفارش به تلگرام
             </button>
 
         </div>
-
-
-        <p class="payment-description">
-
-            پس از کارت‌به‌کارت، شماره موبایل خود را وارد کنید.
-            سپس روی «پرداخت کردم، ارسال رسید» بزنید تا
-            اطلاعات سفارش برای فروشگاه در تلگرام باز شود.
-            <br>
-            رسید پرداخت را نیز در همان گفت‌وگو ارسال کنید.
-
-        </p>
-
-
-        <input
-            id="phoneInput"
-            class="phone-input"
-            type="tel"
-            inputmode="tel"
-            maxlength="13"
-            placeholder="مثلاً 09123456789"
-        >
-
-
-        <button
-            class="send-btn"
-            onclick="sendOrder()"
-        >
-            📩 پرداخت کردم، ارسال رسید
-        </button>
 
     </div>
 
 </div>
 
 
-<!-- TOAST -->
-
-<div
-    class="toast"
-    id="toast"
-></div>
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* =====================================================
-   PRODUCTS
-===================================================== */
+/* =========================================================
+   PRODUCT DATABASE
+   ========================================================= */
 
 const products = [
 
-    {
-        id:1,
-        name:"Dior Sauvage",
-        type:"perfume",
-        gender:"men",
+/* ==================== MEN / PERFUME ==================== */
 
-        image:"https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024",
+{
+    id:1,
+    gender:"men",
+    type:"perfume",
+    name:"Dior Sauvage",
+    description:"رایحه‌ای قدرتمند، شیک و ماندگار برای آقایان",
+    image:"https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024",
+    available:true,
+    volumes:[
+        {ml:10,price:180000},
+        {ml:20,price:280000},
+        {ml:30,price:380000},
+        {ml:50,price:550000},
+        {ml:100,price:900000}
+    ],
+    bottles:["کلاسیک","لوکس","فانتزی"]
+},
 
-        volumes:[
-            {ml:10,price:180000},
-            {ml:20,price:280000},
-            {ml:30,price:380000},
-            {ml:50,price:550000},
-            {ml:100,price:900000}
-        ]
-    },
+{
+    id:2,
+    gender:"men",
+    type:"perfume",
+    name:"Bleu de Chanel",
+    description:"رایحه‌ای عمیق، رسمی و جذاب با شخصیت متمایز",
+    image:"https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000",
+    available:true,
+    volumes:[
+        {ml:10,price:190000},
+        {ml:20,price:290000},
+        {ml:30,price:390000},
+        {ml:50,price:560000},
+        {ml:100,price:920000}
+    ],
+    bottles:["کلاسیک","لوکس","فانتزی"]
+},
 
-    {
-        id:2,
-        name:"Bleu de Chanel",
-        type:"perfume",
-        gender:"men",
+{
+    id:5,
+    gender:"men",
+    type:"perfume",
+    name:"Creed Aventus",
+    description:"ترکیبی لوکس از رایحه‌های چوبی و میوه‌ای",
+    image:"https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
 
-        image:"https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000",
+{
+    id:6,
+    gender:"men",
+    type:"perfume",
+    name:"Tom Ford Oud Wood",
+    description:"رایحه‌ای گرم، چوبی و بسیار لوکس",
+    image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
 
-        volumes:[
-            {ml:10,price:190000},
-            {ml:20,price:290000},
-            {ml:30,price:390000},
-            {ml:50,price:560000},
-            {ml:100,price:920000}
-        ]
-    },
+{
+    id:7,
+    gender:"men",
+    type:"perfume",
+    name:"Yves Saint Laurent Y",
+    description:"رایحه‌ای مدرن و جذاب برای استفاده روزمره",
+    image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
 
-    {
-        id:3,
-        name:"Dior Sauvage EDT",
-        type:"cologne",
-        gender:"men",
 
-        image:"https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024",
+/* ==================== MEN / COLOGNE ==================== */
 
-        volume:100,
-        price:6800000
-    },
+{
+    id:3,
+    gender:"men",
+    type:"cologne",
+    name:"Dior Sauvage EDT",
+    description:"ادکلن اصلی Dior Sauvage با رایحه‌ای قدرتمند",
+    image:"https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024",
+    available:true,
+    fixedVolume:100,
+    price:6800000,
+    bottle:"شیشه اصلی"
+},
 
-    {
-        id:4,
-        name:"Bleu de Chanel EDT",
-        type:"cologne",
-        gender:"men",
+{
+    id:4,
+    gender:"men",
+    type:"cologne",
+    name:"Bleu de Chanel EDT",
+    description:"ادکلن اصیل و رسمی Chanel برای استایل خاص",
+    image:"https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000",
+    available:true,
+    fixedVolume:100,
+    price:7900000,
+    bottle:"شیشه اصلی"
+},
 
-        image:"https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000",
+{
+    id:8,
+    gender:"men",
+    type:"cologne",
+    name:"Armani Acqua di Gio",
+    description:"رایحه‌ای خنک، تمیز و کلاسیک",
+    image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
 
-        volume:100,
-        price:7900000
-    }
+{
+    id:9,
+    gender:"men",
+    type:"cologne",
+    name:"Paco Rabanne 1 Million",
+    description:"رایحه‌ای گرم و جذاب برای آقایان",
+    image:"https://images.unsplash.com/photo-1557170334-a9632e77c6e4?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+
+/* ==================== MEN / BODY SPLASH ==================== */
+
+{
+    id:10,
+    gender:"men",
+    type:"body-splash",
+    name:"Ocean Blue",
+    description:"بادی اسپلش خنک با حس تمیزی و تازگی",
+    image:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:11,
+    gender:"men",
+    type:"body-splash",
+    name:"Black Musk",
+    description:"رایحه‌ای گرم و مردانه با حس مشک",
+    image:"https://images.unsplash.com/photo-1610461888750-10b9c4b9c2f5?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+
+/* ==================== MEN / BODY SPRAY ==================== */
+
+{
+    id:12,
+    gender:"men",
+    type:"body-spray",
+    name:"Nivea Men Fresh",
+    description:"اسپری بدن خنک و مناسب استفاده روزمره",
+    image:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:13,
+    gender:"men",
+    type:"body-spray",
+    name:"Dark Night",
+    description:"رایحه‌ای تیره و جذاب برای استفاده روزانه",
+    image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+
+/* ==================== MEN / LOTION ==================== */
+
+{
+    id:14,
+    gender:"men",
+    type:"lotion",
+    name:"Men's Oud Lotion",
+    description:"لوسیون بدن با رایحه گرم و چوبی",
+    image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:15,
+    gender:"men",
+    type:"lotion",
+    name:"Fresh Aqua Lotion",
+    description:"لوسیون سبک با رایحه‌ای خنک و تازه",
+    image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+
+/* ==================== MEN / GIFT SET ==================== */
+
+{
+    id:16,
+    gender:"men",
+    type:"gift-set",
+    name:"Gentleman Gift Set",
+    description:"ست هدیه شیک مخصوص آقایان",
+    image:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:17,
+    gender:"men",
+    type:"gift-set",
+    name:"Luxury Black Set",
+    description:"ست هدیه لوکس با طراحی رسمی",
+    image:"https://images.unsplash.com/photo-1585386959984-a41552231693?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+
+/* =========================================================
+   WOMEN
+   ========================================================= */
+
+/* PERFUME */
+
+{
+    id:101,
+    gender:"women",
+    type:"perfume",
+    name:"Chanel Coco Mademoiselle",
+    description:"رایحه‌ای شیک، ظریف و ماندگار برای بانوان",
+    image:"https://images.unsplash.com/photo-1547887537-6158d64c35b8?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:102,
+    gender:"women",
+    type:"perfume",
+    name:"Dior J'adore",
+    description:"رایحه‌ای لطیف و لوکس با شخصیت زنانه",
+    image:"https://images.unsplash.com/photo-1592945403407-9caf3f1d3d6d?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:103,
+    gender:"women",
+    type:"perfume",
+    name:"Lancôme La Vie Est Belle",
+    description:"رایحه‌ای شیرین و دلنشین",
+    image:"https://images.unsplash.com/photo-1587017539504-67cfbddac569?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* COLOGNE */
+
+{
+    id:104,
+    gender:"women",
+    type:"cologne",
+    name:"Chanel Chance",
+    description:"ادکلنی ظریف و شیک با رایحه‌ای ماندگار",
+    image:"https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:105,
+    gender:"women",
+    type:"cologne",
+    name:"Dior Miss Dior",
+    description:"رایحه‌ای لطیف، مدرن و زنانه",
+    image:"https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* BODY SPLASH */
+
+{
+    id:106,
+    gender:"women",
+    type:"body-splash",
+    name:"Vanilla Dream",
+    description:"بادی اسپلش شیرین با رایحه وانیل",
+    image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:107,
+    gender:"women",
+    type:"body-splash",
+    name:"Rose Garden",
+    description:"رایحه لطیف گل رز و حس تازگی",
+    image:"https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* BODY SPRAY */
+
+{
+    id:108,
+    gender:"women",
+    type:"body-spray",
+    name:"Floral Touch",
+    description:"اسپری بدن با رایحه گل‌های لطیف",
+    image:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:109,
+    gender:"women",
+    type:"body-spray",
+    name:"Sweet Blossom",
+    description:"رایحه شیرین و دوست‌داشتنی",
+    image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* LOTION */
+
+{
+    id:110,
+    gender:"women",
+    type:"lotion",
+    name:"Rose Body Lotion",
+    description:"لوسیون بدن با رایحه گل رز",
+    image:"https://images.unsplash.com/photo-1601612628452-9e99ced43524?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:111,
+    gender:"women",
+    type:"lotion",
+    name:"Vanilla Body Lotion",
+    description:"لوسیون نرم‌کننده با رایحه وانیل",
+    image:"https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* GIFT SET */
+
+{
+    id:112,
+    gender:"women",
+    type:"gift-set",
+    name:"Lady Luxury Set",
+    description:"ست هدیه زنانه با طراحی لوکس",
+    image:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:113,
+    gender:"women",
+    type:"gift-set",
+    name:"Rose Collection",
+    description:"ست هدیه ظریف با تم گل رز",
+    image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+
+/* =========================================================
+   UNISEX
+   ========================================================= */
+
+/* PERFUME */
+
+{
+    id:201,
+    gender:"unisex",
+    type:"perfume",
+    name:"Tom Ford Oud",
+    description:"رایحه‌ای لوکس و مشترک برای خانم‌ها و آقایان",
+    image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:202,
+    gender:"unisex",
+    type:"perfume",
+    name:"Byredo Blanche",
+    description:"رایحه‌ای تمیز، مینیمال و خاص",
+    image:"https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:203,
+    gender:"unisex",
+    type:"perfume",
+    name:"Molecule 01",
+    description:"رایحه‌ای مینیمال و مدرن",
+    image:"https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* COLOGNE */
+
+{
+    id:204,
+    gender:"unisex",
+    type:"cologne",
+    name:"CK One",
+    description:"رایحه‌ای کلاسیک و مناسب همه",
+    image:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:205,
+    gender:"unisex",
+    type:"cologne",
+    name:"Jo Malone Wood Sage",
+    description:"رایحه‌ای طبیعی، چوبی و خاص",
+    image:"https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* BODY SPLASH */
+
+{
+    id:206,
+    gender:"unisex",
+    type:"body-splash",
+    name:"Coconut Breeze",
+    description:"رایحه‌ای خنک و تابستانی",
+    image:"https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:207,
+    gender:"unisex",
+    type:"body-splash",
+    name:"White Musk",
+    description:"رایحه‌ای تمیز و آرامش‌بخش",
+    image:"https://images.unsplash.com/photo-1610461888750-10b9c4b9c2f5?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* BODY SPRAY */
+
+{
+    id:208,
+    gender:"unisex",
+    type:"body-spray",
+    name:"Pure Fresh",
+    description:"اسپری بدن با حس تازگی و تمیزی",
+    image:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:209,
+    gender:"unisex",
+    type:"body-spray",
+    name:"Urban Mist",
+    description:"رایحه مدرن برای استفاده روزمره",
+    image:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* LOTION */
+
+{
+    id:210,
+    gender:"unisex",
+    type:"lotion",
+    name:"White Musk Lotion",
+    description:"لوسیون بدن با رایحه مشک سفید",
+    image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:211,
+    gender:"unisex",
+    type:"lotion",
+    name:"Aloe Fresh Lotion",
+    description:"لوسیون سبک و مناسب استفاده روزانه",
+    image:"https://images.unsplash.com/photo-1601612628452-9e99ced43524?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+/* GIFT SET */
+
+{
+    id:212,
+    gender:"unisex",
+    type:"gift-set",
+    name:"Signature Collection",
+    description:"ست هدیه خاص و مناسب خانم‌ها و آقایان",
+    image:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85",
+    available:false
+},
+
+{
+    id:213,
+    gender:"unisex",
+    type:"gift-set",
+    name:"Premium Essentials",
+    description:"مجموعه‌ای لوکس برای هدیه",
+    image:"https://images.unsplash.com/photo-1585386959984-a41552231693?auto=format&fit=crop&w=900&q=85",
+    available:false
+}
 
 ];
 
 
-/* =====================================================
-   STATE
-===================================================== */
+/* =========================================================
+   CATEGORY NAMES
+   ========================================================= */
 
-let currentType = "perfume";
+const genderNames = {
+    men:"مردانه",
+    women:"زنانه",
+    unisex:"یونیسکس"
+};
 
-let cart = [];
-
-
-/* =====================================================
-   FORMAT PRICE
-===================================================== */
-
-function formatPrice(price){
-
-    return Number(price).toLocaleString("fa-IR");
-
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-let toastTimer;
-
-function showToast(message){
-
-    const toast =
-        document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer = setTimeout(()=>{
-
-        toast.classList.remove("show");
-
-    },1800);
-
-}
+const typeNames = {
+    perfume:"عطر",
+    cologne:"ادکلن",
+    "body-splash":"بادی اسپلش",
+    "body-spray":"اسپری بدن",
+    lotion:"لوسیون",
+    "gift-set":"ست هدیه"
+};
 
 
-/* =====================================================
-   CHANGE TYPE
-===================================================== */
+/* =========================================================
+   URL PARAMETERS
+   ========================================================= */
 
-function changeType(type){
+const params = new URLSearchParams(window.location.search);
 
-    currentType = type;
+const selectedGender = params.get("gender") || "men";
+const selectedType = params.get("type") || "all";
 
-    document
-        .getElementById("perfumeBtn")
-        .classList.toggle(
-            "active",
-            type === "perfume"
-        );
 
-    document
-        .getElementById("cologneBtn")
-        .classList.toggle(
-            "active",
-            type === "cologne"
-        );
+/* =========================================================
+   CART
+   ========================================================= */
 
-    document
-        .getElementById("searchInput")
-        .value = "";
+let cart = JSON.parse(localStorage.getItem("takPerfumeCart") || "[]");
+
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const productsGrid = document.getElementById("productsGrid");
+const emptyState = document.getElementById("emptyState");
+const searchInput = document.getElementById("searchInput");
+const typeFilter = document.getElementById("typeFilter");
+
+const pageTitle = document.getElementById("pageTitle");
+const pageSubtitle = document.getElementById("pageSubtitle");
+const categoryBadge = document.getElementById("categoryBadge");
+
+
+/* =========================================================
+   PAGE SETUP
+   ========================================================= */
+
+function setupPage(){
+
+    const genderName = genderNames[selectedGender] || "محصولات";
+
+    if(selectedType !== "all" && typeNames[selectedType]){
+
+        pageTitle.textContent =
+            `${typeNames[selectedType]} ${genderName}`;
+
+        pageSubtitle.textContent =
+            `مجموعه ${typeNames[selectedType]} ${genderName} تک پرفیوم`;
+
+        categoryBadge.textContent =
+            `✦ ${genderName} / ${typeNames[selectedType]}`;
+
+        typeFilter.value = selectedType;
+
+    }else{
+
+        pageTitle.textContent =
+            `محصولات ${genderName}`;
+
+        pageSubtitle.textContent =
+            `انتخابی خاص از محصولات ${genderName} تک پرفیوم`;
+
+        categoryBadge.textContent =
+            `✦ ${genderName}`;
+
+        typeFilter.value = "all";
+    }
 
     renderProducts();
 
+    updateCartCount();
 }
 
 
-/* =====================================================
+/* =========================================================
    RENDER PRODUCTS
-===================================================== */
+   ========================================================= */
 
 function renderProducts(){
 
-    const container =
-        document.getElementById("products");
+    const search = searchInput.value.trim().toLowerCase();
 
-    const search =
-        document
-        .getElementById("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
+    const filterType = typeFilter.value;
+
+    let filtered = products.filter(product => {
+
+        const genderMatch =
+            product.gender === selectedGender;
+
+        const typeMatch =
+            filterType === "all" ||
+            product.type === filterType;
+
+        const searchMatch =
+            !search ||
+            product.name.toLowerCase().includes(search) ||
+            product.description.toLowerCase().includes(search);
+
+        return genderMatch && typeMatch && searchMatch;
+
+    });
 
 
-    const filtered =
-        products.filter(product => {
-
-            const correctType =
-                product.type === currentType;
-
-            const correctSearch =
-                product.name
-                .toLowerCase()
-                .includes(search);
-
-            return correctType && correctSearch;
-
-        });
+    productsGrid.innerHTML = "";
 
 
     if(filtered.length === 0){
 
-        container.innerHTML = `
+        productsGrid.style.display = "none";
+        emptyState.style.display = "block";
 
-            <div class="empty">
-
-                محصولی با این مشخصات پیدا نشد.
-
-            </div>
-
-        `;
+        document.getElementById("emptyText").textContent =
+            "برای این بخش هنوز محصولی ثبت نشده است.";
 
         return;
 
     }
 
 
-    container.innerHTML =
-        filtered
-        .map(product => {
+    productsGrid.style.display = "grid";
+    emptyState.style.display = "none";
 
-            if(product.type === "perfume"){
 
-                return perfumeCard(product);
+    filtered.forEach(product => {
 
-            }
+        productsGrid.appendChild(createProductCard(product));
 
-            return cologneCard(product);
-
-        })
-        .join("");
+    });
 
 }
 
 
-/* =====================================================
-   PERFUME CARD
-===================================================== */
+/* =========================================================
+   CREATE PRODUCT CARD
+   ========================================================= */
 
-function perfumeCard(product){
+function createProductCard(product){
 
-    const firstPrice =
-        product.volumes[0].price;
+    const card = document.createElement("article");
 
-
-    return `
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                    loading="lazy"
-                    onerror="this.style.opacity='.15'"
-                >
-
-            </div>
+    card.className =
+        "product-card " +
+        (!product.available ? "unavailable" : "");
 
 
-            <div class="product-info">
+    const statusHTML = product.available
 
-                <div class="product-name">
-                    ${product.name}
-                </div>
+        ? `<span class="status available">موجود</span>`
 
-
-                <div class="product-type">
-                    عطر
-                </div>
+        : `<span class="status unavailable">ناموجود</span>`;
 
 
-                <label class="option-label">
-                    مدل شیشه
-                </label>
+    let optionsHTML = "";
+    let priceHTML = "";
+    let buttonHTML = "";
 
-                <select class="bottle">
 
-                    <option value="کلاسیک">
-                        کلاسیک
+    /* ---------- AVAILABLE PERFUME ---------- */
+
+    if(product.available && product.volumes){
+
+        const volumeOptions =
+            product.volumes.map((volume,index) => {
+
+                return `
+                    <option value="${volume.ml}"
+                        ${index === 0 ? "selected" : ""}>
+                        ${volume.ml} میلی‌لیتر — ${formatPrice(volume.price)}
                     </option>
+                `;
 
-                    <option value="لوکس">
-                        لوکس
+            }).join("");
+
+
+        const bottleOptions =
+            product.bottles.map((bottle,index) => {
+
+                return `
+                    <option value="${bottle}"
+                        ${index === 0 ? "selected" : ""}>
+                        مدل شیشه: ${bottle}
                     </option>
+                `;
 
-                    <option value="فانتزی">
-                        فانتزی
-                    </option>
-
-                </select>
+            }).join("");
 
 
-                <label class="option-label">
-                    حجم
-                </label>
+        const firstPrice =
+            product.volumes[0].price;
+
+
+        priceHTML =
+            `<div class="price" id="price-${product.id}">
+                ${formatPrice(firstPrice)}
+            </div>`;
+
+
+        optionsHTML = `
+            <div class="product-options">
 
                 <select
-                    class="volume"
-                    onchange="updatePrice(this)"
-                >
+                    id="volume-${product.id}"
+                    onchange="updatePerfumePrice(${product.id})">
 
-                    ${product.volumes.map((item,index)=>`
-
-                        <option
-                            value="${item.ml}"
-                            data-price="${item.price}"
-                            ${index === 0 ? "selected" : ""}
-                        >
-                            ${item.ml} میل -
-                            ${formatPrice(item.price)}
-                            تومان
-                        </option>
-
-                    `).join("")}
+                    ${volumeOptions}
 
                 </select>
 
 
-                <div class="price">
+                <select id="bottle-${product.id}">
 
-                    <span class="dynamic-price">
-                        ${formatPrice(firstPrice)}
-                    </span>
-
-                    <small>
-                        تومان
-                    </small>
-
-                </div>
-
-
-                <button
-                    class="add-btn"
-                    onclick="addPerfume(this,${product.id})"
-                >
-                    افزودن به سبد خرید
-                </button>
-
-            </div>
-
-        </article>
-
-    `;
-
-}
-
-
-/* =====================================================
-   COLOGNE CARD
-===================================================== */
-
-function cologneCard(product){
-
-    return `
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                    loading="lazy"
-                    onerror="this.style.opacity='.15'"
-                >
-
-            </div>
-
-
-            <div class="product-info">
-
-                <div class="product-name">
-                    ${product.name}
-                </div>
-
-
-                <div class="product-type">
-                    ادکلن
-                </div>
-
-
-                <label class="option-label">
-                    مدل شیشه
-                </label>
-
-                <select disabled>
-
-                    <option>
-                        شیشه اصلی
-                    </option>
+                    ${bottleOptions}
 
                 </select>
 
-
-                <label class="option-label">
-                    حجم
-                </label>
-
-                <select disabled>
-
-                    <option>
-                        ${product.volume} میل
-                    </option>
-
-                </select>
-
-
-                <div class="price">
-
-                    ${formatPrice(product.price)}
-
-                    <small>
-                        تومان
-                    </small>
-
-                </div>
-
-
-                <button
-                    class="add-btn"
-                    onclick="addCologne(${product.id},this)"
-                >
-                    افزودن به سبد خرید
-                </button>
-
             </div>
-
-        </article>
-
-    `;
-
-}
+        `;
 
 
-/* =====================================================
-   UPDATE PRICE
-===================================================== */
+        buttonHTML = `
+            <button
+                class="add-btn"
+                onclick="addPerfume(${product.id})">
 
-function updatePrice(select){
+                افزودن به سبد
 
-    const selected =
-        select.options[
-            select.selectedIndex
-        ];
-
-    const price =
-        Number(selected.dataset.price);
-
-
-    const card =
-        select.closest(".product");
-
-
-    card
-        .querySelector(".dynamic-price")
-        .textContent =
-        formatPrice(price);
-
-}
-
-
-/* =====================================================
-   ADD PERFUME
-===================================================== */
-
-function addPerfume(button,id){
-
-    const product =
-        products.find(
-            item => item.id === id
-        );
-
-
-    if(!product){
-
-        return;
+            </button>
+        `;
 
     }
 
 
-    const card =
-        button.closest(".product");
+    /* ---------- AVAILABLE COLOGNE ---------- */
+
+    else if(product.available){
+
+        priceHTML =
+            `<div class="price">
+                ${formatPrice(product.price)}
+            </div>`;
 
 
-    const bottle =
-        card
-        .querySelector(".bottle")
-        .value;
+        optionsHTML = `
+            <div class="product-options">
+
+                <select disabled>
+                    <option>
+                        ${product.fixedVolume || 100} میلی‌لیتر — شیشه اصلی
+                    </option>
+                </select>
+
+            </div>
+        `;
 
 
-    const volumeSelect =
-        card
-        .querySelector(".volume");
+        buttonHTML = `
+            <button
+                class="add-btn"
+                onclick="addCologne(${product.id})">
+
+                افزودن به سبد
+
+            </button>
+        `;
+
+    }
 
 
-    const selected =
-        volumeSelect.options[
-            volumeSelect.selectedIndex
-        ];
+    /* ---------- UNAVAILABLE ---------- */
+
+    else{
+
+        priceHTML =
+            `<div class="price unavailable-price">
+                در حال حاضر موجود نیست
+            </div>`;
+
+
+        optionsHTML = `
+            <div class="product-options">
+
+                <select disabled>
+                    <option>محصول ناموجود</option>
+                </select>
+
+            </div>
+        `;
+
+
+        buttonHTML = `
+            <button
+                class="add-btn disabled"
+                disabled>
+
+                ناموجود
+
+            </button>
+        `;
+
+    }
+
+
+    card.innerHTML = `
+
+        <div class="product-image">
+
+            ${statusHTML}
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+                onerror="this.style.opacity='.25';"
+            >
+
+        </div>
+
+
+        <div class="product-info">
+
+            <div class="product-type">
+                ${typeNames[product.type] || "محصول"}
+            </div>
+
+            <h2 class="product-name">
+                ${product.name}
+            </h2>
+
+            <p class="product-description">
+                ${product.description}
+            </p>
+
+
+            <div class="product-bottom">
+
+                ${priceHTML}
+
+                ${optionsHTML}
+
+                ${buttonHTML}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   PRICE UPDATE
+   ========================================================= */
+
+function updatePerfumePrice(id){
+
+    const product =
+        products.find(item => item.id === id);
+
+    if(!product || !product.volumes) return;
 
 
     const volume =
-        selected.value;
+        Number(document.getElementById(`volume-${id}`).value);
 
 
-    const price =
-        Number(selected.dataset.price);
+    const selected =
+        product.volumes.find(item => item.ml === volume);
+
+
+    if(selected){
+
+        document.getElementById(`price-${id}`)
+            .textContent = formatPrice(selected.price);
+
+    }
+
+}
+
+
+/* =========================================================
+   ADD PERFUME
+   ========================================================= */
+
+function addPerfume(id){
+
+    const product =
+        products.find(item => item.id === id);
+
+    if(!product || !product.available) return;
+
+
+    const volume =
+        Number(document.getElementById(`volume-${id}`).value);
+
+
+    const bottle =
+        document.getElementById(`bottle-${id}`).value;
+
+
+    const volumeData =
+        product.volumes.find(item => item.ml === volume);
+
+
+    if(!volumeData) return;
 
 
     cart.push({
 
+        id:Date.now(),
+
+        productId:product.id,
+
         name:product.name,
 
-        type:"عطر",
+        type:typeNames[product.type],
 
-        bottle:bottle,
+        gender:genderNames[product.gender],
 
         volume:volume,
 
-        price:price
+        bottle:bottle,
+
+        price:volumeData.price,
+
+        image:product.image
 
     });
 
 
+    saveCart();
+
     updateCartCount();
 
-
-    const oldText =
-        button.textContent;
-
-
-    button.textContent =
-        "✓ به سبد اضافه شد";
-
-
-    showToast("محصول به سبد خرید اضافه شد");
-
-
-    setTimeout(()=>{
-
-        button.textContent =
-            oldText;
-
-    },1200);
+    showToast("محصول به سبد خرید اضافه شد ✓");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    ADD COLOGNE
-===================================================== */
+   ========================================================= */
 
-function addCologne(id,button){
+function addCologne(id){
 
     const product =
-        products.find(
-            item => item.id === id
-        );
+        products.find(item => item.id === id);
 
-
-    if(!product){
-
-        return;
-
-    }
+    if(!product || !product.available) return;
 
 
     cart.push({
 
+        id:Date.now(),
+
+        productId:product.id,
+
         name:product.name,
 
-        type:"ادکلن",
+        type:typeNames[product.type],
 
-        bottle:"شیشه اصلی",
+        gender:genderNames[product.gender],
 
-        volume:product.volume,
+        volume:product.fixedVolume || 100,
 
-        price:product.price
+        bottle:product.bottle || "شیشه اصلی",
+
+        price:product.price,
+
+        image:product.image
 
     });
 
 
+    saveCart();
+
     updateCartCount();
 
-
-    if(button){
-
-        const oldText =
-            button.textContent;
-
-        button.textContent =
-            "✓ به سبد اضافه شد";
-
-        setTimeout(()=>{
-
-            button.textContent =
-                oldText;
-
-        },1200);
-
-    }
-
-
-    showToast("محصول به سبد خرید اضافه شد");
+    showToast("محصول به سبد خرید اضافه شد ✓");
 
 }
 
 
-/* =====================================================
-   CART COUNT
-===================================================== */
+/* =========================================================
+   CART SAVE
+   ========================================================= */
 
-function updateCartCount(){
+function saveCart(){
 
-    document
-        .getElementById("cartCount")
-        .textContent =
-        cart.length;
-
-}
-
-
-/* =====================================================
-   TOTAL
-===================================================== */
-
-function getTotal(){
-
-    return cart.reduce(
-        (sum,item) =>
-            sum + item.price,
-        0
+    localStorage.setItem(
+        "takPerfumeCart",
+        JSON.stringify(cart)
     );
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   CART COUNT
+   ========================================================= */
+
+function updateCartCount(){
+
+    document.getElementById("cartCount")
+        .textContent = cart.length;
+
+}
+
+
+/* =========================================================
    OPEN CART
-===================================================== */
+   ========================================================= */
 
 function openCart(){
 
     renderCart();
 
-    document
-        .getElementById("cartModal")
-        .classList.add("show");
+    document.getElementById("cartModal")
+        .classList.add("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CLOSE CART
-===================================================== */
+   ========================================================= */
 
 function closeCart(){
 
-    document
-        .getElementById("cartModal")
-        .classList.remove("show");
+    document.getElementById("cartModal")
+        .classList.remove("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    RENDER CART
-===================================================== */
+   ========================================================= */
 
 function renderCart(){
 
@@ -2164,234 +2097,193 @@ function renderCart(){
     if(cart.length === 0){
 
         container.innerHTML = `
-
-            <div
-                style="
-                    text-align:center;
-                    color:#777;
-                    padding:40px 15px;
-                    font-size:13px;
-                "
-            >
+            <div class="cart-empty">
                 سبد خرید شما خالی است.
             </div>
-
         `;
 
-    }else{
-
-        container.innerHTML =
-            cart.map((item,index)=>`
-
-                <div class="cart-item">
-
-                    <button
-                        class="remove-item"
-                        onclick="removeFromCart(${index})"
-                        title="حذف"
-                    >
-                        ×
-                    </button>
-
-
-                    <div class="cart-item-title">
-
-                        ${index + 1}.
-                        ${item.name}
-
-                    </div>
-
-
-                    <div class="cart-item-details">
-
-                        نوع: ${item.type}
-
-                        <br>
-
-                        مدل شیشه: ${item.bottle}
-
-                        <br>
-
-                        حجم: ${item.volume} میل
-
-                        <br>
-
-                        قیمت:
-                        ${formatPrice(item.price)}
-                        تومان
-
-                    </div>
-
-                </div>
-
-            `)
-            .join("");
-
-    }
-
-
-    document
-        .getElementById("cartTotal")
-        .textContent =
-        formatPrice(getTotal());
-
-}
-
-
-/* =====================================================
-   REMOVE CART ITEM
-===================================================== */
-
-function removeFromCart(index){
-
-    if(index < 0 || index >= cart.length){
+        document.getElementById("cartTotal")
+            .textContent = "۰ تومان";
 
         return;
 
     }
 
 
+    container.innerHTML = "";
+
+
+    let total = 0;
+
+
+    cart.forEach((item,index) => {
+
+        total += Number(item.price);
+
+
+        const row =
+            document.createElement("div");
+
+        row.className = "cart-item";
+
+
+        row.innerHTML = `
+
+            <div class="cart-item-image">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+            </div>
+
+
+            <div class="cart-item-info">
+
+                <div class="cart-item-name">
+                    ${item.name}
+                </div>
+
+                <div class="cart-item-meta">
+
+                    ${item.type}
+
+                    ${item.volume ? ` • ${item.volume}ml` : ""}
+
+                    ${item.bottle ? ` • ${item.bottle}` : ""}
+
+                </div>
+
+            </div>
+
+
+            <div class="cart-item-price">
+
+                ${formatPrice(item.price)}
+
+            </div>
+
+
+            <button
+                class="remove-item"
+                onclick="removeFromCart(${index})">
+
+                ×
+
+            </button>
+
+        `;
+
+
+        container.appendChild(row);
+
+    });
+
+
+    document.getElementById("cartTotal")
+        .textContent = formatPrice(total);
+
+}
+
+
+/* =========================================================
+   REMOVE CART ITEM
+   ========================================================= */
+
+function removeFromCart(index){
+
     cart.splice(index,1);
+
+    saveCart();
 
     updateCartCount();
 
     renderCart();
 
-    showToast("محصول از سبد حذف شد");
+    showToast("محصول حذف شد");
 
 }
 
 
-/* =====================================================
-   OPEN PAYMENT
-===================================================== */
+/* =========================================================
+   PAYMENT
+   ========================================================= */
 
 function openPayment(){
 
     if(cart.length === 0){
 
-        showToast("سبد خرید شما خالی است.");
+        showToast("سبد خرید شما خالی است");
 
         return;
 
     }
 
 
-    document
-        .getElementById("paymentTotal")
-        .textContent =
-        formatPrice(getTotal()) +
-        " تومان";
-
-
     closeCart();
 
-
-    document
-        .getElementById("paymentModal")
-        .classList.add("show");
+    document.getElementById("paymentModal")
+        .classList.add("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CLOSE PAYMENT
-===================================================== */
+   ========================================================= */
 
 function closePayment(){
 
-    document
-        .getElementById("paymentModal")
-        .classList.remove("show");
+    document.getElementById("paymentModal")
+        .classList.remove("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    COPY CARD
-===================================================== */
+   ========================================================= */
 
-async function copyCard(){
+function copyCardNumber(){
 
-    const cardNumber =
+    const number =
         "5022291571260742";
 
 
-    try{
+    navigator.clipboard.writeText(number)
+        .then(() => {
 
-        await navigator.clipboard.writeText(
-            cardNumber
-        );
+            showToast("شماره کارت کپی شد ✓");
 
-        showToast(
-            "شماره کارت با موفقیت کپی شد"
-        );
+        })
+        .catch(() => {
 
-    }catch(error){
+            showToast("کپی شماره کارت انجام نشد");
 
-        const textarea =
-            document.createElement("textarea");
-
-        textarea.value =
-            cardNumber;
-
-        document.body.appendChild(textarea);
-
-        textarea.select();
-
-        document.execCommand("copy");
-
-        textarea.remove();
-
-        showToast(
-            "شماره کارت کپی شد"
-        );
-
-    }
+        });
 
 }
 
 
-/* =====================================================
-   PHONE VALIDATION
-===================================================== */
+/* =========================================================
+   TELEGRAM ORDER
+   ========================================================= */
 
-function validPhone(phone){
+function sendTelegramOrder(){
 
-    phone =
-        phone
-        .replace(/\s/g,"")
-        .replace(/-/g,"");
-
-
-    return /^(09\d{9}|\+989\d{9}|989\d{9})$/
-        .test(phone);
-
-}
+    const phone =
+        document.getElementById("phoneInput")
+            .value.trim();
 
 
-/* =====================================================
-   SEND ORDER
-===================================================== */
-
-function sendOrder(){
-
-    let phone =
-        document
-        .getElementById("phoneInput")
-        .value
-        .trim();
+    const phoneRegex =
+        /^(09\d{9}|\+989\d{9}|989\d{9})$/;
 
 
-    if(!validPhone(phone)){
+    if(!phoneRegex.test(phone)){
 
-        showToast(
-            "لطفاً شماره موبایل معتبر وارد کنید."
-        );
-
-        document
-            .getElementById("phoneInput")
-            .focus();
+        showToast("شماره تماس معتبر وارد کنید");
 
         return;
 
@@ -2400,53 +2292,59 @@ function sendOrder(){
 
     if(cart.length === 0){
 
-        showToast(
-            "سبد خرید شما خالی است."
-        );
+        showToast("سبد خرید خالی است");
 
         return;
 
     }
 
 
+    let total = 0;
+
+
     let text =
-        "🛍 سفارش جدید از سایت TAK PERFUME\n\n";
+`🛍 سفارش جدید از سایت TAK PERFUME
+
+━━━━━━━━━━━━━━
+
+`;
 
 
-    cart.forEach((item,index)=>{
+    cart.forEach((item,index) => {
+
+        total += Number(item.price);
+
 
         text +=
-            `${index + 1}. ${item.name}\n`;
+`${index + 1}. ${item.name}
+نوع: ${item.type}
+جنسیت: ${item.gender}
+حجم: ${item.volume} میلی‌لیتر
+شیشه: ${item.bottle}
+قیمت: ${formatPrice(item.price)}
 
-        text +=
-            `نوع: ${item.type}\n`;
-
-        text +=
-            `مدل شیشه: ${item.bottle}\n`;
-
-        text +=
-            `حجم: ${item.volume} میل\n`;
-
-        text +=
-            `قیمت: ${formatPrice(item.price)} تومان\n\n`;
+`;
 
     });
 
 
     text +=
-        `💰 مبلغ کل: ${formatPrice(getTotal())} تومان\n\n`;
+`━━━━━━━━━━━━━━
 
+💰 مبلغ نهایی:
+${formatPrice(total)}
 
-    text +=
-        `📱 شماره مشتری: ${phone}\n\n`;
+📱 شماره مشتری:
+${phone}
 
+💳 پرداخت:
+کارت به کارت
 
-    text +=
-        "💳 پرداخت کارت‌به‌کارت انجام شده است.\n";
+📸 رسید پرداخت:
+بعد از ارسال سفارش، تصویر رسید را داخل همین چت ارسال می‌کنم.
 
-
-    text +=
-        "📎 رسید پرداخت را نیز ارسال می‌کنم.";
+━━━━━━━━━━━━━━
+TAK PERFUME`;
 
 
     const telegramURL =
@@ -2462,35 +2360,104 @@ function sendOrder(){
 }
 
 
-/* =====================================================
-   MODAL OUTSIDE CLICK
-===================================================== */
+/* =========================================================
+   FORMAT PRICE
+   ========================================================= */
 
-function modalOutside(event,id){
+function formatPrice(number){
 
-    if(event.target.id === id){
-
-        document
-            .getElementById(id)
-            .classList.remove("show");
-
-    }
+    return Number(number)
+        .toLocaleString("fa-IR") +
+        " تومان";
 
 }
 
 
-/* =====================================================
-   ESC KEY
-===================================================== */
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        },2500);
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+searchInput.addEventListener(
+    "input",
+    renderProducts
+);
+
+
+/* =========================================================
+   TYPE FILTER
+   ========================================================= */
+
+typeFilter.addEventListener(
+    "change",
+    renderProducts
+);
+
+
+/* =========================================================
+   OUTSIDE CLICK
+   ========================================================= */
+
+document.querySelectorAll(".modal-overlay")
+    .forEach(overlay => {
+
+        overlay.addEventListener(
+            "click",
+            function(event){
+
+                if(event.target === overlay){
+
+                    overlay.classList.remove("active");
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   ESC
+   ========================================================= */
 
 document.addEventListener(
     "keydown",
-    event => {
+    function(event){
 
         if(event.key === "Escape"){
 
             closeCart();
-
             closePayment();
 
         }
@@ -2499,314 +2466,11 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   CANVAS BACKGROUND
-===================================================== */
-
-const canvas =
-    document.getElementById("liveGrid");
-
-const ctx =
-    canvas.getContext("2d");
-
-
-let W = 0;
-let H = 0;
-let animationTime = 0;
-
-
-function resizeCanvas(){
-
-    const dpr =
-        Math.min(
-            window.devicePixelRatio || 1,
-            2
-        );
-
-
-    W = window.innerWidth;
-    H = window.innerHeight;
-
-
-    canvas.width =
-        W * dpr;
-
-    canvas.height =
-        H * dpr;
-
-
-    canvas.style.width =
-        W + "px";
-
-    canvas.style.height =
-        H + "px";
-
-
-    ctx.setTransform(
-        dpr,
-        0,
-        0,
-        dpr,
-        0,
-        0
-    );
-
-}
-
-
-resizeCanvas();
-
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
-
-
-/* =====================================================
-   DRAW BACKGROUND
-===================================================== */
-
-function drawGrid(){
-
-    animationTime += .004;
-
-
-    ctx.clearRect(
-        0,
-        0,
-        W,
-        H
-    );
-
-
-    /* CENTER GLOW */
-
-    const glow =
-        ctx.createRadialGradient(
-            W * .5,
-            H * .35,
-            0,
-            W * .5,
-            H * .35,
-            Math.max(W,H) * .75
-        );
-
-
-    glow.addColorStop(
-        0,
-        "rgba(133,42,184,.10)"
-    );
-
-    glow.addColorStop(
-        .45,
-        "rgba(70,20,100,.035)"
-    );
-
-    glow.addColorStop(
-        1,
-        "rgba(0,0,0,0)"
-    );
-
-
-    ctx.fillStyle =
-        glow;
-
-    ctx.fillRect(
-        0,
-        0,
-        W,
-        H
-    );
-
-
-    /* PERSPECTIVE FLOOR */
-
-    const horizon =
-        H * .55;
-
-
-    for(
-        let i=0;
-        i<25;
-        i++
-    ){
-
-        const p =
-            (i / 25 + animationTime * .18) % 1;
-
-
-        const y =
-            horizon +
-            Math.pow(p,2.5) *
-            H * .65;
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            0,
-            y
-        );
-
-        ctx.lineTo(
-            W,
-            y
-        );
-
-
-        ctx.strokeStyle =
-            `rgba(180,80,235,${.018 + p*.045})`;
-
-        ctx.lineWidth = 1;
-
-        ctx.stroke();
-
-    }
-
-
-    /* PERSPECTIVE LINES */
-
-    const vanishX =
-        W / 2;
-
-    const vanishY =
-        horizon;
-
-
-    for(
-        let i=-18;
-        i<=18;
-        i++
-    ){
-
-        const bottomX =
-            W / 2 +
-            i * W * .085;
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            vanishX,
-            vanishY
-        );
-
-        ctx.lineTo(
-            bottomX,
-            H
-        );
-
-
-        ctx.strokeStyle =
-            "rgba(180,80,235,.035)";
-
-        ctx.lineWidth = 1;
-
-        ctx.stroke();
-
-    }
-
-
-    /* SOFT LIGHT */
-
-    const beamX =
-        (
-            animationTime * 160
-            %
-            (W * 1.6)
-        ) -
-        W * .3;
-
-
-    const beam =
-        ctx.createLinearGradient(
-            beamX - 180,
-            0,
-            beamX + 180,
-            0
-        );
-
-
-    beam.addColorStop(
-        0,
-        "rgba(190,80,255,0)"
-    );
-
-    beam.addColorStop(
-        .5,
-        "rgba(210,120,255,.035)"
-    );
-
-    beam.addColorStop(
-        1,
-        "rgba(190,80,255,0)"
-    );
-
-
-    ctx.fillStyle =
-        beam;
-
-    ctx.fillRect(
-        0,
-        0,
-        W,
-        H
-    );
-
-
-    /* VIGNETTE */
-
-    const vignette =
-        ctx.createRadialGradient(
-            W/2,
-            H/2,
-            H*.15,
-            W/2,
-            H/2,
-            H*.85
-        );
-
-
-    vignette.addColorStop(
-        0,
-        "rgba(0,0,0,0)"
-    );
-
-    vignette.addColorStop(
-        1,
-        "rgba(0,0,0,.62)"
-    );
-
-
-    ctx.fillStyle =
-        vignette;
-
-    ctx.fillRect(
-        0,
-        0,
-        W,
-        H
-    );
-
-
-    requestAnimationFrame(
-        drawGrid
-    );
-
-}
-
-
-drawGrid();
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-renderProducts();
-
-updateCartCount();
+/* =========================================================
+   START
+   ========================================================= */
+
+setupPage();
 
 </script>
 
