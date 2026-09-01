@@ -1,22 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>محصولات مردانه | تک پرفیوم</title>
+
+<title>محصولات | تک پرفیوم</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
-:root{
-    --bg:#08040f;
-    --card:#110a1c;
-    --purple:#8b5cf6;
-    --purple2:#a78bfa;
-    --text:#fff;
-    --muted:#a9a0b3;
-    --border:rgba(167,139,250,.16);
-}
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
 *{
     box-sizing:border-box;
@@ -24,11 +17,21 @@
     padding:0;
 }
 
+:root{
+    --bg:#08040f;
+    --card:#12091c;
+    --purple:#8b5cf6;
+    --purple2:#a78bfa;
+    --text:#fff;
+    --muted:#aaa1b5;
+    --border:rgba(167,139,250,.16);
+}
+
 body{
     font-family:Vazirmatn,sans-serif;
     background:
-        radial-gradient(circle at 80% 0%,rgba(124,58,237,.18),transparent 35%),
-        #08040f;
+    radial-gradient(circle at 80% 0%,rgba(124,58,237,.18),transparent 35%),
+    var(--bg);
     color:var(--text);
     min-height:100vh;
 }
@@ -39,8 +42,8 @@ header{
     position:sticky;
     top:0;
     z-index:100;
-    padding:16px 5%;
-    background:rgba(8,4,15,.8);
+    padding:15px 5%;
+    background:rgba(8,4,15,.78);
     backdrop-filter:blur(20px);
     border-bottom:1px solid rgba(255,255,255,.06);
 }
@@ -51,14 +54,13 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:15px;
 }
 
 .logo{
-    color:white;
     text-decoration:none;
-    font-size:21px;
+    color:white;
     font-weight:800;
+    font-size:21px;
     letter-spacing:2px;
 }
 
@@ -66,28 +68,21 @@ header{
     color:var(--purple2);
 }
 
-.back{
-    color:var(--muted);
-    text-decoration:none;
-    font-size:13px;
-}
-
-.cart{
+.cart-btn{
+    border:1px solid var(--border);
     background:rgba(139,92,246,.12);
     color:white;
-    border:1px solid var(--border);
-    padding:10px 15px;
+    padding:10px 16px;
     border-radius:12px;
     font-family:inherit;
+    cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
     text-align:center;
-    max-width:800px;
-    margin:auto;
-    padding:75px 20px 45px;
+    padding:70px 20px 40px;
 }
 
 .hero small{
@@ -98,7 +93,7 @@ header{
 
 .hero h1{
     font-size:clamp(38px,7vw,64px);
-    margin:14px 0;
+    margin:15px 0;
 }
 
 .hero h1 span{
@@ -108,58 +103,72 @@ header{
 .hero p{
     color:var(--muted);
     font-size:13px;
-    line-height:2;
 }
 
-/* CONTROLS */
+/* CATEGORY */
 
-.controls{
-    max-width:1200px;
-    margin:0 auto 40px;
+.categories{
+    max-width:900px;
+    margin:0 auto 45px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.category{
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.category:hover,
+.category.active{
+    transform:translateY(-4px);
+    border-color:rgba(167,139,250,.5);
+    background:rgba(139,92,246,.13);
+}
+
+.category-icon{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.category h2{
+    font-size:18px;
+}
+
+.category p{
+    color:var(--muted);
+    font-size:10px;
+    margin-top:7px;
+}
+
+/* SEARCH */
+
+.search-box{
+    max-width:900px;
+    margin:0 auto 30px;
     padding:0 20px;
 }
 
-.search{
-    margin-bottom:12px;
-}
-
-.search input{
+.search-box input{
     width:100%;
     background:rgba(255,255,255,.035);
     border:1px solid var(--border);
-    border-radius:14px;
     padding:15px 18px;
+    border-radius:14px;
     color:white;
     outline:none;
     font-family:inherit;
 }
 
-.search input:focus{
+.search-box input:focus{
     border-color:var(--purple);
-}
-
-.filters{
-    display:flex;
-    gap:8px;
-}
-
-.filter{
-    flex:1;
-    padding:11px;
-    border-radius:11px;
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.035);
-    color:var(--muted);
-    font-family:inherit;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.filter.active,
-.filter:hover{
-    background:rgba(139,92,246,.18);
-    color:white;
-    border-color:rgba(167,139,250,.4);
 }
 
 /* PRODUCTS */
@@ -175,21 +184,18 @@ header{
 
 .product{
     background:
-        linear-gradient(
-            145deg,
-            rgba(139,92,246,.08),
-            rgba(255,255,255,.025)
-        );
+    linear-gradient(145deg,
+    rgba(139,92,246,.08),
+    rgba(255,255,255,.025));
     border:1px solid var(--border);
     border-radius:22px;
     padding:18px;
-    overflow:hidden;
-    transition:.45s;
-    animation:show .7s both;
+    transition:.4s;
+    animation:appear .6s ease both;
 }
 
 .product:hover{
-    transform:translateY(-7px);
+    transform:translateY(-6px);
     border-color:rgba(167,139,250,.4);
 }
 
@@ -197,14 +203,14 @@ header{
 
 .product-image{
     width:100%;
-    height:270px;
+    height:250px;
+    background:#f5f5f5;
     border-radius:17px;
     overflow:hidden;
     display:flex;
-    justify-content:center;
     align-items:center;
-    background:#f4f4f4;
-    margin-bottom:20px;
+    justify-content:center;
+    margin-bottom:18px;
 }
 
 .product-image img{
@@ -212,115 +218,201 @@ header{
     height:100%;
     object-fit:contain;
     padding:10px;
-    transition:.5s;
-}
-
-.product:hover .product-image img{
-    transform:scale(1.06);
 }
 
 /* INFO */
 
-.product-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:9px;
-}
-
 .brand{
     color:var(--purple2);
-    font-size:11px;
-    font-weight:600;
-}
-
-.status{
-    color:#77717e;
-    font-size:9px;
-    padding:5px 9px;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:20px;
+    font-size:10px;
 }
 
 .product h2{
     font-size:19px;
-    margin-bottom:5px;
+    margin:7px 0;
 }
 
-.volume{
-    color:#77717e;
-    font-size:10px;
-    margin-bottom:14px;
-}
-
-.description{
+.product-desc{
     color:var(--muted);
     font-size:11px;
     line-height:2;
-    min-height:65px;
     margin-bottom:15px;
 }
 
-.specs{
+.tags{
     display:flex;
     flex-wrap:wrap;
     gap:6px;
     margin-bottom:18px;
 }
 
-.spec{
-    font-size:9px;
-    color:#c7bfce;
-    background:rgba(255,255,255,.04);
+.tag{
+    background:rgba(255,255,255,.045);
     padding:6px 9px;
     border-radius:8px;
+    color:#c9c0d0;
+    font-size:9px;
 }
 
-.bottom{
+/* PERFUME OPTIONS */
+
+.options{
     border-top:1px solid rgba(255,255,255,.06);
-    padding-top:15px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    padding-top:16px;
+    margin-top:5px;
+}
+
+.option-title{
+    font-size:10px;
+    color:#c8bfd0;
+    margin-bottom:8px;
+}
+
+.select{
+    width:100%;
+    background:#0d0715;
+    border:1px solid var(--border);
+    color:white;
+    border-radius:10px;
+    padding:11px;
+    font-family:inherit;
+    margin-bottom:12px;
+    outline:none;
 }
 
 .price{
-    font-size:14px;
+    font-size:15px;
     font-weight:700;
+    margin:8px 0 12px;
 }
+
+.add{
+    width:100%;
+    border:0;
+    background:linear-gradient(135deg,#7c3aed,#a78bfa);
+    color:white;
+    padding:12px;
+    border-radius:11px;
+    font-family:inherit;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.add:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.1);
+}
+
+/* UNAVAILABLE */
 
 .unavailable{
     color:#77717e;
-    font-size:9px;
-    margin-top:3px;
+    font-size:10px;
+    margin-bottom:12px;
 }
 
-.buy{
-    border:0;
+.disabled{
+    background:rgba(255,255,255,.06);
     color:#77717e;
-    background:rgba(255,255,255,.05);
-    padding:10px 14px;
-    border-radius:10px;
-    font-family:inherit;
     cursor:not-allowed;
+}
+
+/* CART */
+
+.cart-panel{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:999;
+}
+
+.cart-panel.show{
+    display:flex;
+}
+
+.cart-box{
+    width:min(600px,100%);
+    max-height:85vh;
+    overflow:auto;
+    background:#100719;
+    border:1px solid var(--border);
+    border-radius:25px 25px 0 0;
+    padding:25px;
+    animation:slideUp .35s ease;
+}
+
+.cart-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    background:none;
+    border:0;
+    color:#aaa;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.cart-item{
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px;
+    padding:13px;
+    margin-bottom:10px;
+}
+
+.cart-item strong{
+    display:block;
+    margin-bottom:7px;
+}
+
+.cart-item small{
+    color:var(--muted);
+    line-height:2;
+}
+
+.total{
+    border-top:1px solid rgba(255,255,255,.07);
+    margin-top:18px;
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    font-weight:700;
+}
+
+.checkout{
+    width:100%;
+    margin-top:15px;
+    padding:13px;
+    border:0;
+    border-radius:12px;
+    background:var(--purple);
+    color:white;
+    font-family:inherit;
+    cursor:pointer;
 }
 
 /* EMPTY */
 
 .empty{
-    display:none;
     grid-column:1/-1;
     text-align:center;
-    padding:80px;
     color:var(--muted);
+    padding:60px;
 }
 
 /* FOOTER */
 
 footer{
-    border-top:1px solid rgba(255,255,255,.06);
-    padding:35px 20px;
     text-align:center;
+    border-top:1px solid rgba(255,255,255,.06);
+    padding:35px;
     color:#77717e;
     font-size:10px;
 }
@@ -331,13 +423,24 @@ footer strong{
 
 /* ANIMATION */
 
-@keyframes show{
+@keyframes appear{
     from{
         opacity:0;
         transform:translateY(20px);
     }
+
     to{
         opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes slideUp{
+    from{
+        transform:translateY(100%);
+    }
+
+    to{
         transform:translateY(0);
     }
 }
@@ -358,19 +461,17 @@ footer strong{
         grid-template-columns:1fr;
     }
 
-    .back{
-        display:none;
-    }
-
-    .hero{
-        padding-top:55px;
+    .categories{
+        grid-template-columns:1fr;
     }
 
 }
+
 </style>
 </head>
 
 <body>
+
 
 <header>
 
@@ -380,12 +481,9 @@ footer strong{
 TAK <span>PERFUME</span>
 </a>
 
-<a href="index.html" class="back">
-← بازگشت
-</a>
-
-<button class="cart">
+<button class="cart-btn" onclick="openCart()">
 🛒 سبد خرید
+<span id="cartCount">0</span>
 </button>
 
 </nav>
@@ -398,57 +496,71 @@ TAK <span>PERFUME</span>
 <small>TAK PERFUME</small>
 
 <h1>
-عطرهای <span>مردانه</span>
+انتخاب <span>رایحه</span>
 </h1>
 
 <p>
-انتخابی از رایحه‌های محبوب و خاص مردانه برای استایل‌های مختلف.
+رایحه‌ای که بخشی از شخصیت توست.
 </p>
 
 </section>
 
 
-<section class="controls">
+<!-- CATEGORY -->
 
-<div class="search">
+<section class="categories">
 
-<input
-type="text"
-id="search"
-placeholder="جستجوی نام عطر یا برند..."
->
+<div class="category active" onclick="setCategory('perfume',this)">
+
+<div class="category-icon">🧴</div>
+
+<h2>عطر</h2>
+
+<p>
+انتخاب رایحه، مدل شیشه و حجم دلخواه
+</p>
 
 </div>
 
-<div class="filters">
 
-<button class="filter active" data-filter="all">
-همه
-</button>
+<div class="category" onclick="setCategory('cologne',this)">
 
-<button class="filter" data-filter="men">
-مردانه
-</button>
+<div class="category-icon">🧪</div>
 
-<button class="filter" data-filter="women">
-زنانه
-</button>
+<h2>ادکلن</h2>
 
-<button class="filter" data-filter="unisex">
-یونیسکس
-</button>
+<p>
+ادکلن‌های آماده با شیشه اصلی
+</p>
 
 </div>
 
 </section>
 
 
+<div class="search-box">
+
+<input
+id="search"
+type="text"
+placeholder="جستجوی نام عطر یا برند..."
+>
+
+</div>
+
+
 <section class="products" id="products">
 
 
-<!-- 1 -->
+<!-- ========================= -->
+<!-- PERFUME 1 -->
+<!-- ========================= -->
 
-<article class="product" data-category="men" data-name="Dior Sauvage">
+<article
+class="product"
+data-type="perfume"
+data-name="Dior Sauvage"
+>
 
 <div class="product-image">
 
@@ -460,40 +572,88 @@ loading="lazy"
 
 </div>
 
-<div class="product-top">
 <span class="brand">Dior</span>
-<span class="status">ناموجود</span>
-</div>
 
 <h2>Sauvage</h2>
 
-<div class="volume">Eau de Toilette | 100ml</div>
-
-<p class="description">
-رایحه‌ای قدرتمند، مردانه و مدرن با شروع مرکباتی و پایه‌ای چوبی.
+<p class="product-desc">
+رایحه‌ای قدرتمند و مردانه با ترکیبی از مرکبات، ادویه و نت‌های چوبی.
 </p>
 
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">خنک</span>
-<span class="spec">چوبی</span>
-<span class="spec">مرکباتی</span>
+<div class="tags">
+<span class="tag">مردانه</span>
+<span class="tag">خنک</span>
+<span class="tag">چوبی</span>
 </div>
 
-<div class="bottom">
-<div>
-<div class="price">۶,۸۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
+
+<div class="options">
+
+<div class="option-title">
+مدل شیشه
 </div>
-<button class="buy" disabled>ناموجود</button>
+
+<select class="select bottle">
+
+<option value="کلاسیک">شیشه کلاسیک</option>
+<option value="لوکس">شیشه لوکس</option>
+<option value="فانتزی">شیشه فانتزی</option>
+
+</select>
+
+
+<div class="option-title">
+حجم
+</div>
+
+<select class="select volume">
+
+<option value="10" data-price="180000">
+10ml
+</option>
+
+<option value="20" data-price="280000">
+20ml
+</option>
+
+<option value="30" data-price="380000">
+30ml
+</option>
+
+<option value="50" data-price="550000">
+50ml
+</option>
+
+<option value="100" data-price="900000">
+100ml
+</option>
+
+</select>
+
+
+<div class="price">
+<span class="price-value">180,000</span> تومان
+</div>
+
+
+<button class="add" onclick="addPerfume(this)">
+افزودن به سبد
+</button>
+
 </div>
 
 </article>
 
 
-<!-- 2 -->
+<!-- ========================= -->
+<!-- PERFUME 2 -->
+<!-- ========================= -->
 
-<article class="product" data-category="men" data-name="Bleu de Chanel">
+<article
+class="product"
+data-type="perfume"
+data-name="Bleu de Chanel"
+>
 
 <div class="product-image">
 
@@ -505,392 +665,174 @@ loading="lazy"
 
 </div>
 
-<div class="product-top">
 <span class="brand">Chanel</span>
-<span class="status">ناموجود</span>
-</div>
 
 <h2>Bleu de Chanel</h2>
 
-<div class="volume">Eau de Toilette | 100ml</div>
-
-<p class="description">
-رایحه‌ای شیک، تمیز و همه‌پسند با ترکیبی از مرکبات و نت‌های چوبی.
+<p class="product-desc">
+رایحه‌ای شیک و تمیز با ترکیبی از مرکبات و نت‌های چوبی.
 </p>
 
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">خنک</span>
-<span class="spec">چوبی</span>
-<span class="spec">شیک</span>
+<div class="tags">
+<span class="tag">مردانه</span>
+<span class="tag">خنک</span>
+<span class="tag">چوبی</span>
 </div>
 
-<div class="bottom">
-<div>
-<div class="price">۷,۹۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
+
+<div class="options">
+
+<div class="option-title">
+مدل شیشه
 </div>
-<button class="buy" disabled>ناموجود</button>
+
+<select class="select bottle">
+
+<option>کلاسیک</option>
+<option>لوکس</option>
+<option>فانتزی</option>
+
+</select>
+
+
+<div class="option-title">
+حجم
+</div>
+
+<select class="select volume">
+
+<option value="10" data-price="190000">10ml</option>
+<option value="20" data-price="290000">20ml</option>
+<option value="30" data-price="390000">30ml</option>
+<option value="50" data-price="560000">50ml</option>
+<option value="100" data-price="920000">100ml</option>
+
+</select>
+
+
+<div class="price">
+<span class="price-value">190,000</span> تومان
+</div>
+
+
+<button class="add" onclick="addPerfume(this)">
+افزودن به سبد
+</button>
+
 </div>
 
 </article>
 
 
-<!-- 3 -->
+<!-- ========================= -->
+<!-- COLOGNE -->
+<!-- ========================= -->
 
-<article class="product" data-category="men" data-name="Acqua di Gio">
+<article
+class="product"
+data-type="cologne"
+data-name="Dior Sauvage Eau de Toilette"
+>
 
 <div class="product-image">
 
 <img
-src="https://m.media-amazon.com/images/I/51TWBd6rSwL._SL1500_.jpg"
-alt="Giorgio Armani Acqua di Gio"
+src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
+alt="Dior Sauvage"
 loading="lazy"
 >
 
 </div>
 
-<div class="product-top">
-<span class="brand">Giorgio Armani</span>
-<span class="status">ناموجود</span>
-</div>
+<span class="brand">Dior</span>
 
-<h2>Acqua di Giò</h2>
+<h2>Sauvage EDT</h2>
 
-<div class="volume">Eau de Toilette | 100ml</div>
-
-<p class="description">
-رایحه‌ای خنک و دریایی با حس مرکباتی و تمیز؛ مناسب روزهای گرم.
+<p class="product-desc">
+ادکلن اورجینال با شیشه و بسته‌بندی اصلی محصول.
 </p>
 
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">خنک</span>
-<span class="spec">دریایی</span>
-<span class="spec">تابستانی</span>
+<div class="tags">
+<span class="tag">مردانه</span>
+<span class="tag">100ml</span>
+<span class="tag">اصل</span>
 </div>
 
-<div class="bottom">
-<div>
-<div class="price">۶,۳۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
+
+<div class="options">
+
+<div class="price">
+6,800,000 تومان
 </div>
-<button class="buy" disabled>ناموجود</button>
+
+<div class="unavailable">
+فعلاً ناموجود
+</div>
+
+<button
+class="add disabled"
+disabled
+>
+ناموجود
+</button>
+
 </div>
 
 </article>
 
 
-<!-- 4 -->
+<!-- ========================= -->
+<!-- COLOGNE 2 -->
+<!-- ========================= -->
 
-<article class="product" data-category="men" data-name="Tom Ford Oud Wood">
+<article
+class="product"
+data-type="cologne"
+data-name="Bleu de Chanel EDT"
+>
 
 <div class="product-image">
 
 <img
-src="https://liliome.com/wp-content/uploads/2017/01/%D8%B9%D8%B7%D8%B1-%D8%A7%D8%AF%DA%A9%D9%84%D9%86-%D8%AA%D8%A7%D9%85-%D9%81%D9%88%D8%B1%D8%AF-%D8%B9%D9%88%D8%AF-%D9%88%D9%88%D8%AF-Tom-Ford-Oud-Wood-100ml-1.jpg"
-alt="Tom Ford Oud Wood"
+src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
+alt="Bleu de Chanel"
 loading="lazy"
 >
 
 </div>
 
-<div class="product-top">
-<span class="brand">Tom Ford</span>
-<span class="status">ناموجود</span>
-</div>
+<span class="brand">Chanel</span>
 
-<h2>Oud Wood</h2>
+<h2>Bleu de Chanel</h2>
 
-<div class="volume">Eau de Parfum | 100ml</div>
-
-<p class="description">
-رایحه‌ای لوکس و عمیق با چوب عود، ادویه و نت‌های گرم و شرقی.
+<p class="product-desc">
+ادکلن آماده با شیشه اصلی و رایحه‌ای شیک و ماندگار.
 </p>
 
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">گرم</span>
-<span class="spec">عودی</span>
-<span class="spec">لوکس</span>
+<div class="tags">
+<span class="tag">مردانه</span>
+<span class="tag">100ml</span>
+<span class="tag">اصل</span>
 </div>
 
-<div class="bottom">
-<div>
-<div class="price">۱۲,۵۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
+
+<div class="options">
+
+<div class="price">
+7,900,000 تومان
 </div>
-<button class="buy" disabled>ناموجود</button>
+
+<div class="unavailable">
+فعلاً ناموجود
 </div>
 
-</article>
-
-
-<!-- 5 -->
-
-<article class="product" data-category="men" data-name="YSL Y">
-
-<div class="product-image">
-
-<img
-src="https://www.yslbeautyus.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-ysl-master-catalog/default/dwdab66b03/Y%20EDP/40mL%20-%203614274292848/3614274292848.jpg"
-alt="YSL Y Eau de Parfum"
-loading="lazy"
+<button
+class="add disabled"
+disabled
 >
+ناموجود
+</button>
 
-</div>
-
-<div class="product-top">
-<span class="brand">Yves Saint Laurent</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Y Eau de Parfum</h2>
-
-<div class="volume">Eau de Parfum | 100ml</div>
-
-<p class="description">
-رایحه‌ای مدرن و تمیز با ترکیبی از سیب، گیاهان و نت‌های چوبی.
-</p>
-
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">شیرین</span>
-<span class="spec">چوبی</span>
-<span class="spec">مدرن</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۷,۴۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<!-- 6 -->
-
-<article class="product" data-category="men" data-name="Azzaro Wanted">
-
-<div class="product-image">
-
-<img
-src="https://cdn.salla.sa/DGdDlG/c7a0631c-1d07-4dcc-a181-2e5c9ed8f424-1000x1000-Di7de8haR2gtn66xPt8CCrT0oK7LrlvxIskblR8m.jpg"
-alt="Azzaro Wanted"
-loading="lazy"
->
-
-</div>
-
-<div class="product-top">
-<span class="brand">Azzaro</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Wanted</h2>
-
-<div class="volume">Eau de Toilette | 100ml</div>
-
-<p class="description">
-رایحه‌ای گرم و ادویه‌ای با شخصیت پرانرژی و مناسب شب‌های سرد.
-</p>
-
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">گرم</span>
-<span class="spec">ادویه‌ای</span>
-<span class="spec">شبانه</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۵,۹۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<!-- 7 -->
-
-<article class="product" data-category="men" data-name="Versace Dylan Blue">
-
-<div class="product-image">
-
-<img
-src="https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw08702307/original/90_R721010-R100MLS_RNUL_22_DylanBluePourHommeEDT100ml--Versace-online-store_2_1.jpg?sw=850&q=85&strip=true"
-alt="Versace Dylan Blue"
-loading="lazy"
->
-
-</div>
-
-<div class="product-top">
-<span class="brand">Versace</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Dylan Blue</h2>
-
-<div class="volume">Eau de Toilette | 100ml</div>
-
-<p class="description">
-رایحه‌ای خنک و دریایی با حس مرکباتی و پایه چوبی تمیز.
-</p>
-
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">خنک</span>
-<span class="spec">دریایی</span>
-<span class="spec">روزانه</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۵,۵۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<!-- 8 -->
-
-<article class="product" data-category="men" data-name="Paco Rabanne Invictus">
-
-<div class="product-image">
-
-<img
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrYJ045kD8x_FqQE6khWNkUJeoeYE-2pD3Chy9U9vksjnIjdxtxXM4XOe&s=10"
-alt="Paco Rabanne Invictus"
-loading="lazy"
->
-
-</div>
-
-<div class="product-top">
-<span class="brand">Paco Rabanne</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Invictus</h2>
-
-<div class="volume">Eau de Toilette | 100ml</div>
-
-<p class="description">
-رایحه‌ای جوان‌پسند و اسپرت با حس دریایی، مرکباتی و کمی شیرین.
-</p>
-
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">خنک</span>
-<span class="spec">اسپرت</span>
-<span class="spec">شیرین</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۶,۲۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<!-- 9 -->
-
-<article class="product" data-category="men" data-name="Jean Paul Gaultier Le Male">
-
-<div class="product-image">
-
-<img
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk4h2IOBeTNsJspAy8teAlhttBzLRThZ6Tqtn2lMVV6GZuaWc0_iiQLIA&s=10"
-alt="Jean Paul Gaultier Le Male"
-loading="lazy"
->
-
-</div>
-
-<div class="product-top">
-<span class="brand">Jean Paul Gaultier</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Le Male</h2>
-
-<div class="volume">Eau de Toilette | 125ml</div>
-
-<p class="description">
-ترکیبی گرم و شیرین از اسطوخودوس، وانیل و نت‌های شرقی.
-</p>
-
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">گرم</span>
-<span class="spec">شیرین</span>
-<span class="spec">شرقی</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۷,۱۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
-</div>
-
-</article>
-
-
-<!-- 10 -->
-
-<article class="product" data-category="men" data-name="Montblanc Explorer">
-
-<div class="product-image">
-
-<img
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB1v7nfDCTUYw84LaH0LH1Ty_VIL70hsdKEtxFLgTHTl_xhfGbCMtGuYM&s=10"
-alt="Montblanc Explorer"
-loading="lazy"
->
-
-</div>
-
-<div class="product-top">
-<span class="brand">Montblanc</span>
-<span class="status">ناموجود</span>
-</div>
-
-<h2>Explorer</h2>
-
-<div class="volume">Eau de Parfum | 100ml</div>
-
-<p class="description">
-رایحه‌ای چوبی و مرکباتی با حس ماجراجویانه، تمیز و مدرن.
-</p>
-
-<div class="specs">
-<span class="spec">مردانه</span>
-<span class="spec">چوبی</span>
-<span class="spec">مرکباتی</span>
-<span class="spec">روزمره</span>
-</div>
-
-<div class="bottom">
-<div>
-<div class="price">۴,۸۰۰,۰۰۰ تومان</div>
-<div class="unavailable">فعلاً موجود نیست</div>
-</div>
-<button class="buy" disabled>ناموجود</button>
 </div>
 
 </article>
@@ -904,58 +846,131 @@ loading="lazy"
 
 
 <footer>
+
 <strong>TAK PERFUME</strong>
+
 <br><br>
+
 انتخاب کن، خاص باش.
+
 </footer>
+
+
+<!-- CART -->
+
+<div
+class="cart-panel"
+id="cartPanel"
+onclick="closeCartOutside(event)"
+>
+
+<div class="cart-box">
+
+<div class="cart-head">
+
+<h2>سبد خرید</h2>
+
+<button
+class="close"
+onclick="closeCart()"
+>
+×
+</button>
+
+</div>
+
+
+<div id="cartItems"></div>
+
+
+<div class="total">
+
+<span>مبلغ کل</span>
+
+<span>
+<span id="total">0</span>
+تومان
+</span>
+
+</div>
+
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+ادامه پرداخت
+</button>
+
+</div>
+
+</div>
 
 
 <script>
 
-const products =
-document.querySelectorAll(".product");
+let currentCategory = "perfume";
 
-const filters =
-document.querySelectorAll(".filter");
+let cart = [];
 
-const search =
-document.getElementById("search");
 
-const empty =
-document.getElementById("empty");
+/* CATEGORY */
 
-let currentFilter = "all";
+function setCategory(category,element){
+
+    currentCategory = category;
+
+    document
+    .querySelectorAll(".category")
+    .forEach(x =>
+        x.classList.remove("active")
+    );
+
+    element.classList.add("active");
+
+    filterProducts();
+
+}
+
+
+/* SEARCH */
+
+document
+.getElementById("search")
+.addEventListener("input",filterProducts);
 
 
 function filterProducts(){
 
-    const query =
-        search.value
-        .trim()
-        .toLowerCase();
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
 
-    let count = 0;
+    const products =
+        document.querySelectorAll(".product");
+
+    let found = 0;
 
     products.forEach(product => {
 
-        const category =
-            product.dataset.category;
+        const type =
+            product.dataset.type;
 
         const name =
-            product.dataset.name.toLowerCase();
+            product.dataset.name
+            .toLowerCase();
 
-        const categoryMatch =
-            currentFilter === "all" ||
-            category === currentFilter;
-
-        const searchMatch =
-            name.includes(query);
-
-        if(categoryMatch && searchMatch){
+        if(
+            type === currentCategory &&
+            name.includes(search)
+        ){
 
             product.style.display = "";
 
-            count++;
+            found++;
 
         }else{
 
@@ -965,37 +980,199 @@ function filterProducts(){
 
     });
 
-    empty.style.display =
-        count === 0 ? "block" : "none";
+    document
+    .getElementById("empty")
+    .style.display =
+        found === 0 ? "block" : "none";
+
 }
 
 
-filters.forEach(button => {
+/* PRICE */
 
-    button.addEventListener("click", () => {
+document
+.querySelectorAll(".volume")
+.forEach(select => {
 
-        filters.forEach(btn =>
-            btn.classList.remove("active")
-        );
+    select.addEventListener("change",function(){
 
-        button.classList.add("active");
+        const price =
+            this
+            .options[this.selectedIndex]
+            .dataset.price;
 
-        currentFilter =
-            button.dataset.filter;
-
-        filterProducts();
+        this
+        .closest(".options")
+        .querySelector(".price-value")
+        .textContent =
+            Number(price)
+            .toLocaleString("en-US");
 
     });
 
 });
 
 
-search.addEventListener(
-    "input",
-    filterProducts
-);
+/* ADD PERFUME */
+
+function addPerfume(button){
+
+    const product =
+        button.closest(".product");
+
+    const name =
+        product.querySelector("h2").textContent;
+
+    const bottle =
+        product.querySelector(".bottle").value;
+
+    const volume =
+        product.querySelector(".volume").value;
+
+    const option =
+        product
+        .querySelector(".volume")
+        .options[
+            product.querySelector(".volume").selectedIndex
+        ];
+
+    const price =
+        Number(option.dataset.price);
+
+    cart.push({
+
+        name:name,
+
+        type:"عطر",
+
+        bottle:bottle,
+
+        volume:volume + "ml",
+
+        price:price
+
+    });
+
+    updateCart();
+
+    alert("محصول به سبد خرید اضافه شد ✓");
+
+}
+
+
+/* CART */
+
+function updateCart(){
+
+    const container =
+        document.getElementById("cartItems");
+
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item,index)=>{
+
+        total += item.price;
+
+        container.innerHTML += `
+
+        <div class="cart-item">
+
+            <strong>
+            ${item.name}
+            </strong>
+
+            <small>
+
+            نوع: ${item.type}
+            <br>
+
+            شیشه: ${item.bottle}
+            <br>
+
+            حجم: ${item.volume}
+            <br>
+
+            قیمت: ${item.price.toLocaleString("en-US")} تومان
+
+            </small>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document
+    .getElementById("total")
+    .textContent =
+        total.toLocaleString("en-US");
+
+
+    document
+    .getElementById("cartCount")
+    .textContent =
+        cart.length;
+
+}
+
+
+function openCart(){
+
+    document
+    .getElementById("cartPanel")
+    .classList.add("show");
+
+}
+
+
+function closeCart(){
+
+    document
+    .getElementById("cartPanel")
+    .classList.remove("show");
+
+}
+
+
+function closeCartOutside(event){
+
+    if(event.target.id === "cartPanel"){
+
+        closeCart();
+
+    }
+
+}
+
+
+/* CHECKOUT */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert("سبد خرید شما خالی است.");
+
+        return;
+
+    }
+
+    alert(
+        "مرحله پرداخت را در مرحله بعد به کارت‌به‌کارت و ارسال رسید تلگرام متصل می‌کنیم."
+    );
+
+}
+
+
+/* START */
+
+filterProducts();
 
 </script>
 
 </body>
 </html>
+```
