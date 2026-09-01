@@ -3,26 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تک پرفیوم | فروشگاه عطر و ادکلن</title>
+
+<title>TAK PERFUME | فروشگاه عطر و ادکلن</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-    --bg:#08040f;
-    --card:#12091c;
-    --card2:#180d25;
-    --purple:#8b5cf6;
-    --purple2:#a78bfa;
-    --text:#fff;
-    --muted:#aaa1b5;
-    --border:rgba(167,139,250,.16);
 }
 
 html{
@@ -30,16 +18,14 @@ html{
 }
 
 body{
-    font-family:Vazirmatn,sans-serif;
+    font-family:Tahoma,Arial,sans-serif;
     background:#05020a;
-    color:var(--text);
+    color:#fff;
     min-height:100vh;
     overflow-x:hidden;
 }
 
-/* =================================================
-   LIVE 3D BACKGROUND
-================================================= */
+/* ================= BACKGROUND ================= */
 
 #liveGrid{
     position:fixed;
@@ -48,373 +34,368 @@ body{
     height:100%;
     z-index:0;
     pointer-events:none;
-    background:#05020a;
 }
 
-/* محتوا روی بک‌گراند */
+.bg-title{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:1;
+    pointer-events:none;
+}
+
+.flying-text{
+    position:absolute;
+    white-space:nowrap;
+    color:rgba(191,120,255,.10);
+    font-size:clamp(18px,3vw,45px);
+    font-weight:800;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    animation:flyText linear infinite;
+    filter:blur(.2px);
+}
+
+.flying-text:nth-child(1){
+    top:12%;
+    animation-duration:18s;
+    animation-delay:-7s;
+}
+
+.flying-text:nth-child(2){
+    top:30%;
+    animation-duration:23s;
+    animation-delay:-15s;
+    font-size:30px;
+}
+
+.flying-text:nth-child(3){
+    top:52%;
+    animation-duration:20s;
+    animation-delay:-4s;
+    font-size:55px;
+}
+
+.flying-text:nth-child(4){
+    top:73%;
+    animation-duration:26s;
+    animation-delay:-18s;
+    font-size:25px;
+}
+
+.flying-text:nth-child(5){
+    top:88%;
+    animation-duration:21s;
+    animation-delay:-10s;
+    font-size:40px;
+}
+
+@keyframes flyText{
+    0%{
+        transform:translate3d(110vw,0,0) scale(.35) rotate(-2deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.7;
+    }
+
+    45%{
+        opacity:1;
+    }
+
+    75%{
+        opacity:.6;
+    }
+
+    100%{
+        transform:translate3d(-120vw,-80px,0) scale(1.8) rotate(2deg);
+        opacity:0;
+    }
+}
+
+/* ================= CONTENT ================= */
+
 header,
-.hero,
-.categories,
-.search-box,
-.products,
+main,
 footer{
     position:relative;
-    z-index:2;
+    z-index:3;
 }
-
-/* =================================================
-   HEADER
-================================================= */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    padding:15px 5%;
-    background:rgba(8,4,15,.70);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.nav{
-    max-width:1200px;
-    margin:auto;
+    width:100%;
+    padding:22px 6%;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(5,2,10,.55);
+    backdrop-filter:blur(18px);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:3px;
     color:#fff;
-    text-decoration:none;
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:2px;
 }
 
 .logo span{
-    color:var(--purple2);
+    color:#bd68ff;
 }
 
 .cart-btn{
-    border:1px solid var(--border);
-    background:rgba(139,92,246,.12);
+    border:none;
+    background:rgba(145,65,220,.18);
     color:#fff;
-    padding:10px 16px;
-    border-radius:12px;
-    font-family:inherit;
+    border:1px solid rgba(190,100,255,.35);
+    padding:11px 18px;
+    border-radius:14px;
     cursor:pointer;
     transition:.3s;
 }
 
 .cart-btn:hover{
-    background:rgba(139,92,246,.25);
+    background:rgba(170,80,255,.3);
     transform:translateY(-2px);
 }
 
-#cartCount{
-    background:var(--purple);
-    padding:2px 7px;
-    border-radius:20px;
-    margin-right:3px;
-}
-
-/* =================================================
-   HERO
-================================================= */
-
 .hero{
     text-align:center;
-    padding:75px 20px 45px;
-}
-
-.hero small{
-    color:var(--purple2);
-    letter-spacing:4px;
-    font-size:11px;
+    padding:70px 20px 35px;
 }
 
 .hero h1{
-    font-size:clamp(38px,7vw,65px);
-    margin:15px 0;
+    font-size:clamp(32px,6vw,70px);
+    font-weight:900;
+    letter-spacing:6px;
+    margin-bottom:15px;
+    text-shadow:0 0 35px rgba(190,80,255,.35);
 }
 
 .hero h1 span{
-    color:var(--purple2);
+    color:#bd68ff;
 }
 
 .hero p{
-    color:var(--muted);
-    font-size:13px;
-    line-height:2;
+    color:#aaa;
+    font-size:15px;
 }
 
-/* =================================================
-   CATEGORY
-================================================= */
+/* ================= TYPE SELECTOR ================= */
 
-.categories{
-    max-width:900px;
-    margin:0 auto 35px;
-    padding:0 20px;
+.type-switch{
+    max-width:700px;
+    margin:25px auto 35px;
+    padding:8px;
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:22px;
+    backdrop-filter:blur(15px);
 }
 
-.category{
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.035);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
+.type-btn{
+    border:0;
+    padding:18px;
+    border-radius:16px;
+    background:transparent;
+    color:#aaa;
     cursor:pointer;
-    transition:.4s;
-    backdrop-filter:blur(7px);
+    font-size:17px;
+    font-weight:bold;
+    transition:.3s;
 }
 
-.category:hover{
-    transform:translateY(-5px);
-    border-color:rgba(167,139,250,.45);
+.type-btn.active{
+    color:#fff;
+    background:linear-gradient(135deg,#6d20a8,#b34cff);
+    box-shadow:0 8px 30px rgba(156,55,230,.3);
 }
 
-.category.active{
-    background:rgba(139,92,246,.14);
-    border-color:rgba(167,139,250,.5);
-    box-shadow:0 0 30px rgba(139,92,246,.10);
+.type-btn:hover{
+    color:#fff;
 }
 
-.category-icon{
-    font-size:35px;
-    margin-bottom:10px;
-}
-
-.category h2{
-    font-size:18px;
-}
-
-.category p{
-    color:var(--muted);
-    font-size:10px;
-    margin-top:7px;
-}
-
-/* =================================================
-   SEARCH
-================================================= */
+/* ================= SEARCH ================= */
 
 .search-box{
-    max-width:900px;
-    margin:0 auto 35px;
-    padding:0 20px;
+    width:min(650px,90%);
+    margin:0 auto 30px;
 }
 
 .search-box input{
     width:100%;
-    background:rgba(255,255,255,.035);
-    border:1px solid var(--border);
+    padding:17px 22px;
+    border-radius:17px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.05);
     color:#fff;
-    padding:15px 18px;
-    border-radius:14px;
     outline:none;
-    font-family:inherit;
-    backdrop-filter:blur(8px);
+    font-size:14px;
+    backdrop-filter:blur(15px);
 }
 
 .search-box input:focus{
-    border-color:var(--purple);
+    border-color:#a94ae8;
+    box-shadow:0 0 25px rgba(169,74,232,.15);
 }
 
 .search-box input::placeholder{
     color:#777;
 }
 
-/* =================================================
-   PRODUCTS
-================================================= */
+/* ================= PRODUCTS ================= */
 
 .products{
-    max-width:1200px;
-    margin:auto;
-    padding:0 20px 100px;
+    width:min(1200px,92%);
+    margin:0 auto 80px;
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
 }
 
 .product{
-    background:
-        linear-gradient(
-            145deg,
-            rgba(139,92,246,.10),
-            rgba(8,3,15,.72)
-        );
-
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:18px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(13,6,20,.72);
+    border-radius:25px;
+    padding:16px;
+    backdrop-filter:blur(18px);
     transition:.4s;
-    animation:appear .6s ease both;
-    backdrop-filter:blur(9px);
 }
 
 .product:hover{
-    transform:translateY(-7px);
-    border-color:rgba(167,139,250,.4);
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    transform:translateY(-8px);
+    border-color:rgba(190,80,255,.4);
+    box-shadow:0 20px 60px rgba(120,30,180,.18);
 }
 
 .product-image{
     width:100%;
-    height:250px;
-    background:#f5f5f5;
-    border-radius:17px;
+    height:260px;
+    border-radius:19px;
     overflow:hidden;
+    background:rgba(255,255,255,.035);
     display:flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:18px;
 }
 
 .product-image img{
     width:100%;
     height:100%;
     object-fit:contain;
-    padding:10px;
     transition:.5s;
 }
 
 .product:hover .product-image img{
-    transform:scale(1.05);
+    transform:scale(1.07);
 }
 
-.brand{
-    color:var(--purple2);
-    font-size:10px;
+.product-info{
+    padding:18px 5px 4px;
 }
 
-.product h2{
+.product-name{
     font-size:19px;
-    margin:7px 0;
+    font-weight:bold;
+    margin-bottom:7px;
 }
 
-.product-desc{
-    color:var(--muted);
-    font-size:11px;
-    line-height:2;
+.product-type{
+    color:#bd68ff;
+    font-size:12px;
     margin-bottom:15px;
 }
 
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-bottom:18px;
+.option-label{
+    display:block;
+    color:#aaa;
+    font-size:12px;
+    margin:12px 0 7px;
 }
 
-.tag{
-    background:rgba(255,255,255,.045);
-    padding:6px 9px;
-    border-radius:8px;
-    color:#c9c0d0;
-    font-size:9px;
-}
-
-.options{
-    border-top:1px solid rgba(255,255,255,.06);
-    padding-top:16px;
-}
-
-.option-title{
-    color:#c8bfd0;
-    font-size:10px;
-    margin-bottom:8px;
-}
-
-.select{
+.product select{
     width:100%;
-    background:#0d0715;
-    border:1px solid var(--border);
+    padding:12px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.1);
+    background:#170b20;
     color:#fff;
-    border-radius:10px;
-    padding:11px;
-    font-family:inherit;
-    margin-bottom:13px;
     outline:none;
 }
 
-.select:focus{
-    border-color:var(--purple);
-}
-
-/* انتخاب نوع */
-.type-select{
-    border-color:rgba(167,139,250,.25);
-}
-
 .price{
-    font-size:15px;
-    font-weight:700;
-    margin:8px 0 12px;
+    margin:15px 0;
+    font-size:19px;
+    font-weight:bold;
+    color:#d58cff;
 }
 
-.add{
+.add-btn{
     width:100%;
+    padding:14px;
     border:0;
-    background:linear-gradient(135deg,#7c3aed,#a78bfa);
-    color:#fff;
-    padding:12px;
-    border-radius:11px;
-    font-family:inherit;
+    border-radius:14px;
     cursor:pointer;
+    color:#fff;
+    font-weight:bold;
+    background:linear-gradient(135deg,#7622a8,#b64fff);
     transition:.3s;
 }
 
-.add:hover{
+.add-btn:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 25px rgba(124,58,237,.25);
+    box-shadow:0 10px 30px rgba(174,70,240,.3);
 }
+
+/* ================= EMPTY ================= */
 
 .empty{
     grid-column:1/-1;
     text-align:center;
-    color:var(--muted);
-    padding:60px;
-    display:none;
+    padding:60px 20px;
+    color:#777;
 }
 
-/* =================================================
-   CART
-================================================= */
+/* ================= CART MODAL ================= */
 
-.cart-panel{
+.modal{
     position:fixed;
     inset:0;
     z-index:1000;
     background:rgba(0,0,0,.72);
     backdrop-filter:blur(10px);
     display:none;
-    align-items:flex-end;
+    align-items:center;
     justify-content:center;
+    padding:20px;
 }
 
-.cart-panel.show{
+.modal.show{
     display:flex;
 }
 
-.cart-box{
+.modal-box{
     width:min(600px,100%);
-    max-height:88vh;
+    max-height:90vh;
     overflow:auto;
-    background:#100719;
-    border:1px solid var(--border);
-    border-radius:25px 25px 0 0;
+    background:#110819;
+    border:1px solid rgba(190,80,255,.25);
+    border-radius:25px;
     padding:25px;
-    animation:slideUp .35s ease;
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
 }
 
-.cart-head{
+.modal-title{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -422,366 +403,143 @@ header{
 }
 
 .close{
-    background:none;
     border:0;
-    color:#aaa;
-    font-size:27px;
+    background:rgba(255,255,255,.07);
+    color:#fff;
+    width:38px;
+    height:38px;
+    border-radius:12px;
     cursor:pointer;
+    font-size:20px;
 }
 
 .cart-item{
-    position:relative;
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:14px;
-    padding:14px;
-    margin-bottom:10px;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.cart-item strong{
-    display:block;
+.cart-item-title{
+    font-weight:bold;
     margin-bottom:7px;
 }
 
-.cart-item small{
-    color:var(--muted);
+.cart-item-details{
+    color:#aaa;
+    font-size:12px;
     line-height:2;
 }
 
-.remove{
-    position:absolute;
-    left:12px;
-    top:12px;
-    border:0;
-    background:rgba(255,70,70,.08);
-    color:#ff8585;
-    border-radius:8px;
-    padding:5px 8px;
-    cursor:pointer;
+.cart-total{
+    padding:20px 0;
+    font-size:20px;
+    font-weight:bold;
+    color:#d68dff;
 }
 
-.total{
-    border-top:1px solid rgba(255,255,255,.07);
-    margin-top:18px;
-    padding-top:18px;
-    display:flex;
-    justify-content:space-between;
-    font-weight:700;
-}
-
-.checkout{
+.checkout-btn{
     width:100%;
-    margin-top:15px;
-    padding:14px;
-    border:0;
-    border-radius:12px;
-    background:linear-gradient(135deg,#7c3aed,#a78bfa);
-    color:#fff;
-    font-family:inherit;
-    cursor:pointer;
-}
-
-/* =================================================
-   PAYMENT
-================================================= */
-
-.payment-overlay,
-.phone-overlay{
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(12px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.payment-overlay.show,
-.phone-overlay.show{
-    display:flex;
-}
-
-.payment-box,
-.phone-box{
-    width:min(500px,100%);
-    background:linear-gradient(145deg,#170b25,#0d0615);
-    border:1px solid rgba(167,139,250,.25);
-    border-radius:25px;
-    padding:28px;
-    position:relative;
-    animation:paymentIn .35s ease;
-}
-
-.payment-close{
-    position:absolute;
-    left:18px;
-    top:14px;
-    background:none;
-    border:0;
-    color:#aaa;
-    font-size:27px;
-    cursor:pointer;
-}
-
-.payment-icon{
-    width:60px;
-    height:60px;
-    border-radius:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(139,92,246,.15);
-    font-size:28px;
-    margin-bottom:15px;
-}
-
-.payment-box h2,
-.phone-box h2{
-    font-size:24px;
-    margin-bottom:7px;
-}
-
-.payment-subtitle{
-    color:var(--muted);
-    font-size:11px;
-    margin-bottom:22px;
-}
-
-.payment-total{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
     padding:15px;
+    border:0;
     border-radius:14px;
-    background:rgba(139,92,246,.09);
-    border:1px solid rgba(167,139,250,.14);
-    margin-bottom:15px;
-    font-size:11px;
+    color:#fff;
+    background:linear-gradient(135deg,#7622a8,#b64fff);
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.payment-total strong{
-    color:#c4a7ff;
-    font-size:15px;
-}
+/* ================= PAYMENT ================= */
 
-.card-info{
-    padding:20px;
-    border-radius:18px;
-    background:linear-gradient(135deg,#24103b,#12091d);
-    border:1px solid rgba(167,139,250,.2);
-    text-align:center;
-}
-
-.card-label{
-    display:block;
-    color:var(--muted);
-    font-size:10px;
-    margin-bottom:10px;
+.payment-card{
+    background:rgba(255,255,255,.04);
+    padding:18px;
+    border-radius:16px;
+    margin-bottom:18px;
 }
 
 .card-number{
     direction:ltr;
-    font-size:22px;
-    font-weight:800;
+    text-align:center;
+    font-size:21px;
     letter-spacing:2px;
-    margin-bottom:8px;
+    margin:12px 0;
+    color:#e2b7ff;
 }
 
-.card-owner{
-    font-size:11px;
-    color:#cfc6d7;
-}
-
-.card-copy{
-    display:block;
-    margin:14px auto 0;
-    border:1px solid rgba(167,139,250,.2);
-    background:rgba(255,255,255,.05);
-    color:#fff;
-    border-radius:9px;
-    padding:8px 14px;
-    font-family:inherit;
-    cursor:pointer;
-}
-
-.payment-note{
-    margin:15px 0;
-    padding:13px;
-    border-radius:12px;
-    background:rgba(255,255,255,.035);
-    color:var(--muted);
-    font-size:10px;
-    line-height:2;
-}
-
-.payment-note strong{
-    color:#c4a7ff;
-}
-
-.send-receipt{
+.copy-btn,
+.send-btn{
     width:100%;
-    border:0;
     padding:14px;
-    border-radius:12px;
-    background:linear-gradient(135deg,#7c3aed,#a78bfa);
+    border-radius:13px;
+    border:0;
     color:#fff;
-    font-family:inherit;
-    font-weight:600;
     cursor:pointer;
+    font-weight:bold;
 }
 
-/* =================================================
-   PHONE
-================================================= */
-
-.phone-box{
-    width:min(430px,100%);
+.copy-btn{
+    background:rgba(255,255,255,.08);
 }
 
-.phone-box p{
-    color:var(--muted);
-    font-size:11px;
-    line-height:2;
-    margin-bottom:20px;
+.send-btn{
+    margin-top:10px;
+    background:linear-gradient(135deg,#7622a8,#b64fff);
 }
 
 .phone-input{
     width:100%;
-    background:#0d0715;
-    border:1px solid var(--border);
+    padding:15px;
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,.1);
+    background:#09040d;
     color:#fff;
-    padding:14px;
-    border-radius:12px;
     outline:none;
-    font-family:inherit;
-    font-size:15px;
+    margin:10px 0 15px;
     direction:ltr;
     text-align:left;
 }
 
-.phone-input:focus{
-    border-color:var(--purple);
-}
-
-.phone-error{
-    color:#ff8585;
-    font-size:10px;
-    margin-top:8px;
-    display:none;
-}
-
-.phone-actions{
-    display:flex;
-    gap:10px;
-    margin-top:15px;
-}
-
-.phone-confirm,
-.phone-cancel{
-    flex:1;
-    padding:13px;
-    border-radius:11px;
-    font-family:inherit;
-    cursor:pointer;
-}
-
-.phone-confirm{
-    border:0;
-    background:linear-gradient(135deg,#7c3aed,#a78bfa);
-    color:#fff;
-}
-
-.phone-cancel{
-    border:1px solid var(--border);
-    background:transparent;
-    color:#aaa;
-}
-
-/* =================================================
-   FOOTER
-================================================= */
+/* ================= FOOTER ================= */
 
 footer{
-    border-top:1px solid rgba(255,255,255,.06);
-    padding:35px;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:35px 20px;
     text-align:center;
-    color:#77717e;
-    font-size:10px;
+    color:#777;
+    background:rgba(5,2,10,.6);
 }
 
 footer strong{
-    color:var(--purple2);
+    color:#bd68ff;
 }
 
-/* =================================================
-   ANIMATION
-================================================= */
-
-@keyframes appear{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-@keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
-
-    to{
-        transform:translateY(0);
-    }
-}
-
-@keyframes paymentIn{
-    from{
-        opacity:0;
-        transform:translateY(25px) scale(.97);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-/* =================================================
-   MOBILE
-================================================= */
-
-@media(max-width:900px){
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:600px){
 
+    header{
+        padding:18px 5%;
+    }
+
+    .hero{
+        padding-top:50px;
+    }
+
+    .hero h1{
+        letter-spacing:3px;
+    }
+
     .products{
         grid-template-columns:1fr;
     }
 
-    .categories{
-        grid-template-columns:1fr;
+    .product-image{
+        height:280px;
     }
 
-    .hero{
-        padding-top:55px;
+    .type-btn{
+        padding:15px 8px;
+        font-size:14px;
     }
-
-    .card-number{
-        font-size:18px;
-    }
-
 }
 </style>
 </head>
@@ -791,1398 +549,608 @@ footer strong{
 <!-- BACKGROUND -->
 <canvas id="liveGrid"></canvas>
 
+<div class="bg-title">
+    <div class="flying-text">TAK PERFUME</div>
+    <div class="flying-text">TAK PERFUME</div>
+    <div class="flying-text">TAK PERFUME</div>
+    <div class="flying-text">TAK PERFUME</div>
+    <div class="flying-text">TAK PERFUME</div>
+</div>
 
 <!-- HEADER -->
 <header>
 
-<nav class="nav">
+    <div class="logo">
+        TAK <span>PERFUME</span>
+    </div>
 
-<a href="index.html" class="logo">
-TAK <span>PERFUME</span>
-</a>
-
-<button class="cart-btn" onclick="openCart()">
-🛒 سبد خرید
-<span id="cartCount">0</span>
-</button>
-
-</nav>
+    <button class="cart-btn" onclick="openCart()">
+        🛒 سبد خرید
+        <span id="cartCount">0</span>
+    </button>
 
 </header>
 
 
-<!-- HERO -->
-<section class="hero">
+<main>
 
-<small>TAK PERFUME</small>
+    <!-- HERO -->
+    <section class="hero">
 
-<h1>
-فروشگاه <span>تک پرفیوم</span>
-</h1>
+        <h1>
+            TAK <span>PERFUME</span>
+        </h1>
 
-<p>
-رایحه مورد علاقه‌ات رو انتخاب کن و سفارش بده.
-</p>
+        <p>
+            فروشگاه تخصصی عطر و ادکلن
+        </p>
 
-</section>
+    </section>
 
 
-<!-- CATEGORY -->
-<section class="categories">
+    <!-- TYPE -->
+    <div class="type-switch">
 
-<div
-class="category active"
-data-category="all"
-onclick="setCategory('all',this)"
->
+        <button
+            class="type-btn active"
+            id="perfumeBtn"
+            onclick="changeType('perfume')"
+        >
+            🌸 عطر
+        </button>
 
-<div class="category-icon">✨</div>
+        <button
+            class="type-btn"
+            id="cologneBtn"
+            onclick="changeType('cologne')"
+        >
+            🖤 ادکلن
+        </button>
 
-<h2>همه محصولات</h2>
+    </div>
 
-<p>مشاهده همه محصولات</p>
 
-</div>
+    <!-- SEARCH -->
+    <div class="search-box">
 
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="جستجوی نام عطر یا ادکلن..."
+            oninput="renderProducts()"
+        >
 
-<div
-class="category"
-data-category="men"
-onclick="setCategory('men',this)"
->
+    </div>
 
-<div class="category-icon">👨</div>
 
-<h2>مردانه</h2>
+    <!-- PRODUCTS -->
+    <section class="products" id="products"></section>
 
-<p>عطر و ادکلن مردانه</p>
+</main>
 
-</div>
 
-
-<div
-class="category"
-data-category="women"
-onclick="setCategory('women',this)"
->
-
-<div class="category-icon">👩</div>
-
-<h2>زنانه</h2>
-
-<p>عطر و ادکلن زنانه</p>
-
-</div>
-
-
-<div
-class="category"
-data-category="unisex"
-onclick="setCategory('unisex',this)"
->
-
-<div class="category-icon">🧑‍🤝‍🧑</div>
-
-<h2>یونیسکس</h2>
-
-<p>رایحه‌های مناسب همه</p>
-
-</div>
-
-</section>
-
-
-<!-- SEARCH -->
-<div class="search-box">
-
-<input
-id="search"
-type="text"
-placeholder="جستجوی نام عطر یا برند..."
->
-
-</div>
-
-
-<!-- PRODUCTS -->
-<section class="products" id="products">
-
-
-<!-- =================================================
-     DIOR SAUVAGE - PERFUME
-================================================= -->
-
-<article
-class="product"
-data-type="perfume"
-data-gender="men"
-data-name="Dior Sauvage"
->
-
-<div class="product-image">
-
-<img
-src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
-alt="Dior Sauvage"
-loading="lazy"
->
-
-</div>
-
-<span class="brand">
-Dior
-</span>
-
-<h2>
-Sauvage
-</h2>
-
-<p class="product-desc">
-رایحه‌ای قدرتمند و مردانه با ترکیبی از مرکبات،
-ادویه و نت‌های چوبی.
-</p>
-
-<div class="tags">
-
-<span class="tag">مردانه</span>
-<span class="tag">خنک</span>
-<span class="tag">چوبی</span>
-
-</div>
-
-
-<div class="options">
-
-<div class="option-title">
-نوع محصول
-</div>
-
-<select class="select type-select">
-
-<option value="عطر">
-عطر
-</option>
-
-<option value="ادکلن">
-ادکلن
-</option>
-
-</select>
-
-
-<div class="option-title">
-مدل شیشه عطر
-</div>
-
-<select class="select bottle">
-
-<option value="کلاسیک">
-شیشه کلاسیک
-</option>
-
-<option value="لوکس">
-شیشه لوکس
-</option>
-
-<option value="فانتزی">
-شیشه فانتزی
-</option>
-
-</select>
-
-
-<div class="option-title">
-حجم
-</div>
-
-<select class="select volume">
-
-<option value="10" data-price="180000">
-10ml
-</option>
-
-<option value="20" data-price="280000">
-20ml
-</option>
-
-<option value="30" data-price="380000">
-30ml
-</option>
-
-<option value="50" data-price="550000">
-50ml
-</option>
-
-<option value="100" data-price="900000">
-100ml
-</option>
-
-</select>
-
-
-<div class="price">
-
-<span class="price-value">
-180,000
-</span>
-
-تومان
-
-</div>
-
-
-<button
-class="add"
-onclick="addPerfume(this)"
->
-افزودن به سبد
-</button>
-
-</div>
-
-</article>
-
-
-<!-- =================================================
-     BLEU DE CHANEL - PERFUME
-================================================= -->
-
-<article
-class="product"
-data-type="perfume"
-data-gender="men"
-data-name="Bleu de Chanel"
->
-
-<div class="product-image">
-
-<img
-src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
-alt="Bleu de Chanel"
-loading="lazy"
->
-
-</div>
-
-<span class="brand">
-Chanel
-</span>
-
-<h2>
-Bleu de Chanel
-</h2>
-
-<p class="product-desc">
-رایحه‌ای شیک و تمیز با ترکیبی از مرکبات،
-چوب و ادویه.
-</p>
-
-<div class="tags">
-
-<span class="tag">مردانه</span>
-<span class="tag">خنک</span>
-<span class="tag">شیک</span>
-
-</div>
-
-
-<div class="options">
-
-<div class="option-title">
-نوع محصول
-</div>
-
-<select class="select type-select">
-
-<option value="عطر">
-عطر
-</option>
-
-<option value="ادکلن">
-ادکلن
-</option>
-
-</select>
-
-
-<div class="option-title">
-مدل شیشه عطر
-</div>
-
-<select class="select bottle">
-
-<option value="کلاسیک">
-شیشه کلاسیک
-</option>
-
-<option value="لوکس">
-شیشه لوکس
-</option>
-
-<option value="فانتزی">
-شیشه فانتزی
-</option>
-
-</select>
-
-
-<div class="option-title">
-حجم
-</div>
-
-<select class="select volume">
-
-<option value="10" data-price="190000">
-10ml
-</option>
-
-<option value="20" data-price="290000">
-20ml
-</option>
-
-<option value="30" data-price="390000">
-30ml
-</option>
-
-<option value="50" data-price="560000">
-50ml
-</option>
-
-<option value="100" data-price="920000">
-100ml
-</option>
-
-</select>
-
-
-<div class="price">
-
-<span class="price-value">
-190,000
-</span>
-
-تومان
-
-</div>
-
-
-<button
-class="add"
-onclick="addPerfume(this)"
->
-افزودن به سبد
-</button>
-
-</div>
-
-</article>
-
-
-<!-- =================================================
-     DIOR SAUVAGE EDT - COLOGNE
-================================================= -->
-
-<article
-class="product"
-data-type="cologne"
-data-gender="men"
-data-name="Dior Sauvage EDT"
->
-
-<div class="product-image">
-
-<img
-src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024"
-alt="Dior Sauvage EDT"
-loading="lazy"
->
-
-</div>
-
-<span class="brand">
-Dior
-</span>
-
-<h2>
-Sauvage EDT
-</h2>
-
-<p class="product-desc">
-ادکلن مردانه با رایحه‌ای قدرتمند،
-خنک و ماندگار.
-</p>
-
-<div class="tags">
-
-<span class="tag">مردانه</span>
-<span class="tag">100ml</span>
-<span class="tag">ادکلن</span>
-
-</div>
-
-
-<div class="options">
-
-<div class="option-title">
-نوع محصول
-</div>
-
-<select class="select type-select" disabled>
-
-<option>
-ادکلن
-</option>
-
-</select>
-
-
-<div class="option-title">
-شیشه
-</div>
-
-<select class="select" disabled>
-
-<option>
-شیشه اصلی Dior
-</option>
-
-</select>
-
-
-<div class="option-title">
-حجم
-</div>
-
-<select class="select" disabled>
-
-<option>
-100ml
-</option>
-
-</select>
-
-
-<div class="price">
-6,800,000 تومان
-</div>
-
-
-<button
-class="add"
-onclick="addCologne(
-'Dior Sauvage EDT',
-'100ml',
-6800000
-)"
->
-افزودن به سبد
-</button>
-
-</div>
-
-</article>
-
-
-<!-- =================================================
-     BLEU DE CHANEL EDT - COLOGNE
-================================================= -->
-
-<article
-class="product"
-data-type="cologne"
-data-gender="men"
-data-name="Bleu de Chanel EDT"
->
-
-<div class="product-image">
-
-<img
-src="https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000"
-alt="Bleu de Chanel EDT"
-loading="lazy"
->
-
-</div>
-
-<span class="brand">
-Chanel
-</span>
-
-<h2>
-Bleu de Chanel EDT
-</h2>
-
-<p class="product-desc">
-ادکلن شیک و رسمی با رایحه مرکباتی و چوبی.
-</p>
-
-<div class="tags">
-
-<span class="tag">مردانه</span>
-<span class="tag">100ml</span>
-<span class="tag">ادکلن</span>
-
-</div>
-
-
-<div class="options">
-
-<div class="option-title">
-نوع محصول
-</div>
-
-<select class="select type-select" disabled>
-
-<option>
-ادکلن
-</option>
-
-</select>
-
-
-<div class="option-title">
-شیشه
-</div>
-
-<select class="select" disabled>
-
-<option>
-شیشه اصلی Chanel
-</option>
-
-</select>
-
-
-<div class="option-title">
-حجم
-</div>
-
-<select class="select" disabled>
-
-<option>
-100ml
-</option>
-
-</select>
-
-
-<div class="price">
-7,900,000 تومان
-</div>
-
-
-<button
-class="add"
-onclick="addCologne(
-'Bleu de Chanel EDT',
-'100ml',
-7900000
-)"
->
-افزودن به سبد
-</button>
-
-</div>
-
-</article>
-
-
-<div
-class="empty"
-id="empty"
->
-محصولی در این دسته پیدا نشد.
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
 <footer>
 
-<strong>
-TAK PERFUME
-</strong>
+    <strong>TAK PERFUME</strong>
 
-<br><br>
+    <br><br>
 
-گالری عطر و ادکلن تک پرفیوم
+    خیابان امام، نرسیده به چهارراه آبرسان،
+    پاساژ گلدیس، همکف
 
-<br>
+    <br>
 
-خیابان امام، نرسیده به چهارراه آبرسان،
-پاساژ گلدیس، همکف
+    گالری عطر و ادکلن تک پرفیوم
 
-<br><br>
+    <br><br>
 
-09147600084
+    📞 09147600084
 
 </footer>
 
 
-<!-- =================================================
-     CART
-================================================= -->
+<!-- CART MODAL -->
 
-<div
-class="cart-panel"
-id="cartPanel"
-onclick="closeCartOutside(event)"
->
+<div class="modal" id="cartModal">
 
-<div
-class="cart-box"
-onclick="event.stopPropagation()"
->
+    <div class="modal-box">
 
-<div class="cart-head">
+        <div class="modal-title">
 
-<h2>
-سبد خرید
-</h2>
+            <h2>🛒 سبد خرید</h2>
 
-<button
-class="close"
-onclick="closeCart()"
->
-×
-</button>
+            <button class="close" onclick="closeCart()">×</button>
 
-</div>
+        </div>
 
+        <div id="cartItems"></div>
 
-<div id="cartItems"></div>
+        <div class="cart-total">
+            مجموع:
+            <span id="cartTotal">0</span>
+            تومان
+        </div>
 
+        <button class="checkout-btn" onclick="openPayment()">
+            ادامه و پرداخت
+        </button>
 
-<div class="total">
-
-<span>
-مبلغ کل
-</span>
-
-<span>
-
-<span id="total">
-0
-</span>
-
-تومان
-
-</span>
+    </div>
 
 </div>
 
 
-<button
-class="checkout"
-onclick="checkout()"
->
-ادامه پرداخت
-</button>
+<!-- PAYMENT MODAL -->
 
-</div>
+<div class="modal" id="paymentModal">
 
-</div>
+    <div class="modal-box">
 
+        <div class="modal-title">
 
-<!-- =================================================
-     PAYMENT
-================================================= -->
+            <h2>💳 پرداخت</h2>
 
-<div
-class="payment-overlay"
-id="paymentOverlay"
->
+            <button class="close" onclick="closePayment()">×</button>
 
-<div class="payment-box">
+        </div>
 
-<button
-class="payment-close"
-onclick="closePayment()"
->
-×
-</button>
+        <div class="payment-card">
 
-<div class="payment-icon">
-💳
-</div>
+            <div>مبلغ قابل پرداخت:</div>
 
-<h2>
-پرداخت سفارش
-</h2>
+            <div
+                id="paymentTotal"
+                style="font-size:24px;color:#d58cff;margin-top:8px"
+            >
+                0 تومان
+            </div>
 
-<p class="payment-subtitle">
-مبلغ سفارش را به کارت زیر کارت‌به‌کارت کنید.
-</p>
+            <br>
 
+            <div>شماره کارت:</div>
 
-<div class="payment-total">
+            <div class="card-number">
+                5022 2915 7126 0742
+            </div>
 
-<span>
-مبلغ قابل پرداخت
-</span>
+            <div style="text-align:center;color:#999">
+                علی ستارکیا
+            </div>
 
-<strong id="paymentTotal">
-0 تومان
-</strong>
+            <br>
 
-</div>
+            <button class="copy-btn" onclick="copyCard()">
+                📋 کپی شماره کارت
+            </button>
 
+        </div>
 
-<div class="card-info">
+        <p style="color:#aaa;font-size:13px;line-height:2">
+            پس از کارت‌به‌کارت، شماره موبایل خود را وارد کنید.
+            سپس روی ارسال رسید بزنید تا اطلاعات سفارش برای
+            فروشگاه در تلگرام باز شود.
+        </p>
 
-<span class="card-label">
-شماره کارت
-</span>
+        <input
+            id="phoneInput"
+            class="phone-input"
+            type="tel"
+            placeholder="مثلاً 09123456789"
+        >
 
-<div class="card-number">
-5022 2915 7126 0742
-</div>
+        <button class="send-btn" onclick="sendOrder()">
+            📩 پرداخت کردم، ارسال رسید
+        </button>
 
-<div class="card-owner">
-علی ستارکیا
-</div>
-
-<button
-class="card-copy"
-onclick="copyCard()"
->
-کپی شماره کارت
-</button>
-
-</div>
-
-
-<div class="payment-note">
-
-<strong>
-بعد از پرداخت:
-</strong>
-
-روی دکمه زیر بزنید.
-شماره تماس شما گرفته می‌شود و سپس
-متن کامل سفارش داخل PV تک پرفیوم آماده می‌شود.
-رسید پرداخت را نیز در همان چت ارسال کنید.
-
-</div>
-
-
-<button
-class="send-receipt"
-onclick="sendReceipt()"
->
-پرداخت کردم، ارسال رسید
-</button>
-
-</div>
-
-</div>
-
-
-<!-- =================================================
-     PHONE
-================================================= -->
-
-<div
-class="phone-overlay"
-id="phoneOverlay"
->
-
-<div class="phone-box">
-
-<h2>
-شماره تماس شما
-</h2>
-
-<p>
-برای ثبت سفارش، شماره تماس خود را وارد کنید.
-این شماره همراه سفارش برای فروشگاه ارسال می‌شود.
-</p>
-
-
-<input
-type="tel"
-id="phoneInput"
-class="phone-input"
-placeholder="09123456789"
-maxlength="13"
-inputmode="numeric"
->
-
-
-<div
-class="phone-error"
-id="phoneError"
->
-لطفاً یک شماره موبایل معتبر وارد کنید.
-</div>
-
-
-<div class="phone-actions">
-
-<button
-class="phone-confirm"
-onclick="confirmPhone()"
->
-ادامه و ارسال سفارش
-</button>
-
-
-<button
-class="phone-cancel"
-onclick="closePhone()"
->
-انصراف
-</button>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
 
 <script>
 
-/* =================================================
-   VARIABLES
-================================================= */
+/* =====================================================
+   PRODUCTS
+===================================================== */
 
-let currentCategory = "all";
+const products = [
+
+    {
+        id:1,
+        name:"Dior Sauvage",
+        type:"perfume",
+        gender:"men",
+
+        image:"https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024",
+
+        volumes:[
+            {ml:10,price:180000},
+            {ml:20,price:280000},
+            {ml:30,price:380000},
+            {ml:50,price:550000},
+            {ml:100,price:900000}
+        ]
+    },
+
+    {
+        id:2,
+        name:"Bleu de Chanel",
+        type:"perfume",
+        gender:"men",
+
+        image:"https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000",
+
+        volumes:[
+            {ml:10,price:190000},
+            {ml:20,price:290000},
+            {ml:30,price:390000},
+            {ml:50,price:560000},
+            {ml:100,price:920000}
+        ]
+    },
+
+    {
+        id:3,
+        name:"Dior Sauvage EDT",
+        type:"cologne",
+        gender:"men",
+
+        image:"https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfc145bb2/Y0685240/Y0685240_F068524009_E01_RHC.jpg?sw=1024",
+
+        volume:100,
+        price:6800000
+    },
+
+    {
+        id:4,
+        name:"Bleu de Chanel EDT",
+        type:"cologne",
+        gender:"men",
+
+        image:"https://alshayaperfumes.com/cdn/shop/files/Chanel-Bleu-EDT-100ml-1_1200x1200_7addf065-7b5c-4b15-98a6-77329b0a2622.jpg?v=1750034164&width=1000",
+
+        volume:100,
+        price:7900000
+    }
+
+];
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let currentType = "perfume";
 
 let cart = [];
 
-let customerPhone = "";
 
+/* =====================================================
+   CHANGE TYPE
+===================================================== */
 
-/* =================================================
-   CATEGORY FROM URL
-================================================= */
+function changeType(type){
 
-function readURLCategory(){
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-    const category =
-        params.get("category");
-
-    if(
-        category === "men" ||
-        category === "women" ||
-        category === "unisex"
-    ){
-
-        currentCategory = category;
-
-    }
-
-}
-
-
-/* =================================================
-   CATEGORY
-================================================= */
-
-function setCategory(category,element){
-
-    currentCategory = category;
+    currentType = type;
 
     document
-    .querySelectorAll(".category")
-    .forEach(item => {
+        .getElementById("perfumeBtn")
+        .classList.toggle("active",type === "perfume");
 
-        item.classList.remove("active");
+    document
+        .getElementById("cologneBtn")
+        .classList.toggle("active",type === "cologne");
 
-    });
+    document.getElementById("searchInput").value = "";
 
-    element.classList.add("active");
-
-    const url =
-        new URL(
-            window.location.href
-        );
-
-    if(category === "all"){
-
-        url.searchParams.delete("category");
-
-    }else{
-
-        url.searchParams.set(
-            "category",
-            category
-        );
-
-    }
-
-    window.history.replaceState(
-        {},
-        "",
-        url
-    );
-
-    filterProducts();
+    renderProducts();
 
 }
 
 
-/* =================================================
-   SEARCH
-================================================= */
+/* =====================================================
+   FORMAT PRICE
+===================================================== */
 
-document
-.getElementById("search")
-.addEventListener(
-    "input",
-    filterProducts
-);
+function formatPrice(price){
+
+    return Number(price).toLocaleString("fa-IR");
+
+}
 
 
-/* =================================================
-   FILTER
-================================================= */
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
 
-function filterProducts(){
+function renderProducts(){
 
-    const query =
+    const container = document.getElementById("products");
+
+    const search =
         document
-        .getElementById("search")
+        .getElementById("searchInput")
         .value
         .trim()
         .toLowerCase();
 
-    const productList =
-        document.querySelectorAll(
-            ".product"
-        );
 
-    let found = 0;
+    const filtered = products.filter(product => {
 
-    productList.forEach(product => {
+        const correctType =
+            product.type === currentType;
 
-        const gender =
-            product.dataset.gender;
+        const correctSearch =
+            product.name
+            .toLowerCase()
+            .includes(search);
 
-        const name =
-            product.dataset.name
-            .toLowerCase();
-
-        const categoryMatch =
-            currentCategory === "all" ||
-            gender === currentCategory;
-
-        const searchMatch =
-            name.includes(query);
-
-        if(
-            categoryMatch &&
-            searchMatch
-        ){
-
-            product.style.display = "";
-            found++;
-
-        }else{
-
-            product.style.display = "none";
-
-        }
+        return correctType && correctSearch;
 
     });
 
-    document
-    .getElementById("empty")
-    .style.display =
-        found === 0
-        ? "block"
-        : "none";
 
-}
+    if(filtered.length === 0){
 
-
-/* =================================================
-   ACTIVATE CATEGORY
-================================================= */
-
-function activateCategory(){
-
-    document
-    .querySelectorAll(".category")
-    .forEach(category => {
-
-        category.classList.remove("active");
-
-        if(
-            category.dataset.category ===
-            currentCategory
-        ){
-
-            category.classList.add("active");
-
-        }
-
-    });
-
-}
-
-
-/* =================================================
-   VOLUME PRICE
-================================================= */
-
-document
-.querySelectorAll(".volume")
-.forEach(select => {
-
-    select.addEventListener(
-        "change",
-        function(){
-
-            const option =
-                this.options[
-                    this.selectedIndex
-                ];
-
-            const price =
-                Number(
-                    option.dataset.price
-                );
-
-            this
-            .closest(".options")
-            .querySelector(".price-value")
-            .textContent =
-                price.toLocaleString("en-US");
-
-        }
-    );
-
-});
-
-
-/* =================================================
-   TYPE CHANGE
-   اگر عطر انتخاب شود:
-   مدل شیشه + حجم فعال است
-
-   اگر ادکلن انتخاب شود:
-   شیشه اصلی + 100ml
-================================================= */
-
-document
-.querySelectorAll(".type-select:not([disabled])")
-.forEach(select => {
-
-    select.addEventListener(
-        "change",
-        function(){
-
-            const product =
-                this.closest(".product");
-
-            const bottle =
-                product.querySelector(
-                    ".bottle"
-                );
-
-            const volume =
-                product.querySelector(
-                    ".volume"
-                );
-
-            const price =
-                product.querySelector(
-                    ".price"
-                );
-
-
-            if(
-                this.value === "ادکلن"
-            ){
-
-                bottle.disabled = true;
-                volume.disabled = true;
-
-                bottle.innerHTML = `
-                    <option>
-                        شیشه اصلی
-                    </option>
-                `;
-
-                volume.innerHTML = `
-                    <option>
-                        100ml
-                    </option>
-                `;
-
-                /*
-                    قیمت ادکلن
-                    بر اساس محصول
-                */
-
-                if(
-                    product.dataset.name ===
-                    "Dior Sauvage"
-                ){
-
-                    price.innerHTML =
-                        "6,800,000 تومان";
-
-                }else{
-
-                    price.innerHTML =
-                        "7,900,000 تومان";
-
-                }
-
-            }else{
-
-                bottle.disabled = false;
-                volume.disabled = false;
-
-                bottle.innerHTML = `
-                    <option value="کلاسیک">
-                        شیشه کلاسیک
-                    </option>
-
-                    <option value="لوکس">
-                        شیشه لوکس
-                    </option>
-
-                    <option value="فانتزی">
-                        شیشه فانتزی
-                    </option>
-                `;
-
-                if(
-                    product.dataset.name ===
-                    "Dior Sauvage"
-                ){
-
-                    volume.innerHTML = `
-
-                        <option
-                            value="10"
-                            data-price="180000"
-                        >
-                            10ml
-                        </option>
-
-                        <option
-                            value="20"
-                            data-price="280000"
-                        >
-                            20ml
-                        </option>
-
-                        <option
-                            value="30"
-                            data-price="380000"
-                        >
-                            30ml
-                        </option>
-
-                        <option
-                            value="50"
-                            data-price="550000"
-                        >
-                            50ml
-                        </option>
-
-                        <option
-                            value="100"
-                            data-price="900000"
-                        >
-                            100ml
-                        </option>
-
-                    `;
-
-                }else{
-
-                    volume.innerHTML = `
-
-                        <option
-                            value="10"
-                            data-price="190000"
-                        >
-                            10ml
-                        </option>
-
-                        <option
-                            value="20"
-                            data-price="290000"
-                        >
-                            20ml
-                        </option>
-
-                        <option
-                            value="30"
-                            data-price="390000"
-                        >
-                            30ml
-                        </option>
-
-                        <option
-                            value="50"
-                            data-price="560000"
-                        >
-                            50ml
-                        </option>
-
-                        <option
-                            value="100"
-                            data-price="920000"
-                        >
-                            100ml
-                        </option>
-
-                    `;
-
-                }
-
-                volume.dispatchEvent(
-                    new Event("change")
-                );
-
-            }
-
-        }
-    );
-
-});
-
-
-/* =================================================
-   ADD PERFUME
-================================================= */
-
-function addPerfume(button){
-
-    const product =
-        button.closest(".product");
-
-    const name =
-        product
-        .querySelector("h2")
-        .textContent
-        .trim();
-
-    const type =
-        product
-        .querySelector(".type-select")
-        .value;
-
-
-    /*
-       اگر کاربر ادکلن انتخاب کرده
-       همان محصول را با مشخصات ادکلن وارد سبد می‌کنیم.
-    */
-
-    if(type === "ادکلن"){
-
-        let price =
-            name === "Sauvage"
-            ? 6800000
-            : 7900000;
-
-        cart.push({
-
-            name:name,
-
-            type:"ادکلن",
-
-            bottle:"شیشه اصلی",
-
-            volume:"100ml",
-
-            price:price
-
-        });
-
-        updateCart();
-
-        alert(
-            "ادکلن به سبد خرید اضافه شد ✓"
-        );
+        container.innerHTML = `
+            <div class="empty">
+                محصولی پیدا نشد.
+            </div>
+        `;
 
         return;
-
     }
 
 
-    const bottle =
-        product
-        .querySelector(".bottle")
-        .value;
+    container.innerHTML = filtered.map(product => {
 
+        if(product.type === "perfume"){
+
+            return perfumeCard(product);
+
+        }else{
+
+            return cologneCard(product);
+
+        }
+
+    }).join("");
+
+}
+
+
+/* =====================================================
+   PERFUME CARD
+===================================================== */
+
+function perfumeCard(product){
+
+    const firstPrice = product.volumes[0].price;
+
+    return `
+
+    <article class="product">
+
+        <div class="product-image">
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+            >
+
+        </div>
+
+
+        <div class="product-info">
+
+            <div class="product-name">
+                ${product.name}
+            </div>
+
+            <div class="product-type">
+                عطر
+            </div>
+
+
+            <label class="option-label">
+                مدل شیشه
+            </label>
+
+            <select class="bottle">
+                <option value="کلاسیک">کلاسیک</option>
+                <option value="لوکس">لوکس</option>
+                <option value="فانتزی">فانتزی</option>
+            </select>
+
+
+            <label class="option-label">
+                حجم
+            </label>
+
+            <select
+                class="volume"
+                onchange="updatePrice(this)"
+            >
+
+                ${product.volumes.map((item,index)=>`
+
+                    <option
+                        value="${item.ml}"
+                        data-price="${item.price}"
+                        ${index === 0 ? "selected" : ""}
+                    >
+                        ${item.ml} میل -
+                        ${formatPrice(item.price)} تومان
+                    </option>
+
+                `).join("")}
+
+            </select>
+
+
+            <div class="price">
+                <span class="dynamic-price">
+                    ${formatPrice(firstPrice)}
+                </span>
+                تومان
+            </div>
+
+
+            <button
+                class="add-btn"
+                onclick="addPerfume(this,${product.id})"
+            >
+                افزودن به سبد خرید
+            </button>
+
+        </div>
+
+    </article>
+
+    `;
+
+}
+
+
+/* =====================================================
+   COLOGNE CARD
+===================================================== */
+
+function cologneCard(product){
+
+    return `
+
+    <article class="product">
+
+        <div class="product-image">
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+            >
+
+        </div>
+
+
+        <div class="product-info">
+
+            <div class="product-name">
+                ${product.name}
+            </div>
+
+            <div class="product-type">
+                ادکلن
+            </div>
+
+
+            <label class="option-label">
+                مدل شیشه
+            </label>
+
+            <select disabled>
+
+                <option>
+                    شیشه اصلی
+                </option>
+
+            </select>
+
+
+            <label class="option-label">
+                حجم
+            </label>
+
+            <select disabled>
+
+                <option>
+                    ${product.volume} میل
+                </option>
+
+            </select>
+
+
+            <div class="price">
+                ${formatPrice(product.price)}
+                تومان
+            </div>
+
+
+            <button
+                class="add-btn"
+                onclick="addCologne(${product.id})"
+            >
+                افزودن به سبد خرید
+            </button>
+
+        </div>
+
+    </article>
+
+    `;
+
+}
+
+
+/* =====================================================
+   UPDATE PERFUME PRICE
+===================================================== */
+
+function updatePrice(select){
+
+    const price =
+        select.options[select.selectedIndex]
+        .dataset.price;
+
+    const card =
+        select.closest(".product");
+
+    card.querySelector(".dynamic-price").textContent =
+        formatPrice(price);
+
+}
+
+
+/* =====================================================
+   ADD PERFUME
+===================================================== */
+
+function addPerfume(button,id){
+
+    const product =
+        products.find(item => item.id === id);
+
+    const card =
+        button.closest(".product");
+
+
+    const bottle =
+        card.querySelector(".bottle").value;
 
     const volumeSelect =
-        product
-        .querySelector(".volume");
+        card.querySelector(".volume");
 
-
-    const volume =
-        volumeSelect.value;
-
-
-    const option =
+    const selected =
         volumeSelect.options[
             volumeSelect.selectedIndex
         ];
 
 
+    const volume =
+        selected.value;
+
     const price =
-        Number(
-            option.dataset.price
-        );
+        Number(selected.dataset.price);
 
 
     cart.push({
 
-        name:name,
+        name:product.name,
 
         type:"عطر",
 
         bottle:bottle,
-
-        volume:volume + "ml",
-
-        price:price
-
-    });
-
-
-    updateCart();
-
-
-    alert(
-        "عطر به سبد خرید اضافه شد ✓"
-    );
-
-}
-
-
-/* =================================================
-   ADD COLOGNE
-================================================= */
-
-function addCologne(
-    name,
-    volume,
-    price
-){
-
-    cart.push({
-
-        name:name,
-
-        type:"ادکلن",
-
-        bottle:"شیشه اصلی",
 
         volume:volume,
 
@@ -2191,284 +1159,231 @@ function addCologne(
     });
 
 
-    updateCart();
+    updateCartCount();
+
+    button.textContent = "✓ اضافه شد";
+
+    setTimeout(()=>{
+
+        button.textContent =
+            "افزودن به سبد خرید";
+
+    },1000);
+
+}
 
 
-    alert(
-        "ادکلن به سبد خرید اضافه شد ✓"
+/* =====================================================
+   ADD COLOGNE
+===================================================== */
+
+function addCologne(id){
+
+    const product =
+        products.find(item => item.id === id);
+
+
+    cart.push({
+
+        name:product.name,
+
+        type:"ادکلن",
+
+        bottle:"شیشه اصلی",
+
+        volume:product.volume,
+
+        price:product.price
+
+    });
+
+
+    updateCartCount();
+
+}
+
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
+function updateCartCount(){
+
+    document.getElementById("cartCount")
+        .textContent = cart.length;
+
+}
+
+
+/* =====================================================
+   CART TOTAL
+===================================================== */
+
+function getTotal(){
+
+    return cart.reduce(
+        (sum,item)=>sum + item.price,
+        0
     );
 
 }
 
 
-/* =================================================
-   CART UPDATE
-================================================= */
-
-function updateCart(){
-
-    const container =
-        document.getElementById(
-            "cartItems"
-        );
-
-    container.innerHTML = "";
-
-    let total = 0;
-
-
-    cart.forEach(
-        (item,index) => {
-
-            total += item.price;
-
-            container.innerHTML += `
-
-                <div class="cart-item">
-
-                    <button
-                        class="remove"
-                        onclick="removeItem(${index})"
-                    >
-                        حذف
-                    </button>
-
-                    <strong>
-                        ${item.name}
-                    </strong>
-
-                    <small>
-
-                        نوع:
-                        ${item.type}
-
-                        <br>
-
-                        ${
-                            item.type === "عطر"
-
-                            ?
-
-                            `
-                            مدل شیشه:
-                            ${item.bottle}
-
-                            <br>
-                            `
-
-                            :
-
-                            `
-                            شیشه:
-                            ${item.bottle}
-
-                            <br>
-                            `
-                        }
-
-                        حجم:
-                        ${item.volume}
-
-                        <br>
-
-                        قیمت:
-                        ${item.price.toLocaleString("en-US")}
-                        تومان
-
-                    </small>
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    document
-    .getElementById("total")
-    .textContent =
-        total.toLocaleString("en-US");
-
-
-    document
-    .getElementById("cartCount")
-    .textContent =
-        cart.length;
-
-}
-
-
-/* =================================================
-   REMOVE
-================================================= */
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    updateCart();
-
-}
-
-
-/* =================================================
-   CART
-================================================= */
+/* =====================================================
+   OPEN CART
+===================================================== */
 
 function openCart(){
 
+    renderCart();
+
     document
-    .getElementById("cartPanel")
-    .classList.add("show");
+        .getElementById("cartModal")
+        .classList.add("show");
 
 }
 
+
+/* =====================================================
+   CLOSE CART
+===================================================== */
 
 function closeCart(){
 
     document
-    .getElementById("cartPanel")
-    .classList.remove("show");
+        .getElementById("cartModal")
+        .classList.remove("show");
 
 }
 
 
-function closeCartOutside(event){
+/* =====================================================
+   RENDER CART
+===================================================== */
 
-    if(
-        event.target.id ===
-        "cartPanel"
-    ){
+function renderCart(){
 
-        closeCart();
+    const container =
+        document.getElementById("cartItems");
 
-    }
-
-}
-
-
-/* =================================================
-   CHECKOUT
-================================================= */
-
-function checkout(){
 
     if(cart.length === 0){
 
-        alert(
-            "سبد خرید شما خالی است."
-        );
+        container.innerHTML = `
+            <div style="text-align:center;color:#777;padding:30px">
+                سبد خرید خالی است.
+            </div>
+        `;
+
+    }else{
+
+        container.innerHTML = cart.map((item,index)=>`
+
+            <div class="cart-item">
+
+                <div class="cart-item-title">
+
+                    ${index + 1}.
+                    ${item.name}
+
+                </div>
+
+                <div class="cart-item-details">
+
+                    نوع: ${item.type}
+
+                    <br>
+
+                    مدل شیشه: ${item.bottle}
+
+                    <br>
+
+                    حجم: ${item.volume} میل
+
+                    <br>
+
+                    قیمت:
+                    ${formatPrice(item.price)}
+                    تومان
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+    }
+
+
+    document.getElementById("cartTotal")
+        .textContent =
+        formatPrice(getTotal());
+
+}
+
+
+/* =====================================================
+   PAYMENT
+===================================================== */
+
+function openPayment(){
+
+    if(cart.length === 0){
+
+        alert("سبد خرید شما خالی است.");
 
         return;
 
     }
 
 
-    const total =
-        cart.reduce(
-            (sum,item) =>
-                sum + item.price,
-            0
-        );
-
-
-    document
-    .getElementById("paymentTotal")
-    .textContent =
-        total.toLocaleString("en-US")
-        + " تومان";
+    document.getElementById("paymentTotal")
+        .textContent =
+        formatPrice(getTotal()) + " تومان";
 
 
     closeCart();
 
-
     document
-    .getElementById("paymentOverlay")
-    .classList.add("show");
+        .getElementById("paymentModal")
+        .classList.add("show");
 
 }
 
 
-/* =================================================
+/* =====================================================
    CLOSE PAYMENT
-================================================= */
+===================================================== */
 
 function closePayment(){
 
     document
-    .getElementById("paymentOverlay")
-    .classList.remove("show");
+        .getElementById("paymentModal")
+        .classList.remove("show");
 
 }
 
 
-/* =================================================
+/* =====================================================
    COPY CARD
-================================================= */
+===================================================== */
 
 function copyCard(){
 
-    const card =
-        "5022291571260742";
+    navigator.clipboard.writeText(
+        "5022291571260742"
+    );
 
-
-    navigator.clipboard
-    .writeText(card)
-    .then(() => {
-
-        alert(
-            "شماره کارت کپی شد ✓"
-        );
-
-    })
-    .catch(() => {
-
-        alert(
-            "شماره کارت: 5022291571260742"
-        );
-
-    });
+    alert("شماره کارت کپی شد.");
 
 }
 
 
-/* =================================================
-   PHONE
-================================================= */
-
-function openPhone(){
-
-    document
-    .getElementById("phoneOverlay")
-    .classList.add("show");
-
-
-    setTimeout(() => {
-
-        document
-        .getElementById("phoneInput")
-        .focus();
-
-    },100);
-
-}
-
-
-function closePhone(){
-
-    document
-    .getElementById("phoneOverlay")
-    .classList.remove("show");
-
-}
-
-
-/* =================================================
+/* =====================================================
    PHONE VALIDATION
-================================================= */
+===================================================== */
 
-function validatePhone(phone){
+function validPhone(phone){
 
     phone =
         phone
@@ -2476,104 +1391,28 @@ function validatePhone(phone){
         .replace(/-/g,"");
 
 
-    if(
-        /^09\d{9}$/.test(phone)
-    ){
-
-        return phone;
-
-    }
-
-
-    if(
-        /^\+989\d{9}$/.test(phone)
-    ){
-
-        return "0" +
-            phone.substring(3);
-
-    }
-
-
-    if(
-        /^989\d{9}$/.test(phone)
-    ){
-
-        return "0" +
-            phone.substring(2);
-
-    }
-
-
-    return null;
+    return /^(09\d{9}|\+989\d{9}|989\d{9})$/.test(phone);
 
 }
 
 
-/* =================================================
-   CONFIRM PHONE
-================================================= */
+/* =====================================================
+   SEND ORDER TO TELEGRAM
+===================================================== */
 
-function confirmPhone(){
+function sendOrder(){
 
-    const input =
-        document.getElementById(
-            "phoneInput"
-        );
-
-
-    const error =
-        document.getElementById(
-            "phoneError"
-        );
+    let phone =
+        document
+        .getElementById("phoneInput")
+        .value
+        .trim();
 
 
-    const phone =
-        validatePhone(
-            input.value
-        );
-
-
-    if(!phone){
-
-        error.style.display =
-            "block";
-
-        input.focus();
-
-        return;
-
-    }
-
-
-    error.style.display =
-        "none";
-
-
-    customerPhone =
-        phone;
-
-
-    closePhone();
-
-
-    sendTelegramOrder(
-        customerPhone
-    );
-
-}
-
-
-/* =================================================
-   SEND RECEIPT
-================================================= */
-
-function sendReceipt(){
-
-    if(cart.length === 0){
+    if(!validPhone(phone)){
 
         alert(
-            "سبد خرید شما خالی است."
+            "لطفاً شماره موبایل معتبر وارد کنید."
         );
 
         return;
@@ -2581,564 +1420,296 @@ function sendReceipt(){
     }
 
 
-    openPhone();
-
-}
-
-
-/* =================================================
-   TELEGRAM
-================================================= */
-
-function sendTelegramOrder(phone){
-
-    let total = 0;
+    let text =
+        "🛍 سفارش جدید از سایت TAK PERFUME\n\n";
 
 
-    let orderText =
-`🛍 سفارش جدید از تک پرفیوم
+    cart.forEach((item,index)=>{
 
-━━━━━━━━━━━━━━
-`;
+        text +=
+            `${index + 1}. ${item.name}\n`;
 
+        text +=
+            `نوع: ${item.type}\n`;
 
-    cart.forEach(
-        (item,index) => {
+        text +=
+            `مدل شیشه: ${item.bottle}\n`;
 
-            total += item.price;
+        text +=
+            `حجم: ${item.volume} میل\n`;
 
+        text +=
+            `قیمت: ${formatPrice(item.price)} تومان\n\n`;
 
-            orderText +=
-`
-${index + 1}. ${item.name}
-
-نوع محصول:
-${item.type}
-`;
+    });
 
 
-            if(
-                item.type === "عطر"
-            ){
+    text +=
+        `💰 مبلغ کل: ${formatPrice(getTotal())} تومان\n\n`;
 
-                orderText +=
-`
-مدل شیشه:
-${item.bottle}
-`;
+    text +=
+        `📱 شماره مشتری: ${phone}\n\n`;
 
-            }else{
+    text +=
+        "💳 پرداخت کارت‌به‌کارت انجام شده است.\n";
 
-                orderText +=
-`
-شیشه:
-${item.bottle}
-`;
-
-            }
-
-
-            orderText +=
-`
-حجم:
-${item.volume}
-
-قیمت:
-${item.price.toLocaleString("en-US")} تومان
-
-━━━━━━━━━━━━━━
-`;
-
-        }
-    );
-
-
-    orderText +=
-`
-💰 مبلغ کل:
-${total.toLocaleString("en-US")} تومان
-
-📞 شماره تماس مشتری:
-${phone}
-
-📎 رسید پرداخت را در همین چت ارسال می‌کنم.
-`;
+    text +=
+        "📎 رسید پرداخت را نیز ارسال می‌کنم.";
 
 
     const telegramURL =
         "https://t.me/Perfume1655?text=" +
-        encodeURIComponent(
-            orderText
-        );
+        encodeURIComponent(text);
 
 
-    window.location.href =
-        telegramURL;
+    window.open(
+        telegramURL,
+        "_blank"
+    );
 
 }
 
 
-/* =================================================
-   ENTER PHONE
-================================================= */
-
-document
-.getElementById("phoneInput")
-.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key === "Enter"
-        ){
-
-            confirmPhone();
-
-        }
-
-    }
-);
-
-
-/* =================================================
-   LIVE 3D GRID
-================================================= */
+/* =====================================================
+   CANVAS 3D GRID
+===================================================== */
 
 const canvas =
-    document.getElementById(
-        "liveGrid"
-    );
+    document.getElementById("liveGrid");
 
 const ctx =
     canvas.getContext("2d");
 
+let W,H;
 
-let width = 0;
-let height = 0;
-let dpr = 1;
-let time = 0;
+function resizeCanvas(){
 
+    W =
+        canvas.width =
+        window.innerWidth *
+        devicePixelRatio;
 
-function resize(){
-
-    dpr =
-        Math.min(
-            window.devicePixelRatio || 1,
-            2
-        );
-
-
-    width =
-        window.innerWidth;
-
-    height =
-        window.innerHeight;
-
-
-    canvas.width =
-        width * dpr;
-
-    canvas.height =
-        height * dpr;
-
+    H =
+        canvas.height =
+        window.innerHeight *
+        devicePixelRatio;
 
     canvas.style.width =
-        width + "px";
+        window.innerWidth + "px";
 
     canvas.style.height =
-        height + "px";
-
+        window.innerHeight + "px";
 
     ctx.setTransform(
-        dpr,
+        devicePixelRatio,
         0,
         0,
-        dpr,
+        devicePixelRatio,
         0,
         0
     );
 
+    W = window.innerWidth;
+    H = window.innerHeight;
+
 }
 
-
-resize();
-
+resizeCanvas();
 
 window.addEventListener(
     "resize",
-    resize
+    resizeCanvas
 );
 
 
-/* =================================================
-   DRAW BACKGROUND
-================================================= */
+let animationTime = 0;
 
-function draw(){
 
-    time += .008;
+function drawGrid(){
 
+    animationTime += .008;
 
     ctx.clearRect(
         0,
         0,
-        width,
-        height
+        W,
+        H
     );
 
 
-    /* پس‌زمینه اصلی */
-
-    const bg =
-        ctx.createRadialGradient(
-            width*.5,
-            height*.45,
-            0,
-            width*.5,
-            height*.45,
-            Math.max(width,height)
-        );
-
-
-    bg.addColorStop(
-        0,
-        "#1b0b2e"
-    );
-
-    bg.addColorStop(
-        .35,
-        "#0c0417"
-    );
-
-    bg.addColorStop(
-        .7,
-        "#06020c"
-    );
-
-    bg.addColorStop(
-        1,
-        "#020107"
-    );
-
-
-    ctx.fillStyle =
-        bg;
-
-
-    ctx.fillRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-
-    /* نقطه پرسپکتیو */
-
-    const vanX =
-        width/2 +
-        Math.sin(
-            time*.65
-        )*80;
-
-
-    const vanY =
-        height*.32 +
-        Math.cos(
-            time*.45
-        )*15;
-
-
-    /* نور مرکزی */
+    /* background glow */
 
     const glow =
         ctx.createRadialGradient(
-            vanX,
-            vanY,
+            W/2,
+            H*.45,
             0,
-            vanX,
-            vanY,
-            width*.65
+            W/2,
+            H*.45,
+            Math.max(W,H)*.8
         );
-
 
     glow.addColorStop(
         0,
-        "rgba(139,92,246,.25)"
+        "rgba(130,30,190,.13)"
     );
 
     glow.addColorStop(
-        .35,
-        "rgba(139,92,246,.09)"
+        .5,
+        "rgba(60,10,100,.05)"
     );
 
     glow.addColorStop(
         1,
-        "rgba(139,92,246,0)"
+        "rgba(0,0,0,0)"
     );
 
-
-    ctx.fillStyle =
-        glow;
-
+    ctx.fillStyle = glow;
 
     ctx.fillRect(
         0,
         0,
-        width,
-        height
+        W,
+        H
     );
 
 
-    /* خطوط افقی */
+    /* horizon */
 
-    const rows = 30;
+    const horizon =
+        H * .48;
 
+
+    /* horizontal perspective lines */
+
+    ctx.lineWidth = 1;
 
     for(
-        let i=0;
-        i<rows;
+        let i = 0;
+        i < 30;
         i++
     ){
 
-        const progress =
-            (
-                i/rows +
-                time*.10
-            )%1;
+        let p =
+            (i / 30 + animationTime*.35) % 1;
 
-
-        const perspective =
-            Math.pow(
-                progress,
-                2.2
-            );
-
-
-        const y =
-            vanY +
-            perspective *
-            (
-                height -
-                vanY +
-                160
-            );
-
-
-        const alpha =
-            .025 +
-            progress*.13;
+        let y =
+            horizon +
+            Math.pow(p,2.2) *
+            H*.75;
 
 
         ctx.beginPath();
 
-
-        ctx.strokeStyle =
-            `rgba(
-                167,
-                139,
-                250,
-                ${alpha}
-            )`;
-
-
-        ctx.lineWidth =
-            progress>.72
-            ? 1.2
-            : .7;
-
-
         ctx.moveTo(
-            -width,
+            0,
             y
         );
-
 
         ctx.lineTo(
-            width*2,
+            W,
             y
         );
 
+        ctx.strokeStyle =
+            `rgba(175,80,240,${.04 + p*.10})`;
 
         ctx.stroke();
 
     }
 
 
-    /* خطوط عمودی */
+    /* vertical perspective lines */
 
-    const vertical =
-        Math.ceil(
-            width/48
-        )+20;
+    const vanishX =
+        W/2;
+
+    const vanishY =
+        horizon;
 
 
     for(
-        let i=-vertical;
-        i<=vertical;
+        let i=-24;
+        i<=24;
         i++
     ){
 
-        const normalized =
-            i/vertical;
-
-
         const bottomX =
-            width/2 +
-            normalized *
-            width *
-            1.8;
+            W/2 +
+            i * W*.075;
 
 
         ctx.beginPath();
 
-
-        ctx.strokeStyle =
-            "rgba(167,139,250,.09)";
-
-
-        ctx.lineWidth=.8;
-
-
         ctx.moveTo(
-            vanX,
-            vanY
+            vanishX,
+            vanishY
         );
-
 
         ctx.lineTo(
             bottomX,
-            height+100
+            H
         );
 
+        ctx.strokeStyle =
+            "rgba(170,70,240,.09)";
 
         ctx.stroke();
 
     }
 
 
-    /* نورهای متحرک */
+    /* moving light beam */
 
-    for(
-        let i=0;
-        i<6;
-        i++
-    ){
-
-        const x =
-            (
-                Math.sin(
-                    time*
-                    (
-                        .4+i*.08
-                    )+
-                    i*1.8
-                )*.5+.5
-            )*width;
+    const beamX =
+        ((animationTime * 300) % (W*1.5)) -
+        W*.25;
 
 
-        const beam =
-            ctx.createRadialGradient(
-                x,
-                height*.65,
-                0,
-                x,
-                height*.65,
-                200
-            );
-
-
-        beam.addColorStop(
+    const beam =
+        ctx.createLinearGradient(
+            beamX-180,
             0,
-            "rgba(167,139,250,.10)"
+            beamX+180,
+            0
         );
 
-        beam.addColorStop(
-            1,
-            "rgba(167,139,250,0)"
-        );
+    beam.addColorStop(
+        0,
+        "rgba(180,70,255,0)"
+    );
+
+    beam.addColorStop(
+        .5,
+        "rgba(210,110,255,.09)"
+    );
+
+    beam.addColorStop(
+        1,
+        "rgba(180,70,255,0)"
+    );
+
+    ctx.fillStyle = beam;
+
+    ctx.fillRect(
+        0,
+        0,
+        W,
+        H
+    );
 
 
-        ctx.fillStyle =
-            beam;
-
-
-        ctx.fillRect(
-            x-220,
-            height*.25,
-            440,
-            height*.75
-        );
-
-    }
-
-
-    /* ذرات */
-
-    for(
-        let i=0;
-        i<35;
-        i++
-    ){
-
-        const x =
-            (
-                Math.sin(
-                    time*.3+i*2.31
-                )*.5+.5
-            )*width;
-
-
-        const y =
-            (
-                Math.cos(
-                    time*.22+i*1.73
-                )*.5+.5
-            )*height;
-
-
-        const size =
-            1+
-            (
-                Math.sin(
-                    time*2+i
-                )+1
-            )*.8;
-
-
-        ctx.beginPath();
-
-
-        ctx.fillStyle =
-            "rgba(196,181,253,.35)";
-
-
-        ctx.arc(
-            x,
-            y,
-            size,
-            0,
-            Math.PI*2
-        );
-
-
-        ctx.fill();
-
-    }
-
-
-    /* تاریکی اطراف */
+    /* vignette */
 
     const vignette =
         ctx.createRadialGradient(
-            width/2,
-            height/2,
-            height*.12,
-            width/2,
-            height/2,
-            height*.85
+            W/2,
+            H/2,
+            H*.1,
+            W/2,
+            H/2,
+            H*.8
         );
-
 
     vignette.addColorStop(
         0,
@@ -3146,49 +1717,33 @@ function draw(){
     );
 
     vignette.addColorStop(
-        .65,
-        "rgba(0,0,0,.18)"
-    );
-
-    vignette.addColorStop(
         1,
-        "rgba(0,0,0,.78)"
+        "rgba(0,0,0,.7)"
     );
 
-
-    ctx.fillStyle =
-        vignette;
-
+    ctx.fillStyle = vignette;
 
     ctx.fillRect(
         0,
         0,
-        width,
-        height
+        W,
+        H
     );
 
 
-    requestAnimationFrame(
-        draw
-    );
+    requestAnimationFrame(drawGrid);
 
 }
 
 
-draw();
+drawGrid();
 
 
-/* =================================================
+/* =====================================================
    START
-================================================= */
+===================================================== */
 
-readURLCategory();
-
-activateCategory();
-
-filterProducts();
-
-updateCart();
+renderProducts();
 
 </script>
 
